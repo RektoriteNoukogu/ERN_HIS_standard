@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmni="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bizagi="http://www.bizagi.com/bpmn20" id="_2016110107171" targetNamespace="http://www.bizagi.com/definitions/_2016110107171" exporter="Camunda Modeler" exporterVersion="1.2.2">
+  <resource id="teaduskonnanoukogu" name="teaduskonnanõukogu">
+    <documentation />
+  </resource>
+  <resource id="oppeprorektor" name="õppeprorektor">
+    <documentation />
+  </resource>
+  <resource id="teaduskond" name="teaduskond">
+    <documentation />
+  </resource>
+  <process id="Id_6a81e260-8219-409e-aed3-30c86b147008" name="Õppekava avamine" isExecutable="false">
+    <documentation />
+    <laneSet id="Id_a60c4a2e-8663-4366-9e0f-4572e94fef96">
+      <lane id="Id_186aa067-9494-462c-a735-071393e3a7de" name="Kõrgem akadeemiline otsustuskogu">
+        <documentation />
+        <flowNodeRef>Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e</flowNodeRef>
+        <flowNodeRef>Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca</flowNodeRef>
+        <flowNodeRef>Id_9617ac52-173e-41ae-9898-ce43ecea43c9</flowNodeRef>
+        <flowNodeRef>Id_e05de876-91de-48be-a89d-5cb71f8b2ded</flowNodeRef>
+        <childLaneSet xsi:type="tLaneSet" id="Id_ceb0fa20-734b-410e-8ad3-540c7521fffc" />
+      </lane>
+      <lane id="Id_bbfadb76-6b3d-41f0-98a2-5200bacf2fc3" name="Rektoraat">
+        <documentation />
+        <flowNodeRef>ExclusiveGateway_0w4pkyz</flowNodeRef>
+        <flowNodeRef>Id_eaeba4e7-8482-4479-9e59-0ab8b30ef486</flowNodeRef>
+        <childLaneSet xsi:type="tLaneSet" id="Id_8ab80575-d8b8-4244-b3db-96422d39f92b" />
+      </lane>
+      <lane id="Id_2ea18b4a-19d9-46ce-8e33-25ea2aa4fa94" name="Õppekomisjon/valitsus/prorektor">
+        <documentation />
+        <flowNodeRef>Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd</flowNodeRef>
+        <flowNodeRef>Id_184ce845-aa31-4794-91e6-ba4faab47f87</flowNodeRef>
+        <flowNodeRef>Id_59e4320e-5a2f-40d6-8231-6400f27a8668</flowNodeRef>
+        <flowNodeRef>ExclusiveGateway_187wvj5</flowNodeRef>
+        <flowNodeRef>ExclusiveGateway_0y20d3f</flowNodeRef>
+        <childLaneSet xsi:type="tLaneSet" id="Id_86e653b7-178e-4f7c-97f0-0528b6de6d30" />
+      </lane>
+      <lane id="Id_3f4c529d-7bc4-42d7-bc59-d5471fa2416c" name="Tugiüksused">
+        <documentation />
+        <flowNodeRef>Id_79d61648-92ac-48cd-b227-44ba6a55eb5f</flowNodeRef>
+        <flowNodeRef>Id_b57c894d-2cde-4385-bda5-0c924a2e9a57</flowNodeRef>
+        <flowNodeRef>Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7</flowNodeRef>
+        <flowNodeRef>Id_d6feeb80-0829-4bd8-b897-e08629e4f3d3</flowNodeRef>
+        <flowNodeRef>IntermediateCatchEvent_0jhzp6h</flowNodeRef>
+        <flowNodeRef>ExclusiveGateway_1cfgy1f</flowNodeRef>
+        <flowNodeRef>EndEvent_1ssmux6</flowNodeRef>
+        <flowNodeRef>IntermediateCatchEvent_1jzts4g</flowNodeRef>
+        <flowNodeRef>Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a</flowNodeRef>
+        <flowNodeRef>Task_0pourvy</flowNodeRef>
+        <flowNodeRef>BoundaryEvent_14q83c4</flowNodeRef>
+        <flowNodeRef>Task_0kd5j95</flowNodeRef>
+        <flowNodeRef>Id_a8e96c8d-d197-46f4-9fbe-4767877d6030</flowNodeRef>
+        <flowNodeRef>Id_b0e499f2-f9b2-4a57-aeaf-3fe6fa19dfd7</flowNodeRef>
+        <flowNodeRef>Task_0gyv3kn</flowNodeRef>
+        <childLaneSet xsi:type="tLaneSet" id="Id_475c885d-317e-463f-b049-d147633ed226" />
+      </lane>
+      <lane id="Id_6e7a5d6e-7821-487f-b3e0-0ca8726a987a" name="Valdkond/teaduskonnd (VK)">
+        <documentation />
+        <flowNodeRef>Id_a4ba8f85-47aa-4d43-971f-810be0e9d992</flowNodeRef>
+        <flowNodeRef>Id_a49ed289-afdf-4946-ad89-c61171ce2fe3</flowNodeRef>
+        <flowNodeRef>Id_9a870829-873b-402a-acb8-45ae89729b50</flowNodeRef>
+        <flowNodeRef>Id_8195543e-6ac8-4929-9fa6-8c5526ca1044</flowNodeRef>
+        <flowNodeRef>Task_0fyndkh</flowNodeRef>
+        <flowNodeRef>Id_3ebcfdc6-ca99-4eba-8f36-396866783803</flowNodeRef>
+        <flowNodeRef>ExclusiveGateway_1op65tm</flowNodeRef>
+        <flowNodeRef>EndEvent_15eor4e</flowNodeRef>
+        <flowNodeRef>Task_1t19k7n</flowNodeRef>
+        <childLaneSet xsi:type="tLaneSet" id="Id_00e03f7e-7964-49d6-af9c-c1694c9cf81e" />
+      </lane>
+    </laneSet>
+    <dataObject id="Id_a16d44c9-d4ad-420a-9623-6fad2d7d6a2f" name="vt VASTUVÕTU-PROTSESS">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#F0F0F0" />
+            <bizagi:BizagiProperty name="borderColor" value="#666666" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <dataState id="Id_fb809c28-2db6-47ab-a2ee-d582859302f3" />
+    </dataObject>
+    <task id="Id_a4ba8f85-47aa-4d43-971f-810be0e9d992" name="VK analüüsib vajadusi ja ressursse">
+      <documentation><![CDATA[<p style="text-align:left;text-indent:0pt;margin:0pt 0pt 0pt 0pt;"><span style="color:#000000;background-color:transparent;font-family:Segoe UI;font-size:11pt;font-weight:normal;font-style:normal;">Õppekava avamise eeldus on ülikooli piisavad akadeemilised ja materiaalsed ressursid ning selgelt põhjendatud vajadus. Doktoriõppekava avamise eeldus on ka õppekava suunitlusele vastava positiivselt evalveeritud teadussuuna olemasolu ülikoolis</span></p>]]></documentation>
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_e801765e-9fe5-4a4f-86cf-0e190c77b8ac</incoming>
+      <outgoing>SequenceFlow_1bcz71r</outgoing>
+    </task>
+    <exclusiveGateway id="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd" name="kas õppekava muutmine on põhjendatud?" gatewayDirection="Diverging">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#FFFFCC" />
+            <bizagi:BizagiProperty name="borderColor" value="#A6A61D" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_45eb00ab-fe6f-4e77-9c5b-7dd6700b3cb6</incoming>
+      <outgoing>Id_fff95b8d-1467-401b-8857-5bf8bc9b55e9</outgoing>
+      <outgoing>Id_5a50c813-6943-4af2-b6ad-cf3005630300</outgoing>
+      <outgoing>Id_a60429e5-8e18-4958-9053-9a112ca42e0e</outgoing>
+    </exclusiveGateway>
+    <task id="Id_a49ed289-afdf-4946-ad89-c61171ce2fe3" name="VK vajadusel aitab, korrigeerib andmeid">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>SequenceFlow_1lp2wdr</incoming>
+      <outgoing>Id_c5754c2d-bf5e-469e-905d-822ca0bdf4b5</outgoing>
+    </task>
+    <task id="Id_184ce845-aa31-4794-91e6-ba4faab47f87" name="õppekomisjon teeb otsuse">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>SequenceFlow_0f2j90t</incoming>
+      <outgoing>Id_45eb00ab-fe6f-4e77-9c5b-7dd6700b3cb6</outgoing>
+    </task>
+    <task id="Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e" name="arutab taotlust">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_918122fd-b7c1-414e-88ff-fe6c6aa5126a</incoming>
+      <incoming>SequenceFlow_1xn53lt</incoming>
+      <outgoing>Id_cc74d805-1609-449d-8a2e-7b77c3230b14</outgoing>
+    </task>
+    <task id="Id_9a870829-873b-402a-acb8-45ae89729b50" name="VK nõukogu kinnitab kavandi ja esitab taotluse õppekava muutmiseks">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_6c9f2939-209b-4caa-940b-0bc6c43b88de</incoming>
+      <incoming>Id_5a50c813-6943-4af2-b6ad-cf3005630300</incoming>
+      <outgoing>SequenceFlow_0bp9bbv</outgoing>
+    </task>
+    <endEvent id="Id_59e4320e-5a2f-40d6-8231-6400f27a8668" name="soovitus mitte muuta">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#EEAAAA" />
+            <bizagi:BizagiProperty name="borderColor" value="#990000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_a60429e5-8e18-4958-9053-9a112ca42e0e</incoming>
+    </endEvent>
+    <endEvent id="Id_79d61648-92ac-48cd-b227-44ba6a55eb5f" name="õppekava on muudetud">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#EEAAAA" />
+            <bizagi:BizagiProperty name="borderColor" value="#990000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_af3941d4-7c71-401c-ae6a-5426795b820e</incoming>
+    </endEvent>
+    <task id="Id_b57c894d-2cde-4385-bda5-0c924a2e9a57" name="õppeosakond nõustab vajadusel">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#D8D8D8" />
+            <bizagi:BizagiProperty name="borderColor" value="#888888" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_ebcc841d-8907-4797-af2d-2f2fd49602d3</incoming>
+      <outgoing>Id_4db6c1ed-5a10-4f4a-802d-d2ed76798713</outgoing>
+    </task>
+    <exclusiveGateway id="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca" name="kas õppekava muutmine on põhjendatud?" gatewayDirection="Diverging">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#FFFFCC" />
+            <bizagi:BizagiProperty name="borderColor" value="#A6A61D" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_cc74d805-1609-449d-8a2e-7b77c3230b14</incoming>
+      <outgoing>Id_d12698ce-82c9-4b59-9c55-6037d02da077</outgoing>
+      <outgoing>Id_f700fa72-7279-4f79-a5d6-5ffa159a5e84</outgoing>
+      <outgoing>Id_87eb2cc5-1cf2-4628-aed9-fddc7c148541</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Id_9617ac52-173e-41ae-9898-ce43ecea43c9" name="mitte muuta">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#EEAAAA" />
+            <bizagi:BizagiProperty name="borderColor" value="#990000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_87eb2cc5-1cf2-4628-aed9-fddc7c148541</incoming>
+    </endEvent>
+    <sequenceFlow id="Id_e801765e-9fe5-4a4f-86cf-0e190c77b8ac" sourceRef="Id_8195543e-6ac8-4929-9fa6-8c5526ca1044" targetRef="Id_a4ba8f85-47aa-4d43-971f-810be0e9d992">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_4db6c1ed-5a10-4f4a-802d-d2ed76798713" sourceRef="Id_b57c894d-2cde-4385-bda5-0c924a2e9a57" targetRef="Id_3ebcfdc6-ca99-4eba-8f36-396866783803">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_6c9f2939-209b-4caa-940b-0bc6c43b88de" sourceRef="Id_3ebcfdc6-ca99-4eba-8f36-396866783803" targetRef="Id_9a870829-873b-402a-acb8-45ae89729b50">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_ebcc841d-8907-4797-af2d-2f2fd49602d3" sourceRef="Id_3ebcfdc6-ca99-4eba-8f36-396866783803" targetRef="Id_b57c894d-2cde-4385-bda5-0c924a2e9a57">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_eb075986-9beb-4957-ba93-05631d0b3a4b" sourceRef="ExclusiveGateway_1op65tm" targetRef="Id_a8e96c8d-d197-46f4-9fbe-4767877d6030">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_45eb00ab-fe6f-4e77-9c5b-7dd6700b3cb6" sourceRef="Id_184ce845-aa31-4794-91e6-ba4faab47f87" targetRef="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_fff95b8d-1467-401b-8857-5bf8bc9b55e9" name="JAH" sourceRef="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd" targetRef="ExclusiveGateway_187wvj5">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_e2afde5c-a868-419d-8685-aa267d653c73" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_5a50c813-6943-4af2-b6ad-cf3005630300" name="kavandis on puudusi" sourceRef="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd" targetRef="Id_9a870829-873b-402a-acb8-45ae89729b50">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_4ab30a77-4995-4eec-88cb-f37a8e9168cc" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_a60429e5-8e18-4958-9053-9a112ca42e0e" name="EI" sourceRef="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd" targetRef="Id_59e4320e-5a2f-40d6-8231-6400f27a8668">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_de466ff7-4037-470c-8de8-f90a55beaf6b" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_c5754c2d-bf5e-469e-905d-822ca0bdf4b5" sourceRef="Id_a49ed289-afdf-4946-ad89-c61171ce2fe3" targetRef="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_918122fd-b7c1-414e-88ff-fe6c6aa5126a" sourceRef="Id_eaeba4e7-8482-4479-9e59-0ab8b30ef486" targetRef="Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_cc74d805-1609-449d-8a2e-7b77c3230b14" sourceRef="Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e" targetRef="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_3e7336c0-a158-4872-a428-6a5e5fcaa47e" sourceRef="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a" targetRef="ExclusiveGateway_0y20d3f">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_48b68f3a-f9bb-465e-889d-7f8d312dd1ba" sourceRef="Id_e05de876-91de-48be-a89d-5cb71f8b2ded" targetRef="Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_af3941d4-7c71-401c-ae6a-5426795b820e" sourceRef="Task_0gyv3kn" targetRef="Id_79d61648-92ac-48cd-b227-44ba6a55eb5f">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Id_f700fa72-7279-4f79-a5d6-5ffa159a5e84" name="JAH" sourceRef="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca" targetRef="Id_e05de876-91de-48be-a89d-5cb71f8b2ded">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_264aeb6d-7489-456c-b091-582a9b5c9d8d" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_d12698ce-82c9-4b59-9c55-6037d02da077" name="kavandis on puudusi" sourceRef="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca" targetRef="Id_3ebcfdc6-ca99-4eba-8f36-396866783803">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_4d1f1b48-a0bb-49b1-874e-59627bfe32fc" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_87eb2cc5-1cf2-4628-aed9-fddc7c148541" name="EI" sourceRef="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca" targetRef="Id_9617ac52-173e-41ae-9898-ce43ecea43c9">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_34a33442-1b98-4c1c-8324-d00e14942c4a" />
+    </sequenceFlow>
+    <startEvent id="Id_8195543e-6ac8-4929-9fa6-8c5526ca1044" name="ettepanek akadeemilisest üksusest">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#E6FF97" />
+            <bizagi:BizagiProperty name="borderColor" value="#62A716" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <outgoing>Id_e801765e-9fe5-4a4f-86cf-0e190c77b8ac</outgoing>
+    </startEvent>
+    <sequenceFlow id="SequenceFlow_1lp2wdr" sourceRef="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a" targetRef="Id_a49ed289-afdf-4946-ad89-c61171ce2fe3" />
+    <exclusiveGateway id="ExclusiveGateway_187wvj5" name="Kas on vaja täiendada?" default="SequenceFlow_12ngyow">
+      <incoming>Id_fff95b8d-1467-401b-8857-5bf8bc9b55e9</incoming>
+      <outgoing>SequenceFlow_12ngyow</outgoing>
+      <outgoing>SequenceFlow_0ptrrzq</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SequenceFlow_12ngyow" name="Jah" sourceRef="ExclusiveGateway_187wvj5" targetRef="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a" />
+    <sequenceFlow id="SequenceFlow_0ptrrzq" name="Ei" sourceRef="ExclusiveGateway_187wvj5" targetRef="ExclusiveGateway_0y20d3f" />
+    <exclusiveGateway id="ExclusiveGateway_0w4pkyz" name="Olenevalt organisatsioonist">
+      <incoming>SequenceFlow_1s4cz6e</incoming>
+      <outgoing>SequenceFlow_0dczy0z</outgoing>
+      <outgoing>SequenceFlow_1xn53lt</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SequenceFlow_0dczy0z" sourceRef="ExclusiveGateway_0w4pkyz" targetRef="Id_eaeba4e7-8482-4479-9e59-0ab8b30ef486" />
+    <sequenceFlow id="SequenceFlow_1xn53lt" sourceRef="ExclusiveGateway_0w4pkyz" targetRef="Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e" />
+    <sequenceFlow id="SequenceFlow_0dc3u2q" sourceRef="Id_d6feeb80-0829-4bd8-b897-e08629e4f3d3" targetRef="Task_0pourvy" />
+    <sequenceFlow id="SequenceFlow_1ugjs0r" sourceRef="Task_0pourvy" targetRef="Task_0fyndkh" />
+    <sequenceFlow id="SequenceFlow_1fbpybf" sourceRef="Task_0fyndkh" targetRef="Task_0pourvy" />
+    <sequenceFlow id="SequenceFlow_0hgtdnm" sourceRef="BoundaryEvent_14q83c4" targetRef="EndEvent_1ssmux6" />
+    <task id="Id_e05de876-91de-48be-a89d-5cb71f8b2ded" name="kinnitab õppekava muudatused">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_f700fa72-7279-4f79-a5d6-5ffa159a5e84</incoming>
+      <outgoing>Id_48b68f3a-f9bb-465e-889d-7f8d312dd1ba</outgoing>
+    </task>
+    <task id="Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7" name="õppeosakond esitab õppekava muutmiseks HTMle">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_48b68f3a-f9bb-465e-889d-7f8d312dd1ba</incoming>
+      <outgoing>SequenceFlow_00lcmd9</outgoing>
+      <property id="Property_0zdw7y3" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1tqteas">
+        <sourceRef>DataObjectReference_0xcnzmr</sourceRef>
+        <targetRef>Property_0zdw7y3</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="SequenceFlow_00lcmd9" sourceRef="Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7" targetRef="Task_0kd5j95" />
+    <sequenceFlow id="SequenceFlow_0a4uikz" sourceRef="Task_0kd5j95" targetRef="ExclusiveGateway_1cfgy1f" />
+    <sequenceFlow id="SequenceFlow_1sxhgyf" sourceRef="ExclusiveGateway_1cfgy1f" targetRef="IntermediateCatchEvent_0jhzp6h" />
+    <sequenceFlow id="SequenceFlow_0xpv4we" sourceRef="IntermediateCatchEvent_0jhzp6h" targetRef="Id_d6feeb80-0829-4bd8-b897-e08629e4f3d3" />
+    <sequenceFlow id="SequenceFlow_10ufu7i" sourceRef="ExclusiveGateway_1cfgy1f" targetRef="IntermediateCatchEvent_1jzts4g" />
+    <task id="Task_0fyndkh" name="Aitab täpsustada">
+      <incoming>SequenceFlow_1ugjs0r</incoming>
+      <outgoing>SequenceFlow_1fbpybf</outgoing>
+    </task>
+    <task id="Id_d6feeb80-0829-4bd8-b897-e08629e4f3d3" name="õppeosakond täpsustab muudatust ja teavitab valdkonda">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>SequenceFlow_0xpv4we</incoming>
+      <outgoing>SequenceFlow_0dc3u2q</outgoing>
+    </task>
+    <intermediateCatchEvent id="IntermediateCatchEvent_0jhzp6h">
+      <incoming>SequenceFlow_1sxhgyf</incoming>
+      <outgoing>SequenceFlow_0xpv4we</outgoing>
+      <messageEventDefinition />
+    </intermediateCatchEvent>
+    <eventBasedGateway id="ExclusiveGateway_1cfgy1f">
+      <incoming>SequenceFlow_0a4uikz</incoming>
+      <outgoing>SequenceFlow_1sxhgyf</outgoing>
+      <outgoing>SequenceFlow_10ufu7i</outgoing>
+    </eventBasedGateway>
+    <endEvent id="EndEvent_1ssmux6">
+      <incoming>SequenceFlow_0hgtdnm</incoming>
+      <terminateEventDefinition />
+    </endEvent>
+    <intermediateCatchEvent id="IntermediateCatchEvent_1jzts4g">
+      <incoming>SequenceFlow_10ufu7i</incoming>
+      <outgoing>SequenceFlow_1mde190</outgoing>
+      <messageEventDefinition />
+    </intermediateCatchEvent>
+    <subProcess id="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a" name="õppeosakond kontrollib dokumentide vastavust nõuetele">
+      <incoming>Id_c5754c2d-bf5e-469e-905d-822ca0bdf4b5</incoming>
+      <incoming>SequenceFlow_12ngyow</incoming>
+      <outgoing>Id_3e7336c0-a158-4872-a428-6a5e5fcaa47e</outgoing>
+      <outgoing>SequenceFlow_1lp2wdr</outgoing>
+    </subProcess>
+    <subProcess id="Id_3ebcfdc6-ca99-4eba-8f36-396866783803" name="VK koostab õppekava kavandi">
+      <incoming>Id_4db6c1ed-5a10-4f4a-802d-d2ed76798713</incoming>
+      <incoming>Id_d12698ce-82c9-4b59-9c55-6037d02da077</incoming>
+      <incoming>SequenceFlow_1bcz71r</incoming>
+      <outgoing>Id_6c9f2939-209b-4caa-940b-0bc6c43b88de</outgoing>
+      <outgoing>Id_ebcc841d-8907-4797-af2d-2f2fd49602d3</outgoing>
+    </subProcess>
+    <subProcess id="Task_0pourvy" name="Täpsustab">
+      <incoming>SequenceFlow_0dc3u2q</incoming>
+      <incoming>SequenceFlow_1fbpybf</incoming>
+      <outgoing>SequenceFlow_1ugjs0r</outgoing>
+    </subProcess>
+    <boundaryEvent id="BoundaryEvent_14q83c4" name="Õppeprorektor otsustab õppekava siiski mitte muuta" attachedToRef="Task_0pourvy">
+      <outgoing>SequenceFlow_0hgtdnm</outgoing>
+      <errorEventDefinition />
+    </boundaryEvent>
+    <subProcess id="Task_0kd5j95" name="Selgitab">
+      <incoming>SequenceFlow_00lcmd9</incoming>
+      <outgoing>SequenceFlow_0a4uikz</outgoing>
+    </subProcess>
+    <sequenceFlow id="SequenceFlow_1bcz71r" sourceRef="Id_a4ba8f85-47aa-4d43-971f-810be0e9d992" targetRef="Id_3ebcfdc6-ca99-4eba-8f36-396866783803" />
+    <sequenceFlow id="SequenceFlow_0bp9bbv" sourceRef="Id_9a870829-873b-402a-acb8-45ae89729b50" targetRef="ExclusiveGateway_1op65tm" />
+    <exclusiveGateway id="ExclusiveGateway_1op65tm">
+      <incoming>SequenceFlow_0bp9bbv</incoming>
+      <outgoing>Id_eb075986-9beb-4957-ba93-05631d0b3a4b</outgoing>
+      <outgoing>SequenceFlow_1yzlod6</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SequenceFlow_1yzlod6" sourceRef="ExclusiveGateway_1op65tm" targetRef="Task_1t19k7n" />
+    <endEvent id="EndEvent_15eor4e">
+      <incoming>SequenceFlow_0c1bljv</incoming>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_0c1bljv" sourceRef="Task_1t19k7n" targetRef="EndEvent_15eor4e" />
+    <userTask id="Task_1t19k7n" name="Teeb muudatused ÕISis">
+      <incoming>SequenceFlow_1yzlod6</incoming>
+      <outgoing>SequenceFlow_0c1bljv</outgoing>
+    </userTask>
+    <sequenceFlow id="SequenceFlow_0f2j90t" sourceRef="Id_a8e96c8d-d197-46f4-9fbe-4767877d6030" targetRef="Id_184ce845-aa31-4794-91e6-ba4faab47f87" />
+    <task id="Id_a8e96c8d-d197-46f4-9fbe-4767877d6030" name="õppeosakond annab kavandile hinnangu">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_eb075986-9beb-4957-ba93-05631d0b3a4b</incoming>
+      <outgoing>SequenceFlow_0f2j90t</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_1mde190" sourceRef="IntermediateCatchEvent_1jzts4g" targetRef="Id_b0e499f2-f9b2-4a57-aeaf-3fe6fa19dfd7" />
+    <task id="Id_b0e499f2-f9b2-4a57-aeaf-3fe6fa19dfd7" name="õppeosakond muudab õppekava üldandmed ÕISis">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>SequenceFlow_1mde190</incoming>
+      <outgoing>SequenceFlow_0y3mk4r</outgoing>
+    </task>
+    <task id="Task_0gyv3kn" name="Teavitatakse tudengeid muudatustest">
+      <incoming>SequenceFlow_0y3mk4r</incoming>
+      <outgoing>Id_af3941d4-7c71-401c-ae6a-5426795b820e</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_0y3mk4r" sourceRef="Id_b0e499f2-f9b2-4a57-aeaf-3fe6fa19dfd7" targetRef="Task_0gyv3kn" />
+    <exclusiveGateway id="ExclusiveGateway_0y20d3f">
+      <incoming>Id_3e7336c0-a158-4872-a428-6a5e5fcaa47e</incoming>
+      <incoming>SequenceFlow_0ptrrzq</incoming>
+      <outgoing>SequenceFlow_1s4cz6e</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SequenceFlow_1s4cz6e" sourceRef="ExclusiveGateway_0y20d3f" targetRef="ExclusiveGateway_0w4pkyz" />
+    <task id="Id_eaeba4e7-8482-4479-9e59-0ab8b30ef486" name="rektoraat võtab taotluse teadmiseks">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#ECEFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#03689A" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>SequenceFlow_0dczy0z</incoming>
+      <outgoing>Id_918122fd-b7c1-414e-88ff-fe6c6aa5126a</outgoing>
+    </task>
+    <dataObjectReference id="DataObjectReference_0xcnzmr" name="Õppekava muutmise taotlus" dataObjectRef="DataObject_1gobnbu" />
+    <dataObject id="DataObject_1gobnbu" />
+    <association id="Id_001029ce-dd1a-410f-8d64-5000e810f6d3" targetRef="Id_a16d44c9-d4ad-420a-9623-6fad2d7d6a2f">
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </association>
+    <textAnnotation id="TextAnnotation_1wmug3x">    <text>Õppekava kood ÕISis, Õppekava versiooni identifikaator ÕISis, Õppekava nimetus eesti ja inglise keeles, Õppekava keel, Õppekava lisakeeled, Õppekava maht, Antav kraad, versiooni väljundid, õppeaste, soovitav valdkond, versiooni lühikirjeldus, õppetöö toimumise asukohad, nominaalkestus, kinnitamise kuupäev ja dokument, muudatuse kehtivuse algusaeg, praktika maht ja kirjeldus, omanikasutused ühisõppekaval, õppekava järgne spetsialiseerumine?, õppekava moodulid?, sulgemise kuupäev kui on piiratud kehtivusega õppekava, seotud kutsestandardid, vana (asendatava) versiooni identifikaator</text>
+</textAnnotation>
+    <association id="Association_0al3vi5" sourceRef="DataObjectReference_0xcnzmr" targetRef="TextAnnotation_1wmug3x" />
+  </process>
+  <collaboration id="Id_89d58878-f79e-40a3-b671-000710bc9b23" name="Diagram 1">
+    <documentation />
+    <participant id="Id_c6482c52-a805-4b49-b2c9-5746c5ea9d4c" name="ÕPPEKAVA LOOMINE" processRef="Id_6a81e260-8219-409e-aed3-30c86b147008">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#FFFFFF" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </participant>
+    <participant id="Participant_0wxv0n4" name="HTM" processRef="Process_1cnk5pz" />
+    <messageFlow id="MessageFlow_17feqht" sourceRef="Id_7c7ac8a5-f713-459a-b4a0-ba355e79723a" targetRef="IntermediateCatchEvent_1jzts4g" />
+    <messageFlow id="MessageFlow_1gytlv3" sourceRef="Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7" targetRef="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" />
+    <messageFlow id="MessageFlow_1s6yo38" sourceRef="Task_0kd5j95" targetRef="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" />
+    <messageFlow id="MessageFlow_0ha56zn" sourceRef="Task_0pourvy" targetRef="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" />
+    <messageFlow id="MessageFlow_0c1d2q8" sourceRef="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" targetRef="Task_0kd5j95" />
+    <messageFlow id="MessageFlow_0c5ik64" sourceRef="Task_0kb40ya" targetRef="IntermediateCatchEvent_0jhzp6h" />
+  </collaboration>
+  <process id="Process_1cnk5pz" isExecutable="false">
+    <exclusiveGateway id="Id_c0a4c3b4-fb2f-4405-a465-0b6f5cb2e2bf" name="kas õppekava muutmine on põhjendatud?" gatewayDirection="Diverging">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="#FFFFCC" />
+            <bizagi:BizagiProperty name="borderColor" value="#A6A61D" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <incoming>Id_ae9af3c5-0a9b-43ac-a7e3-888d98b3b780</incoming>
+      <outgoing>Id_949b91db-2f24-411d-abc7-0385225e891a</outgoing>
+      <outgoing>SequenceFlow_0sixtso</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Id_949b91db-2f24-411d-abc7-0385225e891a" name="JAH" sourceRef="Id_c0a4c3b4-fb2f-4405-a465-0b6f5cb2e2bf" targetRef="Id_7c7ac8a5-f713-459a-b4a0-ba355e79723a">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+      <conditionExpression xsi:type="tExpression" id="Expression_f46c9d14-79f9-436a-9eb9-bc3ecad95dd2" />
+    </sequenceFlow>
+    <sequenceFlow id="Id_ae9af3c5-0a9b-43ac-a7e3-888d98b3b780" sourceRef="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" targetRef="Id_c0a4c3b4-fb2f-4405-a465-0b6f5cb2e2bf">
+      <documentation />
+      <extensionElements>
+        <bizagi:BizagiExtensions xmlns:bizagi="http://www.bizagi.com/bpmn20">
+          <bizagi:BizagiProperties>
+            <bizagi:BizagiProperty name="bgColor" value="White" />
+            <bizagi:BizagiProperty name="borderColor" value="#000000" />
+          </bizagi:BizagiProperties>
+        </bizagi:BizagiExtensions>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_0sixtso" sourceRef="Id_c0a4c3b4-fb2f-4405-a465-0b6f5cb2e2bf" targetRef="Task_0kb40ya" />
+    <subProcess id="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe" name="koodikomisjon hindab taotlust ja vajadusel küsib selgitusi">
+      <outgoing>Id_ae9af3c5-0a9b-43ac-a7e3-888d98b3b780</outgoing>
+    </subProcess>
+    <sendTask id="Task_0kb40ya" name="Teavitab õppeosakonda puudustest">
+      <incoming>SequenceFlow_0sixtso</incoming>
+    </sendTask>
+    <sendTask id="Id_7c7ac8a5-f713-459a-b4a0-ba355e79723a" name="HTM muudab õppekava EHISes">
+      <incoming>Id_949b91db-2f24-411d-abc7-0385225e891a</incoming>
+      <property id="Property_18awh8m" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_067j9zh">
+        <sourceRef>DataObjectReference_1a4t5d2</sourceRef>
+        <targetRef>Property_18awh8m</targetRef>
+      </dataInputAssociation>
+    </sendTask>
+    <dataObjectReference id="DataObjectReference_1a4t5d2" name="Muudatuse kinnitus" dataObjectRef="DataObject_0wex4bo" />
+    <dataObject id="DataObject_0wex4bo" />
+    <textAnnotation id="TextAnnotation_03nlvgb">    <text>Valdkond, Õppekava grupp, Õppekava rühm</text>
+</textAnnotation>
+    <association id="Association_1u255iz" sourceRef="DataObjectReference_1a4t5d2" targetRef="TextAnnotation_03nlvgb" />
+  </process>
+  <bpmni:BPMNDiagram id="Diagram_87c0c667-fac0-418c-867f-9149f5ff541b">
+    <bpmni:BPMNPlane id="DiagramElement_cf1fa738-2ae6-4d45-95e6-88e4f4dab1c9" bpmnElement="Id_89d58878-f79e-40a3-b671-000710bc9b23">
+      <di:extension />
+      <bpmni:BPMNShape id="DiagramElement_93d299cb-6506-4c11-a573-8a7624427c51" bpmnElement="Id_c6482c52-a805-4b49-b2c9-5746c5ea9d4c" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="-7" y="20" width="3234" height="993" />
+        <bpmni:BPMNLabel id="DiagramElement_74b137e6-f30f-429b-b5c7-b6c775909d2d" labelStyle="Style_a95e9ac9-41fd-4d55-866c-355aae3a76eb">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_fd6bbfe1-36f9-4767-80a8-a25347447a00" bpmnElement="Id_186aa067-9494-462c-a735-071393e3a7de" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="43" y="20" width="3184" height="175" />
+        <bpmni:BPMNLabel id="DiagramElement_69e84876-b260-4c9c-85fa-f7813876422e" labelStyle="Style_54a84e9e-4494-4506-a325-eca41f5ed49a">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_9afa64d5-2f1e-4379-bdcf-c8612cf0ac65" bpmnElement="Id_bbfadb76-6b3d-41f0-98a2-5200bacf2fc3" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="43" y="195" width="3184" height="118" />
+        <bpmni:BPMNLabel id="DiagramElement_2929eae0-d3e1-40a8-acc7-fd2d60399019" labelStyle="Style_c2458f01-53d8-40f7-88c3-69e011f7c70e">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_8f780760-1bc5-4428-9552-87a508ffab1e" bpmnElement="Id_2ea18b4a-19d9-46ce-8e33-25ea2aa4fa94" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="43" y="313" width="3184" height="229" />
+        <bpmni:BPMNLabel id="DiagramElement_e30277a6-ecda-4033-9dd2-e4e3544cb72c" labelStyle="Style_35a27fa9-2f3a-488f-9a36-59ef3f2e391a">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_d17c22ec-24ae-4724-ac0d-bef948ba07fc" bpmnElement="Id_3f4c529d-7bc4-42d7-bc59-d5471fa2416c" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="43" y="542" width="3184" height="263" />
+        <bpmni:BPMNLabel id="DiagramElement_21a367c9-76a2-4040-96c2-7a81d488db16" labelStyle="Style_73137ea4-8a59-4ce6-80ac-df85fadf7742">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_c3d4a751-6a3e-4006-a29c-57bc7acc9559" bpmnElement="Id_6e7a5d6e-7821-487f-b3e0-0ca8726a987a" isHorizontal="true">
+        <di:extension />
+        <dc:Bounds x="43" y="804" width="3184" height="209" />
+        <bpmni:BPMNLabel id="DiagramElement_3e86d78d-1a18-421f-9622-91a88a54d1c9" labelStyle="Style_8f6828ce-a0bd-4bfc-93b4-eb91fbbc5a63">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_bacbb13f-ce57-4c91-8f1f-7b16d4eb0c4f" bpmnElement="Id_a16d44c9-d4ad-420a-9623-6fad2d7d6a2f">
+        <di:extension />
+        <dc:Bounds x="3121.199951171875" y="853" width="82" height="71" />
+        <bpmni:BPMNLabel id="DiagramElement_5800c5fb-7f85-4b06-ad50-815d254ad420" labelStyle="Style_cdbae116-9519-4344-945f-75d03f2f19d1">
+          <di:extension />
+          <dc:Bounds x="3117" y="869" width="92" height="66" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_487bd862-e43c-41f4-adf7-085efadc7f54" bpmnElement="Id_a4ba8f85-47aa-4d43-971f-810be0e9d992">
+        <di:extension />
+        <dc:Bounds x="205" y="855" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_3d98bff8-846a-421b-b24d-2dd5e1b9e85f" labelStyle="Style_f4ab65d3-3d7e-4c27-8ef4-f542f94860ab">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_6f4f408d-3f16-4aec-813f-8e16d6b931b1" bpmnElement="Id_a8e96c8d-d197-46f4-9fbe-4767877d6030">
+        <di:extension />
+        <dc:Bounds x="1264" y="642" width="115" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_f8279390-b2ab-453d-86c1-185cb9ad24f2" labelStyle="Style_1fb41377-d06b-44ea-92d9-55e3eb1bf448">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_b24d5527-448c-455e-b649-78f46ef57fc1" bpmnElement="Id_0a0cb216-e67a-4879-aabd-b0541b75c1fd" isMarkerVisible="true">
+        <di:extension />
+        <dc:Bounds x="1518" y="440" width="40" height="40" />
+        <bpmni:BPMNLabel id="DiagramElement_9f062b04-7262-4682-bdbc-7549987b3561" labelStyle="Style_3d402b4b-9c0e-45e0-8909-d316e79b2cdf">
+          <di:extension />
+          <dc:Bounds x="1482" y="391" width="106" height="54" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_07061a8a-2e61-4f37-a434-56a6f68cc022" bpmnElement="Id_a49ed289-afdf-4946-ad89-c61171ce2fe3">
+        <di:extension />
+        <dc:Bounds x="1844" y="857" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_4004c695-6f86-430e-841e-46924dffd75e" labelStyle="Style_03252a65-e842-4636-a830-fd89524b4e8b">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_9a3ed04f-186b-46f7-9d3f-955a9d87cd50" bpmnElement="Id_184ce845-aa31-4794-91e6-ba4faab47f87">
+        <di:extension />
+        <dc:Bounds x="1396" y="430" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_de713c22-a4f1-4583-b9de-48e93b9b0461" labelStyle="Style_f1529393-843d-4958-b5aa-9ba22db80801">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_6f8b8855-7260-4eaa-9f12-86e1f10578cf" bpmnElement="Id_426169a2-2926-4ff1-aba2-a6661e0c2a2e">
+        <di:extension />
+        <dc:Bounds x="1844" y="74" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_5fd16c08-3db6-4112-bd06-800b2119b15b" labelStyle="Style_165dfcbc-493d-4440-bd61-c2f19fb3d072">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_0ce5198d-98fe-4012-8a2d-30c356be5d70" bpmnElement="Id_9a870829-873b-402a-acb8-45ae89729b50">
+        <di:extension />
+        <dc:Bounds x="1113" y="863" width="120" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_840a9de6-fa0a-468a-8f4b-3f3e3342a7cf" labelStyle="Style_0ac6be77-3e62-4c4a-b426-9cc77bb38401">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_2386efed-1984-43f7-bb99-9eedf438b922" bpmnElement="Id_59e4320e-5a2f-40d6-8231-6400f27a8668">
+        <di:extension />
+        <dc:Bounds x="1669" y="414" width="30" height="30" />
+        <bpmni:BPMNLabel id="DiagramElement_e5829087-54f2-4cae-bb60-2ce16e7def2b" labelStyle="Style_132ab6a4-52be-4d92-a0af-26d16f9b690d">
+          <di:extension />
+          <dc:Bounds x="1690" y="414" width="90" height="41" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_0327bc06-0b6c-4623-988b-f980729e726f" bpmnElement="Id_eaeba4e7-8482-4479-9e59-0ab8b30ef486">
+        <di:extension />
+        <dc:Bounds x="1918" y="222" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_2c5389f4-a7b2-49b4-bb00-dd3e16bb4ec4" labelStyle="Style_f87bd256-1257-4aea-b591-1479307e90ba">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_00a73cc4-4146-4922-a60e-abdabe7233cd" bpmnElement="Id_b6a7d10c-e3bb-48e6-8e8f-71f94376d0e7">
+        <di:extension />
+        <dc:Bounds x="2251" y="714" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_133dfef1-9789-43b8-ab3a-8313d6d8a8a4" labelStyle="Style_7d463b22-0a26-4590-b671-c7e12e287bb6">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_d120b980-a635-49a3-beda-34ca8435fccf" bpmnElement="Id_b0e499f2-f9b2-4a57-aeaf-3fe6fa19dfd7">
+        <di:extension />
+        <dc:Bounds x="2986" y="569" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_7607a04a-0247-4de3-b3f8-cd98691f2ffd" labelStyle="Style_4243a489-4f56-46ed-a889-fd229ad433f1">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_8ead4fe0-65d6-4cf6-9b9e-412b9d516575" bpmnElement="Id_79d61648-92ac-48cd-b227-44ba6a55eb5f">
+        <di:extension />
+        <dc:Bounds x="3136" y="729" width="30" height="30" />
+        <bpmni:BPMNLabel id="DiagramElement_20e2a440-e8bf-48e3-b24c-1c372eaf5ddb" labelStyle="Style_68d9b43a-f935-4b4f-83af-601c48e1171b">
+          <di:extension />
+          <dc:Bounds x="3104" y="764" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_abc10d64-3598-4cd8-90c7-fca2d683393d" bpmnElement="Id_d6feeb80-0829-4bd8-b897-e08629e4f3d3">
+        <di:extension />
+        <dc:Bounds x="2664" y="725" width="122" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_a17eb1dc-823f-4d71-9a6c-ff63b67a209d" labelStyle="Style_cb680fbb-3aa8-4dea-9cd2-f6f122e59638">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_b396c3e3-d7d1-4b50-90ef-d6e4fdec85af" bpmnElement="Id_b57c894d-2cde-4385-bda5-0c924a2e9a57">
+        <di:extension />
+        <dc:Bounds x="822" y="715" width="76" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_38839013-376c-4eba-8dc3-a5d22b423a75" labelStyle="Style_456c6028-ce8f-4f48-a519-0794b76ae0d2">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_c8834797-5206-4098-82dd-ab381992e87a" bpmnElement="Id_ff82cd62-8a0d-4e07-bd20-7e4147c1d2ca" isMarkerVisible="true">
+        <di:extension />
+        <dc:Bounds x="1989" y="84" width="40" height="40" />
+        <bpmni:BPMNLabel id="DiagramElement_3a8bec93-8628-48a1-9c1f-16a90c8c4221" labelStyle="Style_666271b8-6da8-4f31-a57a-5caf0e81151b">
+          <di:extension />
+          <dc:Bounds x="1959" y="38" width="106" height="54" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_727c6eba-0722-439e-a6d4-7674cea65c70" bpmnElement="Id_c0a4c3b4-fb2f-4405-a465-0b6f5cb2e2bf" isMarkerVisible="true">
+        <di:extension />
+        <dc:Bounds x="2497" y="1216" width="40" height="40" />
+        <bpmni:BPMNLabel id="DiagramElement_8bafb8cf-82d2-4a79-910e-a2f0d45381d7" labelStyle="Style_a177f9a1-7d3a-4603-939f-bb341ed4025f">
+          <di:extension />
+          <dc:Bounds x="2467" y="1170" width="106" height="54" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_d72a7d58-6297-4036-b93f-69fa1ff2986a" bpmnElement="Id_e05de876-91de-48be-a89d-5cb71f8b2ded">
+        <di:extension />
+        <dc:Bounds x="2123" y="74" width="90" height="60" />
+        <bpmni:BPMNLabel id="DiagramElement_a9effc05-013e-4f92-95d2-499976a876ae" labelStyle="Style_6370b850-7669-4886-90ff-a850b789439e">
+          <di:extension />
+          <dc:Bounds x="0" y="0" width="0" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_f0ff526f-cfcd-46a6-a7d7-ba8a62b40979" bpmnElement="Id_8195543e-6ac8-4929-9fa6-8c5526ca1044">
+        <di:extension />
+        <dc:Bounds x="92" y="870" width="30" height="30" />
+        <bpmni:BPMNLabel id="DiagramElement_09958889-bbc2-4d55-a20a-073984a24401" labelStyle="Style_7ad36708-f693-4f5f-bc86-45d145537030">
+          <di:extension />
+          <dc:Bounds x="61" y="906" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="DiagramElement_4c114c3c-18e0-4026-929a-84f3d1b4ccdf" bpmnElement="Id_9617ac52-173e-41ae-9898-ce43ecea43c9">
+        <di:extension />
+        <dc:Bounds x="2142" y="25" width="30" height="30" />
+        <bpmni:BPMNLabel id="DiagramElement_ee327058-736d-4709-baa0-23f28efd9730" labelStyle="Style_49851b02-6595-40b1-824a-4761cc065735">
+          <di:extension />
+          <dc:Bounds x="2166" y="31" width="90" height="41" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="DiagramElement_24703f1f-7ecb-40c3-a5e2-2716b103d9ae" bpmnElement="Id_fff95b8d-1467-401b-8857-5bf8bc9b55e9">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1558" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1586" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1586" y="359" />
+        <di:waypoint xsi:type="dc:Point" x="1767" y="359" />
+        <bpmni:BPMNLabel id="DiagramElement_66a390b2-f10c-4d0a-a26d-987ff006cc87" labelStyle="Style_f8dbdf09-8597-4e26-b2f7-3dcf72b861b8">
+          <di:extension />
+          <dc:Bounds x="1558.8765432098764" y="340" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_e96de811-46c0-4619-8d26-02d0cce28c11" bpmnElement="Id_5a50c813-6943-4af2-b6ad-cf3005630300">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1558" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1588" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1588" y="818" />
+        <di:waypoint xsi:type="dc:Point" x="1173" y="818" />
+        <di:waypoint xsi:type="dc:Point" x="1173" y="863" />
+        <bpmni:BPMNLabel id="DiagramElement_45aa3530-a6ed-4e33-9af8-09f5a8582fc5" labelStyle="Style_39e9de74-106e-451f-8b09-f23448b87f61">
+          <di:extension />
+          <dc:Bounds x="1546" y="480.80387409200966" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_bba0cf62-ebcc-4c6b-9fd5-e4d89ba97923" bpmnElement="Id_45eb00ab-fe6f-4e77-9c5b-7dd6700b3cb6">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1486" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1518" y="460" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1457" y="435" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_f21ffcf1-0377-4229-adb5-120d3c893ab3" bpmnElement="Id_e801765e-9fe5-4a4f-86cf-0e190c77b8ac">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="121" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="205" y="885" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="118" y="860" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_0377cc06-cf39-4286-b097-ca0609b96f3e" bpmnElement="Id_6c9f2939-209b-4caa-940b-0bc6c43b88de">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="969" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1113" y="893" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="996" y="868" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_97c525b1-a610-43d8-b4c2-451a1edce842" bpmnElement="Id_eb075986-9beb-4957-ba93-05631d0b3a4b">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1322" y="868" />
+        <di:waypoint xsi:type="dc:Point" x="1321" y="702" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1276.5" y="760" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_7b2d9d55-0169-483e-a9a3-291f314d3ca2" bpmnElement="Id_a60429e5-8e18-4958-9053-9a112ca42e0e">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1558" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1586" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1586" y="429" />
+        <di:waypoint xsi:type="dc:Point" x="1669" y="429" />
+        <bpmni:BPMNLabel id="DiagramElement_be34963e-5774-4c70-a3bb-6003ae45cfa4" labelStyle="Style_05940ab8-5509-4863-8e3b-8f55a00a24d2">
+          <di:extension />
+          <dc:Bounds x="1547" y="408" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_ee22fede-76c0-4a21-9fb1-4892f2006931" bpmnElement="Id_918122fd-b7c1-414e-88ff-fe6c6aa5126a">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1963" y="222" />
+        <di:waypoint xsi:type="dc:Point" x="1963" y="152" />
+        <di:waypoint xsi:type="dc:Point" x="1889" y="152" />
+        <di:waypoint xsi:type="dc:Point" x="1889" y="134" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1881" y="127" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_82e75755-cb3e-41e4-9a62-c6f3337f32b1" bpmnElement="Id_af3941d4-7c71-401c-ae6a-5426795b820e">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="3151" y="639" />
+        <di:waypoint xsi:type="dc:Point" x="3151" y="729" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="3121" y="674" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_5f54bced-6791-4793-804b-3aa7fce5bfad" bpmnElement="Id_c5754c2d-bf5e-469e-905d-822ca0bdf4b5">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1889" y="857" />
+        <di:waypoint xsi:type="dc:Point" x="1889" y="785" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1859" y="811" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_9f50e1a7-695c-4081-99d2-b4a6d59d15d4" bpmnElement="Id_3e7336c0-a158-4872-a428-6a5e5fcaa47e">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1939" y="745" />
+        <di:waypoint xsi:type="dc:Point" x="1964" y="745" />
+        <di:waypoint xsi:type="dc:Point" x="1963" y="384" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1906.5" y="720" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_027d7f06-1489-44f7-b3e6-9be15a013045" bpmnElement="Id_d12698ce-82c9-4b59-9c55-6037d02da077">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2009" y="124" />
+        <di:waypoint xsi:type="dc:Point" x="2009" y="170" />
+        <di:waypoint xsi:type="dc:Point" x="904" y="170" />
+        <di:waypoint xsi:type="dc:Point" x="904" y="853" />
+        <bpmni:BPMNLabel id="DiagramElement_3de7163c-8bf3-4fb7-9c63-a4cc51bc71af" labelStyle="Style_b9716e3c-916f-4704-942e-8a8eb4b23ac7">
+          <di:extension />
+          <dc:Bounds x="1964.0002550882998" y="138.08162746360765" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_45ed4847-951f-44ef-8df9-78190bebd648" bpmnElement="Id_f700fa72-7279-4f79-a5d6-5ffa159a5e84">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2029" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="2123" y="104" />
+        <bpmni:BPMNLabel id="DiagramElement_2c81f23d-3807-495c-8c7a-b4b16ea21e03" labelStyle="Style_1226aaad-295e-44f6-bd4e-c5e10c5edc67">
+          <di:extension />
+          <dc:Bounds x="2049.0290995226596" y="85" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_69450374-b64d-45a5-b0b7-ed79489791b0" bpmnElement="Id_87eb2cc5-1cf2-4628-aed9-fddc7c148541">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2029" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="2060.25" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="2060.25" y="40" />
+        <di:waypoint xsi:type="dc:Point" x="2142" y="40" />
+        <bpmni:BPMNLabel id="DiagramElement_354a9332-1eae-418c-8e6c-5235a20d5622" labelStyle="Style_bbd09594-c1f2-4261-a4b8-27869b4dc399">
+          <di:extension />
+          <dc:Bounds x="2021" y="40" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_fcb1b7e0-49c5-4c70-a1e2-f8045e6023ef" bpmnElement="Id_cc74d805-1609-449d-8a2e-7b77c3230b14">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="1934" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="1989" y="104" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1917" y="79" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_20cee620-0a9c-4e81-bb07-c8f1fd622dfd" bpmnElement="Id_949b91db-2f24-411d-abc7-0385225e891a">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2537" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2573" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2573" y="1279" />
+        <di:waypoint xsi:type="dc:Point" x="2727" y="1279" />
+        <bpmni:BPMNLabel id="DiagramElement_d3e4b07c-04cf-471c-abf1-6fd5be6b09f0" labelStyle="Style_55dcf003-d7c8-4b5c-90ec-8ac799d29797">
+          <di:extension />
+          <dc:Bounds x="2513" y="1255" width="90" height="0" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_477999ff-6094-48ec-8ab0-2f974e50ad18" bpmnElement="Id_ae9af3c5-0a9b-43ac-a7e3-888d98b3b780">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2461" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2497" y="1236" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2434" y="1211" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_1726535b-0ef4-4187-ab92-30d6d880bce0" bpmnElement="Id_ebcc841d-8907-4797-af2d-2f2fd49602d3">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="879" y="853" />
+        <di:waypoint xsi:type="dc:Point" x="879" y="775" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="849" y="804" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_040a192b-7638-4220-8859-bad0bbcb2775" bpmnElement="Id_4db6c1ed-5a10-4f4a-802d-d2ed76798713">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="889" y="774" />
+        <di:waypoint xsi:type="dc:Point" x="889" y="853" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="859" y="803.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_3c28eb0d-f66b-403f-8ddd-2f4a7a7e49b0" bpmnElement="Id_48b68f3a-f9bb-465e-889d-7f8d312dd1ba">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="2213" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="2232" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="2232" y="744" />
+        <di:waypoint xsi:type="dc:Point" x="2251" y="744" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2202" y="414" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="DiagramElement_8dfdc045-ef1b-4c87-8cf3-ece50c45cbdc" bpmnElement="Id_001029ce-dd1a-410f-8d64-5000e810f6d3">
+        <di:extension />
+        <di:waypoint xsi:type="dc:Point" x="3087" y="887" />
+        <di:waypoint xsi:type="dc:Point" x="3104" y="887" />
+        <di:waypoint xsi:type="dc:Point" x="3104" y="888" />
+        <di:waypoint xsi:type="dc:Point" x="3121" y="888" />
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_1lp2wdr_di" bpmnElement="SequenceFlow_1lp2wdr">
+        <di:waypoint xsi:type="dc:Point" x="1901" y="785" />
+        <di:waypoint xsi:type="dc:Point" x="1901" y="857" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1871" y="811" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="ExclusiveGateway_187wvj5_di" bpmnElement="ExclusiveGateway_187wvj5" isMarkerVisible="true">
+        <dc:Bounds x="1767.0923423423421" y="334" width="50" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1747.0923423423421" y="384" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_12ngyow_di" bpmnElement="SequenceFlow_12ngyow">
+        <di:waypoint xsi:type="dc:Point" x="1792" y="384" />
+        <di:waypoint xsi:type="dc:Point" x="1792" y="745" />
+        <di:waypoint xsi:type="dc:Point" x="1839" y="745" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1762" y="554.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0ptrrzq_di" bpmnElement="SequenceFlow_0ptrrzq">
+        <di:waypoint xsi:type="dc:Point" x="1817" y="359" />
+        <di:waypoint xsi:type="dc:Point" x="1938" y="359" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1859.0350877192982" y="364" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="ExclusiveGateway_0w4pkyz_di" bpmnElement="ExclusiveGateway_0w4pkyz" isMarkerVisible="true">
+        <dc:Bounds x="1767" y="227" width="50" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1695" y="257" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_0dczy0z_di" bpmnElement="SequenceFlow_0dczy0z">
+        <di:waypoint xsi:type="dc:Point" x="1817" y="252" />
+        <di:waypoint xsi:type="dc:Point" x="1918" y="252" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1822.5" y="227" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_1xn53lt_di" bpmnElement="SequenceFlow_1xn53lt">
+        <di:waypoint xsi:type="dc:Point" x="1792" y="227" />
+        <di:waypoint xsi:type="dc:Point" x="1792" y="104" />
+        <di:waypoint xsi:type="dc:Point" x="1844" y="104" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1762" y="155.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0dc3u2q_di" bpmnElement="SequenceFlow_0dc3u2q">
+        <di:waypoint xsi:type="dc:Point" x="2664" y="755" />
+        <di:waypoint xsi:type="dc:Point" x="2607" y="755" />
+        <di:waypoint xsi:type="dc:Point" x="2607" y="738" />
+        <di:waypoint xsi:type="dc:Point" x="2530" y="738" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2577" y="736.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="Task_0fyndkh_di" bpmnElement="Task_0fyndkh">
+        <dc:Bounds x="2457" y="845" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_1ugjs0r_di" bpmnElement="SequenceFlow_1ugjs0r">
+        <di:waypoint xsi:type="dc:Point" x="2498" y="763" />
+        <di:waypoint xsi:type="dc:Point" x="2497" y="845" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2452.5" y="779" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_1fbpybf_di" bpmnElement="SequenceFlow_1fbpybf">
+        <di:waypoint xsi:type="dc:Point" x="2479" y="845" />
+        <di:waypoint xsi:type="dc:Point" x="2479" y="763" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2449" y="794" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0hgtdnm_di" bpmnElement="SequenceFlow_0hgtdnm">
+        <di:waypoint xsi:type="dc:Point" x="2546" y="707" />
+        <di:waypoint xsi:type="dc:Point" x="2575" y="707" />
+        <di:waypoint xsi:type="dc:Point" x="2575" y="664" />
+        <di:waypoint xsi:type="dc:Point" x="2757" y="664" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2545" y="675.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="BoundaryEvent_0xvrki9_di" bpmnElement="BoundaryEvent_14q83c4">
+        <dc:Bounds x="2510" y="689" width="36" height="36" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2482" y="725" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="EndEvent_1i7el0m_di" bpmnElement="EndEvent_1ssmux6">
+        <dc:Bounds x="2757" y="646" width="36" height="36" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2729" y="682" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="Participant_0wxv0n4_di" bpmnElement="Participant_0wxv0n4">
+        <dc:Bounds x="-7" y="1143" width="3238" height="243" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="MessageFlow_17feqht_di" bpmnElement="MessageFlow_17feqht">
+        <di:waypoint xsi:type="dc:Point" x="2777" y="1239" />
+        <di:waypoint xsi:type="dc:Point" x="2777" y="922" />
+        <di:waypoint xsi:type="dc:Point" x="2905" y="922" />
+        <di:waypoint xsi:type="dc:Point" x="2905" y="617" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2796" y="897" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="MessageFlow_1gytlv3_di" bpmnElement="MessageFlow_1gytlv3">
+        <di:waypoint xsi:type="dc:Point" x="2296" y="774" />
+        <di:waypoint xsi:type="dc:Point" x="2296" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2361" y="1236" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2266" y="995" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="MessageFlow_1s6yo38_di" bpmnElement="MessageFlow_1s6yo38">
+        <di:waypoint xsi:type="dc:Point" x="2387" y="639" />
+        <di:waypoint xsi:type="dc:Point" x="2387" y="1196" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2357" y="907.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="MessageFlow_0ha56zn_di" bpmnElement="MessageFlow_0ha56zn">
+        <di:waypoint xsi:type="dc:Point" x="2442" y="763" />
+        <di:waypoint xsi:type="dc:Point" x="2442" y="985" />
+        <di:waypoint xsi:type="dc:Point" x="2442" y="985" />
+        <di:waypoint xsi:type="dc:Point" x="2442" y="1196" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2412" y="975" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="MessageFlow_0c1d2q8_di" bpmnElement="MessageFlow_0c1d2q8">
+        <di:waypoint xsi:type="dc:Point" x="2399" y="1196" />
+        <di:waypoint xsi:type="dc:Point" x="2399" y="639" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2369" y="907.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0sixtso_di" bpmnElement="SequenceFlow_0sixtso">
+        <di:waypoint xsi:type="dc:Point" x="2537" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2573" y="1236" />
+        <di:waypoint xsi:type="dc:Point" x="2573" y="1209" />
+        <di:waypoint xsi:type="dc:Point" x="2609" y="1209" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2543" y="1212.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="MessageFlow_0c5ik64_di" bpmnElement="MessageFlow_0c5ik64">
+        <di:waypoint xsi:type="dc:Point" x="2659" y="1169" />
+        <di:waypoint xsi:type="dc:Point" x="2659" y="818" />
+        <di:waypoint xsi:type="dc:Point" x="2829" y="818" />
+        <di:waypoint xsi:type="dc:Point" x="2829" y="773" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2699" y="793" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_00lcmd9_di" bpmnElement="SequenceFlow_00lcmd9">
+        <di:waypoint xsi:type="dc:Point" x="2296" y="714" />
+        <di:waypoint xsi:type="dc:Point" x="2296" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2337" y="599" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2266" y="646.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0a4uikz_di" bpmnElement="SequenceFlow_0a4uikz">
+        <di:waypoint xsi:type="dc:Point" x="2437" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2621" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2621" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2804" y="599" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2591" y="589" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="EventBasedGateway_0h7ynir_di" bpmnElement="ExclusiveGateway_1cfgy1f">
+        <dc:Bounds x="2804" y="574" width="50" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2784" y="624" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="IntermediateCatchEvent_0jhzp6h_di" bpmnElement="IntermediateCatchEvent_0jhzp6h">
+        <dc:Bounds x="2811" y="737" width="36" height="36" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2784" y="773" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_1sxhgyf_di" bpmnElement="SequenceFlow_1sxhgyf">
+        <di:waypoint xsi:type="dc:Point" x="2829" y="624" />
+        <di:waypoint xsi:type="dc:Point" x="2829" y="737" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2799" y="670.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_0xpv4we_di" bpmnElement="SequenceFlow_0xpv4we">
+        <di:waypoint xsi:type="dc:Point" x="2811" y="755" />
+        <di:waypoint xsi:type="dc:Point" x="2786" y="755" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2753.5" y="730" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="IntermediateCatchEvent_1jzts4g_di" bpmnElement="IntermediateCatchEvent_1jzts4g">
+        <dc:Bounds x="2887" y="581" width="36" height="36" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2860" y="617" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_10ufu7i_di" bpmnElement="SequenceFlow_10ufu7i">
+        <di:waypoint xsi:type="dc:Point" x="2854" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2887" y="599" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2825.5" y="574" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="SubProcess_0ajah21_di" bpmnElement="Id_17195e8f-313a-4a0b-8c46-f2cd0ec0db3a">
+        <dc:Bounds x="1839" y="705" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SubProcess_09eth9j_di" bpmnElement="Id_3ebcfdc6-ca99-4eba-8f36-396866783803">
+        <dc:Bounds x="869" y="853" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SubProcess_0f7gy69_di" bpmnElement="Task_0pourvy">
+        <dc:Bounds x="2430" y="683" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SubProcess_1l6txw0_di" bpmnElement="Task_0kd5j95">
+        <dc:Bounds x="2337" y="559" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SubProcess_1umtuv2_di" bpmnElement="Id_34bf7db4-90ed-4538-8f73-c712d7a9cbfe">
+        <dc:Bounds x="2361" y="1196" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SendTask_0znk6cr_di" bpmnElement="Task_0kb40ya">
+        <dc:Bounds x="2609" y="1169" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNShape id="SendTask_0xjr646_di" bpmnElement="Id_7c7ac8a5-f713-459a-b4a0-ba355e79723a">
+        <dc:Bounds x="2727" y="1239" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_1bcz71r_di" bpmnElement="SequenceFlow_1bcz71r">
+        <di:waypoint xsi:type="dc:Point" x="295" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="582" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="582" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="869" y="893" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="552" y="879" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="ExclusiveGateway_1op65tm_di" bpmnElement="ExclusiveGateway_1op65tm" isMarkerVisible="true">
+        <dc:Bounds x="1297" y="868" width="50" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1277" y="918" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_0bp9bbv_di" bpmnElement="SequenceFlow_0bp9bbv">
+        <di:waypoint xsi:type="dc:Point" x="1233" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1265" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1265" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1297" y="893" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1235" y="883" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_1yzlod6_di" bpmnElement="SequenceFlow_1yzlod6">
+        <di:waypoint xsi:type="dc:Point" x="1347" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1375" y="893" />
+        <di:waypoint xsi:type="dc:Point" x="1375" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="1402" y="885" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1345" y="879" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="EndEvent_15eor4e_di" bpmnElement="EndEvent_15eor4e">
+        <dc:Bounds x="1573" y="867" width="36" height="36" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1546" y="903" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_0c1bljv_di" bpmnElement="SequenceFlow_0c1bljv">
+        <di:waypoint xsi:type="dc:Point" x="1502" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="1573" y="885" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1492.5" y="860" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="UserTask_00mct21_di" bpmnElement="Task_1t19k7n">
+        <dc:Bounds x="1402" y="845" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_0f2j90t_di" bpmnElement="SequenceFlow_0f2j90t">
+        <di:waypoint xsi:type="dc:Point" x="1322" y="642" />
+        <di:waypoint xsi:type="dc:Point" x="1322" y="460" />
+        <di:waypoint xsi:type="dc:Point" x="1396" y="460" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1292" y="541" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNEdge id="SequenceFlow_1mde190_di" bpmnElement="SequenceFlow_1mde190">
+        <di:waypoint xsi:type="dc:Point" x="2923" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2963" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2963" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="2986" y="599" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2933" y="589" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="Task_0gyv3kn_di" bpmnElement="Task_0gyv3kn">
+        <dc:Bounds x="3101" y="559" width="100" height="80" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_0y3mk4r_di" bpmnElement="SequenceFlow_0y3mk4r">
+        <di:waypoint xsi:type="dc:Point" x="3076" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="3101" y="599" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="3043.5" y="574" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="ExclusiveGateway_0y20d3f_di" bpmnElement="ExclusiveGateway_0y20d3f" isMarkerVisible="true">
+        <dc:Bounds x="1938" y="334" width="50" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1918" y="384" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="SequenceFlow_1s4cz6e_di" bpmnElement="SequenceFlow_1s4cz6e">
+        <di:waypoint xsi:type="dc:Point" x="1948" y="349" />
+        <di:waypoint xsi:type="dc:Point" x="1807" y="262" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="1832.5" y="280.5" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="DataObjectReference_0xcnzmr_di" bpmnElement="DataObjectReference_0xcnzmr">
+        <dc:Bounds x="2234" y="823" width="36" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2207" y="873" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="DataInputAssociation_1tqteas_di" bpmnElement="DataInputAssociation_1tqteas">
+        <di:waypoint xsi:type="dc:Point" x="2264" y="823" />
+        <di:waypoint xsi:type="dc:Point" x="2288" y="774" />
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="TextAnnotation_1wmug3x_di" bpmnElement="TextAnnotation_1wmug3x">
+        <dc:Bounds x="1941" y="811" width="273" height="195" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="Association_0al3vi5_di" bpmnElement="Association_0al3vi5">
+        <di:waypoint xsi:type="dc:Point" x="2234" y="854" />
+        <di:waypoint xsi:type="dc:Point" x="2214" y="861" />
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="DataObjectReference_1a4t5d2_di" bpmnElement="DataObjectReference_1a4t5d2">
+        <dc:Bounds x="2820" y="1166" width="36" height="50" />
+        <bpmni:BPMNLabel>
+          <dc:Bounds x="2793" y="1216" width="90" height="20" />
+        </bpmni:BPMNLabel>
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="DataInputAssociation_067j9zh_di" bpmnElement="DataInputAssociation_067j9zh">
+        <di:waypoint xsi:type="dc:Point" x="2825" y="1216" />
+        <di:waypoint xsi:type="dc:Point" x="2813" y="1239" />
+      </bpmni:BPMNEdge>
+      <bpmni:BPMNShape id="TextAnnotation_03nlvgb_di" bpmnElement="TextAnnotation_03nlvgb">
+        <dc:Bounds x="2909" y="1161" width="162" height="32" />
+      </bpmni:BPMNShape>
+      <bpmni:BPMNEdge id="Association_1u255iz_di" bpmnElement="Association_1u255iz">
+        <di:waypoint xsi:type="dc:Point" x="2856" y="1189" />
+        <di:waypoint xsi:type="dc:Point" x="2909" y="1184" />
+      </bpmni:BPMNEdge>
+    </bpmni:BPMNPlane>
+    <bpmni:BPMNLabelStyle id="Style_b3adff29-2f18-4991-9839-663dca13f4db">
+      <dc:Font name="Segoe UI" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_a95e9ac9-41fd-4d55-866c-355aae3a76eb">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_54a84e9e-4494-4506-a325-eca41f5ed49a">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_c2458f01-53d8-40f7-88c3-69e011f7c70e">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_35a27fa9-2f3a-488f-9a36-59ef3f2e391a">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_acb82d91-5d57-4a16-b38b-226fec4029a9">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_73137ea4-8a59-4ce6-80ac-df85fadf7742">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_8f6828ce-a0bd-4bfc-93b4-eb91fbbc5a63">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_5c38fecd-daa8-4df6-87d7-d2a36b35cb6e">
+      <dc:Font name="Calibri Light" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_cdbae116-9519-4344-945f-75d03f2f19d1">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f4ab65d3-3d7e-4c27-8ef4-f542f94860ab">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_c30c3b91-88a2-431d-98b3-c9b6728d707a">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_6fbfafd7-2424-4f61-a733-e70672d62dab">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_7117dec3-314b-4f80-b5bf-f8178b2b78ab">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_c1472aad-e11a-4df1-b6fd-db5b34de858a">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_7e1c150a-bd0d-468f-9683-335d359a37ee">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_ed091c01-fade-4b22-a970-643242cf58e2">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_020c4c1b-a41d-4aea-a2cc-a3f13b8c61ca">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_1fb41377-d06b-44ea-92d9-55e3eb1bf448">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f10bae41-c2d3-4ec7-835b-68fb1c11beda">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_3d402b4b-9c0e-45e0-8909-d316e79b2cdf">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_1b0eac10-e145-420c-ab35-da5ccafcb551">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_94458cef-4e42-42d9-b61d-0062da775e74">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_03252a65-e842-4636-a830-fd89524b4e8b">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_82dc9fa6-3602-46ae-81b2-5c6c426090f0">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f1529393-843d-4958-b5aa-9ba22db80801">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_165dfcbc-493d-4440-bd61-c2f19fb3d072">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_7c533ffb-0f67-4f16-8946-2dc22c050faf">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_0ac6be77-3e62-4c4a-b426-9cc77bb38401">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_132ab6a4-52be-4d92-a0af-26d16f9b690d">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f87bd256-1257-4aea-b591-1479307e90ba">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_ed350bcf-3f0f-416e-b956-aabf8c712c08">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_9959efea-298a-47c2-97b6-97c55048071c">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_ee09bf65-ca3a-431a-b74d-2b976c1e5404">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_7d463b22-0a26-4590-b671-c7e12e287bb6">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_44a4cf85-229c-440c-9048-f18a35e32575">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_4243a489-4f56-46ed-a889-fd229ad433f1">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_68d9b43a-f935-4b4f-83af-601c48e1171b">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_c8ac320c-d5f4-42b2-bedc-2dfecc15c648">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_fdf4489c-a149-4a9b-9a96-4fcd43049617">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_cb680fbb-3aa8-4dea-9cd2-f6f122e59638">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_456c6028-ce8f-4f48-a519-0794b76ae0d2">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_90a7d01f-7ca0-4958-867e-e98c38576da7">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_666271b8-6da8-4f31-a57a-5caf0e81151b">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_a5b6e3cf-c138-438a-9302-aad259de0932">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_bf29fdd2-2cac-4542-99dd-86eb79ffbec8">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_a177f9a1-7d3a-4603-939f-bb341ed4025f">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_fee3cc4b-a9ae-46ee-89d7-e9ad2010f740">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_6370b850-7669-4886-90ff-a850b789439e">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_7ad36708-f693-4f5f-bc86-45d145537030">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_49851b02-6595-40b1-824a-4761cc065735">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f417a16b-be3f-4511-89d0-eb17101243d6">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_bb0c20ec-6d89-4ac3-86d1-1f742f69e162">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_f8dbdf09-8597-4e26-b2f7-3dcf72b861b8">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_39e9de74-106e-451f-8b09-f23448b87f61">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_05940ab8-5509-4863-8e3b-8f55a00a24d2">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_d153379a-00b8-4e5a-a62b-2eaae66c2b29">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_b9716e3c-916f-4704-942e-8a8eb4b23ac7">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_1226aaad-295e-44f6-bd4e-c5e10c5edc67">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_bbd09594-c1f2-4261-a4b8-27869b4dc399">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_cc257e24-23e0-45cc-99f2-fc2ab8300e71">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+    <bpmni:BPMNLabelStyle id="Style_55dcf003-d7c8-4b5c-90ec-8ac799d29797">
+      <dc:Font name="Calibri Light" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmni:BPMNLabelStyle>
+  </bpmni:BPMNDiagram>
+</definitions>
