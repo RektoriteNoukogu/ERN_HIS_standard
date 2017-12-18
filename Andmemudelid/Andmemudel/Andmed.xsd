@@ -158,44 +158,8 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="õppevorm" type="klassifikaatorType" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						<xsd:documentationDetails>
-							<xsd:interpretation>Õppevormi kood. Hetkel on kasutusel vaid EHISe koodid.</xsd:interpretation>
-							<xsd:useCases>
-								<xsd:useCase>Kasutatakse hetkel eksternide eristamiseks.</xsd:useCase>
-							</xsd:useCases>
-							<xsd:standardisationNotes>
-								<xsd:note>Keskselt kasutamise otstarbekus ei ole selge.</xsd:note>
-								<xsd:note>
-                  "Näide klassifikaatorist:
-                  Vaikimisi tühi - Õppetöö toimub viisil, kus kontaktõpe võib toimuda igapäevaselt. (Hetkel: Statsionaarne, päevane, õhtune)
-                  Sessioonõpe - Õppetöö toimub õppesessioonidena. (Hetkel: Kaugõpe, tsükliõpe, avatud ülikooli õpe)
-                  Pikendatud õppeajaga õpe - Õppetöö on jagatud tavapärasest pikemale ajaperioodile, mille tulemusena on semestri-/aastakoormus väiksem. (Hetkel: kaugõpe)"
-                </xsd:note>
-							</xsd:standardisationNotes>
-						</xsd:documentationDetails>
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="finantseerimisallikas" type="klassifikaatorType" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						<xsd:documentationDetails>
-							<xsd:interpretation>Finantseerimisallika kood. Hetkel kasutuses vaid EHISe koodid.</xsd:interpretation>
-							<xsd:useCases>
-								<xsd:useCase>
-                  Statistika
-                </xsd:useCase>
-								<xsd:useCase>
-                  Üliõpilaste õigused
-                </xsd:useCase>
-							</xsd:useCases>
-						</xsd:documentationDetails>
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element ref="õppevorm" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="finantseerimisallikas" minOccurs="1" maxOccurs="unbounded"/>
 			<xs:element name="haridustee" form="unqualified">
 				<xs:annotation>
 					<xs:documentation>
@@ -254,6 +218,21 @@
                 Vastavalt kõrgharidusreformile võib õppekavadel olla üks õppekeel (v.a doktoriõpe). Kui õppekaval on üks keel, siis kaaluda võimalust üliõpilase juurest see ära võtta. Kui on mitu keelt õppekaval, siis sisseastumisel keelenõuete täitmiseks vaja teada, mis keeles õpib. Hetkel akadeemilisel puhkusel olijatel võivad olla ka need keeled, mis ei ole õppekava keel.
               </xsd:note>
 						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="esimeneSemester" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Märgib, kas tudeng on esimesel semestril õppetoetuste arvestamisel</xsd:interpretation>
+						<xsd:useCases>
+							<xsd:useCase time="2017-12-11T11:37:00" author="Standardimise koosolek 2017-12-18">Vajaduspõhise õppetoetuse arvestamiseks.</xsd:useCase>
+						</xsd:useCases>
+						<xsd:issues>
+							<xsd:issue time="2017-12-18T11:37:00" author="Standardimise koosolek 2017-12-18">Hetkel arvutatakse andmete, mis juba saadetakse EHISesse, põhjal. EHIS võiks selle ise välja arvestada.</xsd:issue>
+						</xsd:issues>
 					</xsd:documentationDetails>
 				</xs:documentation>
 			</xs:annotation>
@@ -595,17 +574,69 @@
 	<xs:element name="AkadeemiliseLõpp" type="akadeemilineType"/>
 	<xs:complexType name="võtaType">
 		<xs:sequence>
-			<xs:element name="SoorituseAsutus" type="asutusType"/>
-			<xs:element name="ArvestuseTüüp" type="klassifikaatorType" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						<xsd:documentationDetails>
-							<xsd:standardisationNotes>
-								<xsd:note>kas praegune klassifikaator on sobiv?</xsd:note>
-							</xsd:standardisationNotes>
-						</xsd:documentationDetails>
-					</xs:documentation>
-				</xs:annotation>
+			<xs:element name="sooritus" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SoorituseAsutus" type="asutusType"/>
+						<xs:element name="ArvestuseTüüp" type="klassifikaatorType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>
+									<xsd:documentationDetails>
+										<xsd:standardisationNotes>
+											<xsd:note>kas praegune klassifikaator on sobiv?</xsd:note>
+											<xsd:note>Klassifikaator hetkel: "formaalne" ja "informaalne". Tegelikkuses on enamus "kombineeritud", mida märgitakse kui "informaalne".</xsd:note>
+										</xsd:standardisationNotes>
+									</xsd:documentationDetails>
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="soorituseKuupäev" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>
+								<xsd:documentationDetails>
+									<xsd:useCases>
+										<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
+									</xsd:useCases>
+									<xsd:issues>
+										<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
+									</xsd:issues>
+									<xsd:standardisationNotes>
+										<xsd:note>EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
+/
+Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
+/
+kui kuupäev olemas, siis on ka ÕISis dokumendil
+</xsd:note>
+									</xsd:standardisationNotes>
+								</xsd:documentationDetails>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="soorituseAlguseKuupäev" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>
+								<xsd:documentationDetails>
+									<xsd:useCases>
+										<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
+									</xsd:useCases>
+									<xsd:issues>
+										<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
+									</xsd:issues>
+									<xsd:standardisationNotes>
+										<xsd:note>"EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
+/
+Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
+/
+kui kuupäev olemas, siis on ka ÕISis dokumendil"
+
+</xsd:note>
+									</xsd:standardisationNotes>
+								</xsd:documentationDetails>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="isikukood" type="isikukoodType" use="required"/>
@@ -616,52 +647,156 @@
 		</xs:attribute>
 		<xs:attribute name="maht" type="xs:decimal" use="required"/>
 		<xs:attribute name="mahuÜhik" type="xs:string" use="required"/>
-		<xs:attribute name="soorituseKuupäev" type="xs:date">
+	</xs:complexType>
+	<xs:element name="VÕTA" type="võtaType"/>
+	<xs:complexType name="tudengiÕpinguAndmedType">
+		<xs:sequence>
+			<xs:element ref="õppevorm" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="õppekoormus" type="klassifikaatorType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="finantseerimisallikas" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="isikukood" type="isikukoodType" use="required"/>
+		<xs:attribute name="õpinguteAlgus" type="xs:date"/>
+		<xs:attribute name="õpinguteLõpp" type="xs:date"/>
+		<xs:attribute name="epost"/>
+		<xs:attribute name="kursus" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					<xsd:documentationDetails>
 						<xsd:useCases>
-							<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
+							<xsd:useCase>Statistikas vastuvõetute arvu leidmiseks.</xsd:useCase>
 						</xsd:useCases>
 						<xsd:issues>
-							<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
+							<xsd:issue>Hetkel vabatekstiväli. Kaaluda eemaldamist - ei kasutata otstarbekalt.</xsd:issue>
+							<xsd:issue>"Kaks nimetust; tähendus on sama. Siiani kasutatud vastuvõetud üliõpilaste defineerimiseks. Ei ole õppeasutustes sisestatud ühtse loogika alusel. Kaaluda sellest tunnusest loobumist. 
+Kui vastuvõetute defineerimisel 1. kursusel õppimist arvesse mitte võtta, siis tulemus ei erine väga oluliselt praegu kasutatava definitsiooni alusel vastuvõetute arvust. 
+Seega on mõistlik kaaluda, kas on otstarbekas kursuse andmeid EHISes edasi koguda, kui väga olulist kasutusala neil andmetel ei ole. 
+Rahvusvaheline definitsioon vaatab esmakordselt vastavale haridustasemele sisenejaid (new entrance"") (st tuleks lähtuda eelnevast haridusteest). Kursuse abil uue vastuvõtu defineerimine on siseriikliku definitsiooni alusel."
+</xsd:issue>
 						</xsd:issues>
 						<xsd:standardisationNotes>
-							<xsd:note>"EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
-/
-Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
-/
-kui kuupäev olemas, siis on ka ÕISis dokumendil"
-
+							<xsd:note>kasutatakse ka terminit õpiaasta (TTÜ seda ei kasuta)
 </xsd:note>
 						</xsd:standardisationNotes>
 					</xsd:documentationDetails>
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="soorituseAlguseKuupäev" type="xs:date">
+		<xs:attribute name="koormuseMuutuseKuupäev" type="xs:date"/>
+		<xs:attribute name="õppevormiMuutuseKuupäev" type="xs:date"/>
+		<xs:attribute name="kumlatiivsedAinepunktid" type="xs:decimal">
 			<xs:annotation>
 				<xs:documentation>
 					<xsd:documentationDetails>
-						<xsd:useCases>
-							<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
-						</xsd:useCases>
-						<xsd:issues>
-							<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
-						</xsd:issues>
 						<xsd:standardisationNotes>
-							<xsd:note>"EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
-/
-Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
-/
-kui kuupäev olemas, siis on ka ÕISis dokumendil"
-
+							<xsd:note>"Kuna õppeasutuses kasutatakse sisemiselt EHISe definitsioonist erinevat lähenemist, siis arvutatakse EHISe jaoks xml moodustamisel
+EHISe jaoks xml-i koostamisel kõik sooritatud EAP, ÕISis olemas väli - koormusarvutusel arvesse minevad EAP"
 </xsd:note>
 						</xsd:standardisationNotes>
 					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekavaTäitmiseOsakaal" type="xs:decimal">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Eelmistel semestritel õppekava kohaselt täitmisele kuuluva õppe maht protsentides.
+</xsd:interpretation>
+						<xsd:useCases>
+							<xsd:useCase>Üliõpilase edasijõudmise analüüsimiseks.</xsd:useCase>
+						</xsd:useCases>
+						<xsd:issues>
+							<xsd:issue>Kõik ülikoolid ei kasuta sisemiselt sama algoritmi. </xsd:issue>
+						</xsd:issues>
+						<xsd:standardisationNotes>
+							<xsd:note>Kuna õppeasutuses kasutatakse sisemiselt EHISe definitsioonist erinevat lähenemist, siis arvutatakse EHISe jaoks xml moodustamisel. /Kõikides õppeasutustes ei ole sisemiselt kasutusel; ÕISIs väli puudub, sisestavad ainult EHISesse</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekavaTäitmiseOsakaaluKuupäev" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:standardisationNotes>
+						<xsd:issues>
+							<xsd:issue>Kasutusvajadus ebaselge
+</xsd:issue>
+							<xsd:issue>Õppeasutused kasutavad nt andmete EHISesse saatmise kuupäeva
+</xsd:issue>
+						</xsd:issues>
+					</xsd:standardisationNotes>
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:element name="VÕTA" type="võtaType"/>
+	<xs:element name="TudengiÕpinguAndmed" type="tudengiÕpinguAndmedType"/>
+	<xs:complexType name="isikuandmedType">
+		<xs:complexContent>
+			<xs:extension base="isikType">
+				<xs:sequence>
+					<xs:element name="erivajadus" type="klassifikaatorType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="alalineElamisluba" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							<xsd:documentationDetails>
+								<xsd:interpretation>märgib alalise elamisloa olemasolu.</xsd:interpretation>
+								<xsd:useCases>
+									<xsd:useCase time="2017-12-18T11:10:00" author="ERN kooslek 2017-12-18">Õiguste määramine</xsd:useCase>
+									<xsd:useCase time="2017-12-18T11:10:00" author="ERN kooslek 2017-12-18">Stipendiumite määramine</xsd:useCase>
+								</xsd:useCases>
+							</xsd:documentationDetails>
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="õppevorm" type="klassifikaatorType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Õppevormi kood. Hetkel on kasutusel vaid EHISe koodid.</xsd:interpretation>
+					<xsd:useCases>
+						<xsd:useCase>Kasutatakse hetkel eksternide eristamiseks.</xsd:useCase>
+					</xsd:useCases>
+					<xsd:issues>
+						<xsd:issue>Keskselt kasutamise otstarbekus ei ole selge.</xsd:issue>
+					</xsd:issues>
+					<xsd:standardisationNotes>
+						<xsd:note>
+                  Näide klassifikaatorist: 
+Vaikimisi tühi - Õppetöö toimub viisil, kus kontaktõpe võib toimuda igapäevaselt. (Hetkel: Statsionaarne, päevane, õhtune)
+Sessioonõpe - Õppetöö toimub õppesessioonidena. (Hetkel: Kaugõpe, tsükliõpe, avatud ülikooli õpe)
+Pikendatud õppeajaga õpe - Õppetöö on jagatud tavapärasest pikemale ajaperioodile, mille tulemusena on semestri-/aastakoormus väiksem. (Hetkel: kaugõpe)
+Prorektorid leppisid (25.10.2017) kokku kaks õppevormi: päevaõpe ja sessioonõpe. Vajalik oleks pikendatud õppeajaga õpe 
+                </xsd:note>
+						<xsd:note time="2017-12-18T11:20:00" author="Standardimise koosolek 2017-12-18">Võiks eemaldada ja saendada tunnusega "ekstern" või "õppijaLiik" ("üliõpilane", "ekstern", "täiendusõppija") ja lipuga "välisüliõpilane".</xsd:note>
+					</xsd:standardisationNotes>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="finantseerimisallikas" type="klassifikaatorType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Finantseerimisallika kood. Hetkel kasutuses vaid EHISe koodid.</xsd:interpretation>
+					<xsd:useCases>
+						<xsd:useCase>Statistika</xsd:useCase>
+						<xsd:useCase>Üliõpilase õigused.</xsd:useCase>
+					</xsd:useCases>
+					<xsd:standardisationNotes>
+						<xsd:note>"Kas on klassifikaatoris ""üliõpilane ei hüvita õppekulusid"" on vaja nii palju valikuid?
+Kooli ja EHISe klassifikaator on erinevad. EHISe oma ei kasuta, kuna loogika ei sobi ÕIS loogikaga, andmevahetusel teisendame andmeid xml-i jaoks"
+</xsd:note>
+						<xsd:note>kas praegune klassifikaator on sobiv?
+</xsd:note>
+					</xsd:standardisationNotes>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
