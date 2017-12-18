@@ -2,6 +2,8 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_0zca8f5">
     <bpmn:participant id="Participant_0pbfh91" name="VÕTA" processRef="Process_1" />
+    <bpmn:participant id="Participant_16u7emg" name="EHIS" />
+    <bpmn:messageFlow id="MessageFlow_1n5tpgd" sourceRef="Task_04aen9u" targetRef="Participant_16u7emg" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet>
@@ -14,9 +16,10 @@
       <bpmn:lane id="Lane_0ug9o25" name="dekanaadi töötaja/VÕTA nõustaja">
         <bpmn:flowNodeRef>Task_1l9jbgy</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0ei3joy</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1ptxej7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_13xub3t</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0772in5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1ptxej7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04aen9u</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0idmbyp" name="VÕTA komisjon">
         <bpmn:flowNodeRef>ExclusiveGateway_1xkk42m</bpmn:flowNodeRef>
@@ -96,14 +99,7 @@
       <bpmn:incoming>SequenceFlow_0c0ayia</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0c0ayia" name="Ei" sourceRef="ExclusiveGateway_1xkk42m" targetRef="EndEvent_08mo93i" />
-    <bpmn:task id="Task_1ptxej7" name="dekanaadi töötaja sisestab arvestatud õppeained ÕISi">
-      <bpmn:incoming>SequenceFlow_1cv0x28</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1fnb2v9</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_1cv0x28" sourceRef="ExclusiveGateway_1xkk42m" targetRef="Task_1ptxej7" />
-    <bpmn:endEvent id="EndEvent_0772in5">
-      <bpmn:incoming>SequenceFlow_1fnb2v9</bpmn:incoming>
-    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1cv0x28" sourceRef="ExclusiveGateway_1xkk42m" targetRef="Task_04aen9u" />
     <bpmn:sequenceFlow id="SequenceFlow_1fnb2v9" sourceRef="Task_1ptxej7" targetRef="EndEvent_0772in5" />
     <bpmn:dataObjectReference id="DataObjectReference_0t1n4nf" name="VÕTA taotlus" dataObjectRef="DataObject_0g2072a" />
     <bpmn:dataObject id="DataObject_0g2072a" />
@@ -111,6 +107,25 @@
       <bpmn:incoming>SequenceFlow_0a0rjb5</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ooomne</bpmn:outgoing>
     </bpmn:subProcess>
+    <bpmn:sequenceFlow id="SequenceFlow_09ndlzm" sourceRef="Task_04aen9u" targetRef="Task_1ptxej7" />
+    <bpmn:endEvent id="EndEvent_0772in5">
+      <bpmn:incoming>SequenceFlow_1fnb2v9</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_1ptxej7" name="dekanaadi töötaja sisestab arvestatud õppeained ÕISi">
+      <bpmn:incoming>SequenceFlow_09ndlzm</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1fnb2v9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:manualTask id="Task_04aen9u" name="VÕTA registreeritakse EHISes">
+      <bpmn:incoming>SequenceFlow_1cv0x28</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_09ndlzm</bpmn:outgoing>
+      <bpmn:property id="Property_0s2anj8" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_19y15hd">
+        <bpmn:sourceRef>DataObjectReference_0sm1nhx</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0s2anj8</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:manualTask>
+    <bpmn:dataObjectReference id="DataObjectReference_0sm1nhx" dataObjectRef="DataObject_1oeom14" />
+    <bpmn:dataObject id="DataObject_1oeom14" />
     <bpmn:association id="Association_1r35slg" sourceRef="StartEvent_1" targetRef="TextAnnotation_0enav0t" />
     <bpmn:textAnnotation id="TextAnnotation_0enav0t">
       <bpmn:text>infomaterjalid, veeb, koolitused vms</bpmn:text>
@@ -133,6 +148,11 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_1swrf7t">
       <bpmn:text>osades ülikoolides toimub see ÕISis. Neil juhtudel avalduse täitmisega alustamise või esitamisega registreeritakse avaldus ÕISis.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1sse8r3" sourceRef="DataObjectReference_0sm1nhx" targetRef="TextAnnotation_1mk1s1x" />
+    <bpmn:textAnnotation id="TextAnnotation_1mk1s1x">
+      <bpmn:text><![CDATA[VÕTA statistika jaoks:
+Isikukood, otsuse kuupäev, soorituse asutuse andmed (id, tüüp, riik, nimetus), maht, arvestuse tüüp, originaalsoorituse kuupäev või ajavahemik?.]]></bpmn:text>
     </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -314,26 +334,27 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_1ptxej7_di" bpmnElement="Task_1ptxej7">
-        <dc:Bounds x="961" y="519" width="100" height="80" />
+        <dc:Bounds x="1305" y="519" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1cv0x28_di" bpmnElement="SequenceFlow_1cv0x28">
         <di:waypoint xsi:type="dc:Point" x="1011" y="658" />
-        <di:waypoint xsi:type="dc:Point" x="1011" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="1011" y="559" />
+        <di:waypoint xsi:type="dc:Point" x="1172" y="559" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1026" y="618.5" width="0" height="0" />
+          <dc:Bounds x="981" y="608.5" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0772in5_di" bpmnElement="EndEvent_0772in5">
-        <dc:Bounds x="1123" y="541" width="36" height="36" />
+        <dc:Bounds x="1432" y="541" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1141" y="577" width="0" height="0" />
+          <dc:Bounds x="1405" y="577" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1fnb2v9_di" bpmnElement="SequenceFlow_1fnb2v9">
-        <di:waypoint xsi:type="dc:Point" x="1061" y="559" />
-        <di:waypoint xsi:type="dc:Point" x="1123" y="559" />
+        <di:waypoint xsi:type="dc:Point" x="1405" y="559" />
+        <di:waypoint xsi:type="dc:Point" x="1432" y="559" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1092" y="534" width="0" height="0" />
+          <dc:Bounds x="1373.5" y="544" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="DataObjectReference_0t1n4nf_di" bpmnElement="DataObjectReference_0t1n4nf">
@@ -354,11 +375,11 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
         <di:waypoint xsi:type="dc:Point" x="409" y="521" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1o59se4_di" bpmnElement="TextAnnotation_1o59se4">
-        <dc:Bounds x="1079" y="728" width="213" height="53" />
+        <dc:Bounds x="1079" y="728" width="213" height="46" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0mfbm88_di" bpmnElement="Association_0mfbm88">
-        <di:waypoint xsi:type="dc:Point" x="1029" y="690" />
-        <di:waypoint xsi:type="dc:Point" x="1120" y="728" />
+        <di:waypoint xsi:type="dc:Point" x="1030" y="689" />
+        <di:waypoint xsi:type="dc:Point" x="1126" y="728" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="SubProcess_07i7k9h_di" bpmnElement="Task_0gdiacm">
         <dc:Bounds x="814" y="643" width="100" height="80" />
@@ -376,6 +397,43 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
       <bpmndi:BPMNEdge id="Association_1xz403x_di" bpmnElement="Association_1xz403x">
         <di:waypoint xsi:type="dc:Point" x="887" y="519" />
         <di:waypoint xsi:type="dc:Point" x="905" y="486" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_063vkcn_di" bpmnElement="Participant_16u7emg">
+        <dc:Bounds x="886" y="834" width="534" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_09ndlzm_di" bpmnElement="SequenceFlow_09ndlzm">
+        <di:waypoint xsi:type="dc:Point" x="1272" y="559" />
+        <di:waypoint xsi:type="dc:Point" x="1305" y="559" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1288.5" y="538" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ManualTask_0f5mtpx_di" bpmnElement="Task_04aen9u">
+        <dc:Bounds x="1172" y="519" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_1n5tpgd_di" bpmnElement="MessageFlow_1n5tpgd">
+        <di:waypoint xsi:type="dc:Point" x="1222" y="599" />
+        <di:waypoint xsi:type="dc:Point" x="1222" y="834" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1237" y="710.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1mk1s1x_di" bpmnElement="TextAnnotation_1mk1s1x">
+        <dc:Bounds x="1355" y="638" width="141.98017049666421" height="134.173461823573" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1sse8r3_di" bpmnElement="Association_1sse8r3">
+        <di:waypoint xsi:type="dc:Point" x="1316" y="687" />
+        <di:waypoint xsi:type="dc:Point" x="1355" y="693" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="DataObjectReference_0sm1nhx_di" bpmnElement="DataObjectReference_0sm1nhx">
+        <dc:Bounds x="1279.7153797064454" y="647.0561582641992" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1297.7153797064454" y="701.0561582641992" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_19y15hd_di" bpmnElement="DataInputAssociation_19y15hd">
+        <di:waypoint xsi:type="dc:Point" x="1280" y="650" />
+        <di:waypoint xsi:type="dc:Point" x="1238" y="599" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
