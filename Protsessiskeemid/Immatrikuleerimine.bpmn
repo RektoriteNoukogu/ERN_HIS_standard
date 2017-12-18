@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.2.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_1dwvkf2">
     <bpmn:participant id="Participant_1bgtzd5" name="ÕIS" processRef="Process_1" />
     <bpmn:participant id="Participant_18j2ymf" name="SAIS" />
@@ -10,8 +10,9 @@
     <bpmn:messageFlow id="MessageFlow_02ry3ba" sourceRef="Task_0q6unf0" targetRef="Task_133bq43" />
     <bpmn:messageFlow id="MessageFlow_0u1ym3d" sourceRef="Task_133bq43" targetRef="IntermediateThrowEvent_041f72u" />
     <bpmn:messageFlow id="MessageFlow_0z64l60" sourceRef="Task_1v0xbya" targetRef="Participant_0d320q6" />
-    <bpmn:textAnnotation id="TextAnnotation_1imzcjx">    <bpmn:text>Partnerülikooliga suheldakse ka telefonitsi SAIS-st tuleva nimekirja parandamise osas. Automaatselt teavitatakse vaid, et võite tudengid kirja panna.</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1imzcjx">
+      <bpmn:text>Partnerülikooliga suheldakse ka telefonitsi SAIS-st tuleva nimekirja parandamise osas. Automaatselt teavitatakse vaid, et võite tudengid kirja panna.</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet>
@@ -181,24 +182,30 @@
     <bpmn:dataObjectReference id="DataObjectReference_0lbx7w1" name="Immatrikuleerimise korraldus" dataObjectRef="DataObject_0tobpuw" />
     <bpmn:dataObject id="DataObject_0tobpuw" />
     <bpmn:association id="Association_1lwd3id" sourceRef="StartEvent_1" targetRef="TextAnnotation_0zwv9q0" />
-    <bpmn:textAnnotation id="TextAnnotation_0zwv9q0">    <bpmn:text>SAIS-st tuleb tudengite nimekiri</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0hm6dd3">    <bpmn:text>Selle käigus tehakse veel tegevusi</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0zwv9q0">
+      <bpmn:text>SAIS-st tuleb tudengite nimekiri</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0hm6dd3">
+      <bpmn:text>Selle käigus tehakse veel tegevusi</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_030yl53" sourceRef="Task_13ve6sq" targetRef="TextAnnotation_0hm6dd3" />
     <bpmn:association id="Association_1mcn7xh" sourceRef="Task_1uxik02" targetRef="TextAnnotation_0j97du6" />
     <bpmn:association id="Association_0yson4q" sourceRef="Task_1uxik02" targetRef="TextAnnotation_1imzcjx" />
-    <bpmn:textAnnotation id="TextAnnotation_0j97du6">    <bpmn:text>Välisülikooli puhul käib teavitamine käsitsi.</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0j97du6">
+      <bpmn:text>Välisülikooli puhul käib teavitamine käsitsi.</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1c7frhp" sourceRef="Task_1pwdkfi" targetRef="TextAnnotation_1e1l3qb" />
-    <bpmn:textAnnotation id="TextAnnotation_1e1l3qb">    <bpmn:text>EMÜs allkirjastatakse korraldus DHIS-s</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1e1l3qb">
+      <bpmn:text>EMÜs allkirjastatakse korraldus DHIS-s</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_0ewtsmt" sourceRef="Task_0q6unf0" targetRef="TextAnnotation_1e1l3qb" />
     <bpmn:association id="Association_0dc0ya4" sourceRef="Task_0pt8o07" targetRef="TextAnnotation_0wpqwl8" />
-    <bpmn:textAnnotation id="TextAnnotation_0wpqwl8">    <bpmn:text>ANDMED: õppeasutusse õppima asumise või immatrikuleerimise KOOD ja kuupäev; välisüliõpilase tunnus?, matriklinr?, õppekoht_id?</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_143xqbq">    <bpmn:text>Õppeasutuse kood, tudengite: isikukoodid või välistudengi tunnused, õppima asumise kuupäevad, õppekava kood, õppekava versioon?, õppekoormus, õppevorm, finantseerimisallikas, varasema haridustee andmed; õppe asukoht, õppekeel</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0wpqwl8">
+      <bpmn:text>ANDMED: õppeasutusse õppima asumise või immatrikuleerimise KOOD ja kuupäev; välisüliõpilase tunnus?, matriklinr?, õppekoht_id?</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_143xqbq">
+      <bpmn:text>Õppeasutuse kood, tudengite: isikukoodid või välistudengi tunnused, õppima asumise kuupäevad, õppekava kood, õppekava versioon?, õppekoormus, õppevorm, finantseerimisallikas, varasema haridustee andmed; õppe asukoht, õppekeel</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_0cxlh5q" sourceRef="DataObjectReference_0lbx7w1" targetRef="TextAnnotation_143xqbq" />
   </bpmn:process>
   <bpmn:process id="Process_0thrdck" isExecutable="false">
@@ -322,20 +329,20 @@
         <di:waypoint xsi:type="dc:Point" x="630" y="-126" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_0nd059x_di" bpmnElement="Participant_18j2ymf">
-        <dc:Bounds x="176" y="-405" width="569" height="60" />
+        <dc:Bounds x="193" y="-446" width="569" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_10amd9v_di" bpmnElement="MessageFlow_10amd9v">
-        <di:waypoint xsi:type="dc:Point" x="427" y="-345" />
+        <di:waypoint xsi:type="dc:Point" x="427" y="-386" />
         <di:waypoint xsi:type="dc:Point" x="427" y="-55" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="397" y="-210" width="90" height="20" />
+          <dc:Bounds x="397" y="-230.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_1vilka4_di" bpmnElement="MessageFlow_1vilka4">
         <di:waypoint xsi:type="dc:Point" x="416" y="-55" />
-        <di:waypoint xsi:type="dc:Point" x="416" y="-345" />
+        <di:waypoint xsi:type="dc:Point" x="416" y="-386" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="386" y="-210" width="90" height="20" />
+          <dc:Bounds x="386" y="-230.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0fnp5j3_di" bpmnElement="SequenceFlow_0fnp5j3">
@@ -550,11 +557,11 @@
         <di:waypoint xsi:type="dc:Point" x="748" y="302" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_0wpqwl8_di" bpmnElement="TextAnnotation_0wpqwl8">
-        <dc:Bounds x="1165" y="-13" width="100" height="30" />
+        <dc:Bounds x="1165" y="-13" width="205" height="74" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0dc0ya4_di" bpmnElement="Association_0dc0ya4">
-        <di:waypoint xsi:type="dc:Point" x="1017" y="-111" />
-        <di:waypoint xsi:type="dc:Point" x="1189" y="-13" />
+        <di:waypoint xsi:type="dc:Point" x="1017" y="-112" />
+        <di:waypoint xsi:type="dc:Point" x="1200" y="-13" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="DataObjectReference_00o87k9_di" bpmnElement="DataObjectReference_00o87k9">
         <dc:Bounds x="343" y="-276" width="36" height="50" />

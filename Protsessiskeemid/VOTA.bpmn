@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.2.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_0zca8f5">
     <bpmn:participant id="Participant_0pbfh91" name="VÕTA" processRef="Process_1" />
   </bpmn:collaboration>
@@ -112,23 +112,28 @@
       <bpmn:outgoing>SequenceFlow_0ooomne</bpmn:outgoing>
     </bpmn:subProcess>
     <bpmn:association id="Association_1r35slg" sourceRef="StartEvent_1" targetRef="TextAnnotation_0enav0t" />
-    <bpmn:textAnnotation id="TextAnnotation_0enav0t">    <bpmn:text>infomaterjalid, veeb, koolitused vms</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0enav0t">
+      <bpmn:text>infomaterjalid, veeb, koolitused vms</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1864cri" sourceRef="DataObjectReference_0t1n4nf" targetRef="TextAnnotation_12l5htv" />
-    <bpmn:textAnnotation id="TextAnnotation_12l5htv">    <bpmn:text><![CDATA[Tudengi andmed: isikukood või matriklinumber, ???
+    <bpmn:textAnnotation id="TextAnnotation_12l5htv">
+      <bpmn:text><![CDATA[Tudengi andmed: isikukood või matriklinumber, ???
 Õppekava: õppekava kood või õppekoha id, ???
 Ülekantavad kogemused: Vastavusaine kood ja liik, Kogemuse laad, Kogemuse originaal- või arvestuslik maht, Kogemuse andja, Kogemuse aeg, Kogemuse originaalandmed - Manused
 Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaalaine, Originaalhinne, hindanud õppejõud, originaalõpiväljundid <- võiksid tulla otse ÕISidest või EHISest tudengi soovil]]></bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1o59se4">    <bpmn:text>Arvestamine võib olla ainete kaupa - osad arvestatakse, osad mitte.</bpmn:text>
-</bpmn:textAnnotation>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1o59se4">
+      <bpmn:text>Arvestamine võib olla ainete kaupa - osad arvestatakse, osad mitte.</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_0mfbm88" sourceRef="ExclusiveGateway_1xkk42m" targetRef="TextAnnotation_1o59se4" />
     <bpmn:association id="Association_0s356z8" sourceRef="Task_0sqnn0o" targetRef="TextAnnotation_1swrf7t" />
     <bpmn:association id="Association_1xz403x" sourceRef="Task_0ei3joy" targetRef="TextAnnotation_10bg3xp" />
-    <bpmn:textAnnotation id="TextAnnotation_10bg3xp">    <bpmn:text>regitreerib, DHIS-s TÜ ja EMÜ korral</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1swrf7t">    <bpmn:text>osades ülikoolides toimub see ÕISis. Neil juhtudel avalduse täitmisega alustamise või esitamisega registreeritakse avaldus ÕISis.</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_10bg3xp">
+      <bpmn:text>regitreerib, DHIS-s TÜ ja EMÜ korral</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1swrf7t">
+      <bpmn:text>osades ülikoolides toimub see ÕISis. Neil juhtudel avalduse täitmisega alustamise või esitamisega registreeritakse avaldus ÕISis.</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0zca8f5">
@@ -342,11 +347,11 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
         <di:waypoint xsi:type="dc:Point" x="513" y="425" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_12l5htv_di" bpmnElement="TextAnnotation_12l5htv">
-        <dc:Bounds x="203" y="521" width="254" height="218" />
+        <dc:Bounds x="201" y="521" width="256" height="241" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1864cri_di" bpmnElement="Association_1864cri">
-        <di:waypoint xsi:type="dc:Point" x="438" y="474" />
-        <di:waypoint xsi:type="dc:Point" x="406" y="521" />
+        <di:waypoint xsi:type="dc:Point" x="439" y="474" />
+        <di:waypoint xsi:type="dc:Point" x="409" y="521" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1o59se4_di" bpmnElement="TextAnnotation_1o59se4">
         <dc:Bounds x="1079" y="728" width="213" height="53" />
@@ -359,18 +364,18 @@ Kui üle kantakse teise Eesti ülikooli andmeid: Kogemuse andja kood, Originaala
         <dc:Bounds x="814" y="643" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1swrf7t_di" bpmnElement="TextAnnotation_1swrf7t">
-        <dc:Bounds x="553" y="290" width="389" height="30" />
+        <dc:Bounds x="553" y="280" width="389" height="40" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0s356z8_di" bpmnElement="Association_0s356z8">
-        <di:waypoint xsi:type="dc:Point" x="569" y="368" />
-        <di:waypoint xsi:type="dc:Point" x="707" y="320" />
+        <di:waypoint xsi:type="dc:Point" x="569" y="367" />
+        <di:waypoint xsi:type="dc:Point" x="696" y="320" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_10bg3xp_di" bpmnElement="TextAnnotation_10bg3xp">
-        <dc:Bounds x="840" y="452" width="152" height="34" />
+        <dc:Bounds x="840" y="442" width="153" height="44" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1xz403x_di" bpmnElement="Association_1xz403x">
-        <di:waypoint xsi:type="dc:Point" x="888" y="519" />
-        <di:waypoint xsi:type="dc:Point" x="907" y="486" />
+        <di:waypoint xsi:type="dc:Point" x="887" y="519" />
+        <di:waypoint xsi:type="dc:Point" x="905" y="486" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

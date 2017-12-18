@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.3.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_1dwvkf2">
     <bpmn:participant id="Participant_1bgtzd5" name="ÕIS" processRef="Process_1" />
     <bpmn:participant id="Participant_1cf1hmm" name="Tudeng" />
     <bpmn:participant id="Participant_03p5xx5" name="Partnerülikool" />
+    <bpmn:participant id="Participant_0pdumf6" name="EHIS" />
     <bpmn:messageFlow id="MessageFlow_1j5e2dm" sourceRef="Participant_1cf1hmm" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="MessageFlow_0eg4ckf" sourceRef="EndEvent_1rbr7bc" targetRef="Participant_1cf1hmm" />
     <bpmn:messageFlow id="MessageFlow_0uw8n5e" sourceRef="Task_01j3kfr" targetRef="Participant_1cf1hmm" />
     <bpmn:messageFlow id="MessageFlow_0dskpwk" sourceRef="Task_1uxik02" targetRef="Participant_03p5xx5" />
-    <bpmn:textAnnotation id="TextAnnotation_1wqau4m">    <bpmn:text>ENNISTAMINE JA VABADE KOHTADE TÄITMINE</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:messageFlow id="MessageFlow_1as3urp" sourceRef="Task_0a9x41j" targetRef="Participant_0pdumf6" />
+    <bpmn:textAnnotation id="TextAnnotation_1wqau4m">
+      <bpmn:text>ENNISTAMINE JA VABADE KOHTADE TÄITMINE</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet>
@@ -22,23 +25,24 @@
       </bpmn:lane>
       <bpmn:lane id="Lane_1praikb" name="ÕIS (süsteem)">
         <bpmn:flowNodeRef>Task_0pt8o07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0a9x41j</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1lqix1l</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01j3kfr</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1nimghv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0o6zvcc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1gp8yby</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1uxik02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0e4d1gp</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_06aze1c" name="Valdkond/teaduskond">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_04aj0t2</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_1rbr7bc</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1njwwxv</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0fa1u2l</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_0e4d1gp</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1evssk8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1rbr7bc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_08dn2s1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1njwwxv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0ygt875</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0fa1u2l</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="SequenceFlow_0p50mwm" sourceRef="Task_08dn2s1" targetRef="ExclusiveGateway_04aj0t2" />
@@ -46,7 +50,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_080rg6s" sourceRef="StartEvent_1" targetRef="Task_08dn2s1" />
     <bpmn:sequenceFlow id="SequenceFlow_0fnp5j3" sourceRef="ExclusiveGateway_1lqix1l" targetRef="Task_01j3kfr" />
     <bpmn:sequenceFlow id="SequenceFlow_14fe25g" sourceRef="Task_01j3kfr" targetRef="ExclusiveGateway_1nimghv" />
-    <bpmn:sequenceFlow id="SequenceFlow_02z2umi" sourceRef="ExclusiveGateway_0fa1u2l" targetRef="EndEvent_0e4d1gp" />
+    <bpmn:sequenceFlow id="SequenceFlow_02z2umi" sourceRef="ExclusiveGateway_0fa1u2l" targetRef="Task_0a9x41j" />
     <bpmn:sequenceFlow id="SequenceFlow_1xabbqv" sourceRef="ExclusiveGateway_1lqix1l" targetRef="ExclusiveGateway_0o6zvcc" />
     <bpmn:sequenceFlow id="SequenceFlow_1oc14nq" sourceRef="Task_0pt8o07" targetRef="ExclusiveGateway_1lqix1l" />
     <bpmn:sequenceFlow id="SequenceFlow_12qr5g0" sourceRef="ExclusiveGateway_1gp8yby" targetRef="ExclusiveGateway_1nimghv" />
@@ -133,9 +137,6 @@
       <bpmn:incoming>SequenceFlow_1a60x07</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_02z2umi</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:endEvent id="EndEvent_0e4d1gp">
-      <bpmn:incoming>SequenceFlow_02z2umi</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:sendTask id="Task_1uxik02" name="Partnerülikoolide teavitamine">
       <bpmn:incoming>SequenceFlow_11xj3ib</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_074p0w3</bpmn:outgoing>
@@ -155,39 +156,55 @@
         <bpmn:targetRef>DataStoreReference_0u1l5xu</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:userTask>
-    <bpmn:textAnnotation id="TextAnnotation_0j97du6">    <bpmn:text><![CDATA[Välisülikooli puhul käib teavitamine käsitsi (saadetakse korraldus lisameterjalidega).
+    <bpmn:sequenceFlow id="SequenceFlow_1tfpztj" sourceRef="Task_0a9x41j" targetRef="EndEvent_0e4d1gp" />
+    <bpmn:sendTask id="Task_0a9x41j" name="Andmete saatmine EHISesse">
+      <bpmn:incoming>SequenceFlow_02z2umi</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1tfpztj</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_0e4d1gp">
+      <bpmn:incoming>SequenceFlow_1tfpztj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:textAnnotation id="TextAnnotation_0j97du6">
+      <bpmn:text><![CDATA[Välisülikooli puhul käib teavitamine käsitsi (saadetakse korraldus lisameterjalidega).
 Partnerülikool teeb ainult korralduse ilma kontrollideta.
 Uute tudengite korral saadetakse ka tudengi andmed.]]></bpmn:text>
-</bpmn:textAnnotation>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1mcn7xh" sourceRef="Task_1uxik02" targetRef="TextAnnotation_0j97du6" />
     <bpmn:association id="Association_066cl0b" sourceRef="Task_08dn2s1" targetRef="TextAnnotation_00g67tp" />
     <bpmn:association id="Association_1q3v6m1" sourceRef="Task_1xqvkd3" targetRef="TextAnnotation_022whih" />
     <bpmn:association id="Association_0redzr8" sourceRef="EndEvent_1rbr7bc" targetRef="TextAnnotation_0vnezq5" />
-    <bpmn:textAnnotation id="TextAnnotation_0vnezq5">    <bpmn:text>Teavitatakse tudengit</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0vnezq5">
+      <bpmn:text>Teavitatakse tudengit</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1vxavr7" sourceRef="Task_08dn2s1" targetRef="TextAnnotation_08nqpx5" />
-    <bpmn:textAnnotation id="TextAnnotation_01dh94g">    <bpmn:text>EHISesse saadetakse värskendatud tudengi andmed (nt. koormuse arvestus, matrikuleerimine jne,). Hetkel käsitöö.</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:association id="Association_04rhv1i" sourceRef="EndEvent_0e4d1gp" targetRef="TextAnnotation_01dh94g" />
+    <bpmn:association id="Association_04rhv1i" sourceRef="Task_0a9x41j" targetRef="TextAnnotation_01dh94g" />
     <bpmn:association id="Association_1139ghn" sourceRef="StartEvent_1" targetRef="TextAnnotation_14dg754" />
-    <bpmn:textAnnotation id="TextAnnotation_14dg754">    <bpmn:text><![CDATA[Mõnes asutuses registreeritakse see kohe ka DHISis.
+    <bpmn:textAnnotation id="TextAnnotation_14dg754">
+      <bpmn:text><![CDATA[Mõnes asutuses registreeritakse see kohe ka DHISis.
 Osadel juhtudel liiguvadki kõik dokumendid DHISis.
 TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on avaldus ÕISiväline.]]></bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_08nqpx5">    <bpmn:text>sh. vajadusel VÕTA hindamine, arvete tasumise kontroll, vabade kohtade olemasolu kontroll, finantseerimise kontroll, õppima asumise nõuete täitmine jne.</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_00g67tp">    <bpmn:text>Tulevikus peaks seda automatiseerima</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_022whih">    <bpmn:text>Kontrollib vajadusel veelkord avalduse/korralduse üle. Siin võib ka protsess lõppeda.</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_17svxrx">    <bpmn:text>TLÜs sõlmitakse enne korralduse koostamist tudengiga leping.</bpmn:text>
-</bpmn:textAnnotation>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_08nqpx5">
+      <bpmn:text>sh. vajadusel VÕTA hindamine, arvete tasumise kontroll, vabade kohtade olemasolu kontroll, finantseerimise kontroll, õppima asumise nõuete täitmine jne.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_00g67tp">
+      <bpmn:text>Tulevikus peaks seda automatiseerima</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_022whih">
+      <bpmn:text>Kontrollib vajadusel veelkord avalduse/korralduse üle. Siin võib ka protsess lõppeda.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_17svxrx">
+      <bpmn:text>TLÜs sõlmitakse enne korralduse koostamist tudengiga leping.</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_155esli" sourceRef="Task_1xqvkd3" targetRef="TextAnnotation_17svxrx" />
+    <bpmn:textAnnotation id="TextAnnotation_01dh94g">
+      <bpmn:text>EHISesse saadetakse värskendatud tudengi andmed (nt. koormuse arvestus, matrikuleerimine jne,). Hetkel käsitöö.</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1dwvkf2">
       <bpmndi:BPMNShape id="Participant_1bgtzd5_di" bpmnElement="Participant_1bgtzd5">
-        <dc:Bounds x="119" y="-460" width="1566" height="843" />
+        <dc:Bounds x="119" y="-460" width="1658" height="843" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_1n0x29j_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="232" y="25" width="36" height="36" />
@@ -196,10 +213,10 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_16gphf0_di" bpmnElement="Lane_16gphf0">
-        <dc:Bounds x="149" y="206" width="1535.54" height="178" />
+        <dc:Bounds x="149" y="206" width="1628" height="178" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_00rbn7j_di" bpmnElement="Lane_00rbn7j">
-        <dc:Bounds x="149" y="-197" width="1535.54" height="178" />
+        <dc:Bounds x="149" y="-197" width="1628" height="178" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1oc14nq_di" bpmnElement="SequenceFlow_1oc14nq">
         <di:waypoint xsi:type="dc:Point" x="828" y="-259" />
@@ -212,9 +229,9 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         <dc:Bounds x="974" y="-300" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0e4d1gp_di" bpmnElement="EndEvent_0e4d1gp">
-        <dc:Bounds x="1504" y="25" width="36" height="36" />
+        <dc:Bounds x="1619" y="-329" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1477" y="61" width="90" height="20" />
+          <dc:Bounds x="1592" y="-293" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_14fe25g_di" bpmnElement="SequenceFlow_14fe25g">
@@ -225,7 +242,7 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Lane_1praikb_di" bpmnElement="Lane_1praikb">
-        <dc:Bounds x="149" y="-460" width="1535.54" height="263" />
+        <dc:Bounds x="149" y="-460" width="1628" height="263" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_0u1l5xu_di" bpmnElement="DataStoreReference_0u1l5xu">
         <dc:Bounds x="635" y="-284" width="50" height="50" />
@@ -297,10 +314,11 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_02z2umi_di" bpmnElement="SequenceFlow_02z2umi">
-        <di:waypoint xsi:type="dc:Point" x="1467" y="43" />
-        <di:waypoint xsi:type="dc:Point" x="1504" y="43" />
+        <di:waypoint xsi:type="dc:Point" x="1442" y="18" />
+        <di:waypoint xsi:type="dc:Point" x="1442" y="-311" />
+        <di:waypoint xsi:type="dc:Point" x="1485" y="-311" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1440.5" y="18" width="90" height="20" />
+          <dc:Bounds x="1412" y="-156.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ParallelGateway_1d8l0oz_di" bpmnElement="ExclusiveGateway_1nimghv">
@@ -375,7 +393,7 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Lane_06aze1c_di" bpmnElement="Lane_06aze1c">
-        <dc:Bounds x="149" y="-19" width="1535.54" height="225" />
+        <dc:Bounds x="149" y="-19" width="1628" height="225" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ExclusiveGateway_04aj0t2_di" bpmnElement="ExclusiveGateway_04aj0t2" isMarkerVisible="true">
         <dc:Bounds x="420.361" y="18" width="50" height="50" />
@@ -399,11 +417,11 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_00g67tp_di" bpmnElement="TextAnnotation_00g67tp">
-        <dc:Bounds x="376" y="167" width="138" height="30" />
+        <dc:Bounds x="376" y="160" width="139" height="37" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_066cl0b_di" bpmnElement="Association_066cl0b">
-        <di:waypoint xsi:type="dc:Point" x="377" y="83" />
-        <di:waypoint xsi:type="dc:Point" x="435" y="167" />
+        <di:waypoint xsi:type="dc:Point" x="378" y="83" />
+        <di:waypoint xsi:type="dc:Point" x="432" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_022whih_di" bpmnElement="TextAnnotation_022whih">
         <dc:Bounds x="802" y="-154" width="192" height="52" />
@@ -419,11 +437,11 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0vnezq5_di" bpmnElement="TextAnnotation_0vnezq5">
-        <dc:Bounds x="528.361" y="127" width="100" height="30" />
+        <dc:Bounds x="528" y="127" width="100" height="40" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0redzr8_di" bpmnElement="Association_0redzr8">
-        <di:waypoint xsi:type="dc:Point" x="499" y="142" />
-        <di:waypoint xsi:type="dc:Point" x="528" y="142" />
+        <di:waypoint xsi:type="dc:Point" x="499" y="143" />
+        <di:waypoint xsi:type="dc:Point" x="528" y="144" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_0hi03pw_di" bpmnElement="Participant_1cf1hmm">
         <dc:Bounds x="119" y="-576" width="1324" height="60" />
@@ -505,11 +523,11 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_01dh94g_di" bpmnElement="TextAnnotation_01dh94g">
-        <dc:Bounds x="1485" y="89" width="163" height="84" />
+        <dc:Bounds x="1593" y="-285" width="163" height="84" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_04rhv1i_di" bpmnElement="Association_04rhv1i">
-        <di:waypoint xsi:type="dc:Point" x="1530" y="59" />
-        <di:waypoint xsi:type="dc:Point" x="1546" y="89" />
+        <di:waypoint xsi:type="dc:Point" x="1584" y="-280" />
+        <di:waypoint xsi:type="dc:Point" x="1593" y="-277" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_05bejzq_di" bpmnElement="Participant_03p5xx5">
         <dc:Bounds x="119" y="-651" width="1325" height="60" />
@@ -522,11 +540,11 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_14dg754_di" bpmnElement="TextAnnotation_14dg754">
-        <dc:Bounds x="256" y="-117" width="218" height="92" />
+        <dc:Bounds x="255" y="-140" width="219" height="115" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1139ghn_di" bpmnElement="Association_1139ghn">
-        <di:waypoint xsi:type="dc:Point" x="263" y="31" />
-        <di:waypoint xsi:type="dc:Point" x="320" y="-25" />
+        <di:waypoint xsi:type="dc:Point" x="262" y="31" />
+        <di:waypoint xsi:type="dc:Point" x="314" y="-25" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_0k9q6t5_di" bpmnElement="ExclusiveGateway_0k9q6t5" isMarkerVisible="true">
         <dc:Bounds x="529" y="-194" width="50" height="50" />
@@ -559,6 +577,26 @@ TTÜs ja TLÜs saavad õppivad tudengid avalduse esitada ka ÕISis, mujal on ava
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1wqau4m_di" bpmnElement="TextAnnotation_1wqau4m">
         <dc:Bounds x="131" y="-736" width="98" height="71" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1tfpztj_di" bpmnElement="SequenceFlow_1tfpztj">
+        <di:waypoint xsi:type="dc:Point" x="1585" y="-311" />
+        <di:waypoint xsi:type="dc:Point" x="1619" y="-311" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1602" y="-332" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_0k14sa4_di" bpmnElement="Task_0a9x41j">
+        <dc:Bounds x="1485" y="-351" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_1as3urp_di" bpmnElement="MessageFlow_1as3urp">
+        <di:waypoint xsi:type="dc:Point" x="1535" y="-351" />
+        <di:waypoint xsi:type="dc:Point" x="1535" y="-505" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1505" y="-434" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1vx0un4_di" bpmnElement="Participant_0pdumf6">
+        <dc:Bounds x="1490" y="-565" width="300" height="60" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

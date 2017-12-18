@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.2.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_0l7boy4">
     <bpmn:participant id="Participant_1nsvrvp" name="Ülikool" processRef="Process_1" />
-    <bpmn:participant id="Participant_0w520o1" name="HTM&#10;" />
+    <bpmn:participant id="Participant_0w520o1" name="EHIS&#10;" />
     <bpmn:messageFlow id="MessageFlow_0onicch" sourceRef="Task_1x9mjru" targetRef="Participant_0w520o1" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
@@ -129,14 +129,17 @@
     <bpmn:dataObjectReference id="DataObjectReference_0ccm8cz" name="Õppekava sulgemisavaldus" dataObjectRef="DataObject_1awex8d" />
     <bpmn:dataObject id="DataObject_1awex8d" />
     <bpmn:association id="Association_0r153k7" sourceRef="Task_1jc8vsz" targetRef="TextAnnotation_0eaf0ez" />
-    <bpmn:textAnnotation id="TextAnnotation_0eaf0ez">    <bpmn:text>Siia juurde võiks tulla EHIS-e teavitamine, et õppekava on passivne (st. vastuvõtt suletud)</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0eaf0ez">
+      <bpmn:text>Siia juurde võiks tulla EHIS-e teavitamine, et õppekava on passivne (st. vastuvõtt suletud)</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_0fop14a" sourceRef="Task_1x9mjru" targetRef="TextAnnotation_12h4lw7" />
-    <bpmn:textAnnotation id="TextAnnotation_12h4lw7">    <bpmn:text>õppekavale vastuvõtu lõpetamise kuupäev</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_12h4lw7">
+      <bpmn:text>õppekavale vastuvõtu lõpetamise kuupäev</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_10f36ik" sourceRef="DataObjectReference_0ccm8cz" targetRef="TextAnnotation_0qng1hk" />
-    <bpmn:textAnnotation id="TextAnnotation_0qng1hk">    <bpmn:text>Lõpetamise kuupäev, lõpetamise dokument ja otsuse kuupäev</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0qng1hk">
+      <bpmn:text>Lõpetamise kuupäev, lõpetamise dokument ja otsuse kuupäev</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0l7boy4">
@@ -227,23 +230,19 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_00idl5b_di" bpmnElement="SequenceFlow_00idl5b">
         <di:waypoint xsi:type="dc:Point" x="682" y="391" />
-        <di:waypoint xsi:type="dc:Point" x="710" y="391" />
-        <di:waypoint xsi:type="dc:Point" x="710" y="403" />
-        <di:waypoint xsi:type="dc:Point" x="756" y="403" />
+        <di:waypoint xsi:type="dc:Point" x="756" y="391" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="674.2571630507013" y="374.00002101076814" width="90" height="20" />
+          <dc:Bounds x="678.8" y="372" width="71" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_0mjs4ib_di" bpmnElement="Participant_0w520o1">
-        <dc:Bounds x="133" y="972" width="961" height="60" />
+        <dc:Bounds x="502" y="844" width="961" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0onicch_di" bpmnElement="MessageFlow_0onicch">
         <di:waypoint xsi:type="dc:Point" x="1170" y="140" />
-        <di:waypoint xsi:type="dc:Point" x="1170" y="556" />
-        <di:waypoint xsi:type="dc:Point" x="985" y="556" />
-        <di:waypoint xsi:type="dc:Point" x="985" y="972" />
+        <di:waypoint xsi:type="dc:Point" x="1170" y="844" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1032.5" y="531" width="90" height="20" />
+          <dc:Bounds x="1140" y="482" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1so0oag_di" bpmnElement="SequenceFlow_1so0oag">

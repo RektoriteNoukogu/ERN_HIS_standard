@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.10.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_170ntte">
     <bpmn:participant id="Participant_05b45nk" name="Koduülikool" processRef="Process_1" />
     <bpmn:participant id="Participant_145wovw" name="Tudeng" />
     <bpmn:participant id="Participant_1gf93fb" name="Vastuvõttev ülikool" processRef="Process_03uu85x" />
+    <bpmn:participant id="Participant_1rpvlxr" name="EHIS" />
     <bpmn:messageFlow id="MessageFlow_0lfvfh1" sourceRef="Participant_145wovw" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="MessageFlow_0ost5mn" sourceRef="EndEvent_1ifuq3j" targetRef="Participant_145wovw" />
     <bpmn:messageFlow id="MessageFlow_1j5iwts" sourceRef="EndEvent_1oe4jea" targetRef="Participant_145wovw" />
@@ -17,182 +18,193 @@
     <bpmn:messageFlow id="MessageFlow_179gcvw" sourceRef="Participant_145wovw" targetRef="IntermediateCatchEvent_03edvsd" />
     <bpmn:messageFlow id="MessageFlow_0dxsmh3" sourceRef="Task_13jug3u" targetRef="Participant_145wovw" />
     <bpmn:messageFlow id="MessageFlow_1a5yuzz" sourceRef="Participant_145wovw" targetRef="IntermediateCatchEvent_14rqq67" />
+    <bpmn:messageFlow id="MessageFlow_0j5ilqg" sourceRef="Task_0wtpcgb" targetRef="Participant_1rpvlxr" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
-    <bpmn:sequenceFlow id="SequenceFlow_1gy7eqv" sourceRef="ExclusiveGateway_1424ze6" targetRef="Task_06bxwtn" />
-    <bpmn:sequenceFlow id="SequenceFlow_02d4tiu" sourceRef="Task_0fso9uj" targetRef="ExclusiveGateway_1424ze6" />
-    <bpmn:sequenceFlow id="SequenceFlow_0bozrtg" name="Väline leping" sourceRef="ExclusiveGateway_0ess07q" targetRef="Task_0fso9uj" />
-    <bpmn:sequenceFlow id="SequenceFlow_1m3vjzg" name="Eesti sisene" sourceRef="ExclusiveGateway_0ess07q" targetRef="ExclusiveGateway_1oxovtj" />
-    <bpmn:sequenceFlow id="SequenceFlow_0kwbj11" sourceRef="Task_06bxwtn" targetRef="ExclusiveGateway_1oxovtj" />
-    <bpmn:sequenceFlow id="SequenceFlow_0v1ri0y" sourceRef="ExclusiveGateway_1aohbmm" targetRef="EndEvent_0yfw2v8" />
-    <bpmn:sequenceFlow id="SequenceFlow_1pi5n2k" sourceRef="Task_1cexs8i" targetRef="ExclusiveGateway_1aohbmm" />
-    <bpmn:sequenceFlow id="SequenceFlow_1u07w5f" sourceRef="IntermediateCatchEvent_1uwkvuh" targetRef="ExclusiveGateway_1aohbmm" />
-    <bpmn:sequenceFlow id="SequenceFlow_0d6ps9v" sourceRef="IntermediateCatchEvent_14rqq67" targetRef="Task_1cexs8i" />
-    <bpmn:sequenceFlow id="SequenceFlow_0guppsk" sourceRef="ExclusiveGateway_1bd8c6f" targetRef="IntermediateCatchEvent_14rqq67" />
-    <bpmn:sequenceFlow id="SequenceFlow_1csghx2" sourceRef="ExclusiveGateway_1bd8c6f" targetRef="IntermediateCatchEvent_1uwkvuh" />
+    <bpmn:sequenceFlow id="SequenceFlow_09s39sw" sourceRef="Task_1fvnrzf" targetRef="ExclusiveGateway_1551ohq" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ggty99" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_1eq9yjx" />
+    <bpmn:sequenceFlow id="SequenceFlow_1vyat0q" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_1o4x8lc" />
+    <bpmn:sequenceFlow id="SequenceFlow_04v5hn0" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_063x3h7" />
+    <bpmn:sequenceFlow id="SequenceFlow_1xfiwad" sourceRef="IntermediateCatchEvent_063x3h7" targetRef="Task_1vz23p9" />
+    <bpmn:sequenceFlow id="SequenceFlow_0kperaz" sourceRef="IntermediateCatchEvent_1eq9yjx" targetRef="EndEvent_031j3bh" />
+    <bpmn:sequenceFlow id="SequenceFlow_1a2fr5o" sourceRef="IntermediateCatchEvent_1o4x8lc" targetRef="EndEvent_0pmxigm" />
+    <bpmn:sequenceFlow id="SequenceFlow_0cjzqx8" sourceRef="ExclusiveGateway_0slorb3" targetRef="IntermediateThrowEvent_1t6apue" />
+    <bpmn:sequenceFlow id="SequenceFlow_08z0wed" sourceRef="Task_1vz23p9" targetRef="ExclusiveGateway_0slorb3" />
+    <bpmn:sequenceFlow id="SequenceFlow_102qd1o" sourceRef="IntermediateThrowEvent_1t6apue" targetRef="ExclusiveGateway_0cjl38a" />
     <bpmn:sequenceFlow id="SequenceFlow_0wkr2ho" sourceRef="ExclusiveGateway_0cjl38a" targetRef="ExclusiveGateway_1bd8c6f" />
     <bpmn:sequenceFlow id="SequenceFlow_0hiq9w9" sourceRef="IntermediateCatchEvent_1ouzip6" targetRef="ExclusiveGateway_0cjl38a" />
     <bpmn:sequenceFlow id="SequenceFlow_1750ojk" sourceRef="ExclusiveGateway_0slorb3" targetRef="IntermediateCatchEvent_1ouzip6" />
-    <bpmn:sequenceFlow id="SequenceFlow_102qd1o" sourceRef="IntermediateThrowEvent_1t6apue" targetRef="ExclusiveGateway_0cjl38a" />
-    <bpmn:sequenceFlow id="SequenceFlow_0cjzqx8" sourceRef="ExclusiveGateway_0slorb3" targetRef="IntermediateThrowEvent_1t6apue" />
-    <bpmn:sequenceFlow id="SequenceFlow_08z0wed" sourceRef="Task_1vz23p9" targetRef="ExclusiveGateway_0slorb3" />
-    <bpmn:sequenceFlow id="SequenceFlow_1xfiwad" sourceRef="IntermediateCatchEvent_063x3h7" targetRef="Task_1vz23p9" />
-    <bpmn:sequenceFlow id="SequenceFlow_1a2fr5o" sourceRef="IntermediateCatchEvent_1o4x8lc" targetRef="EndEvent_0pmxigm" />
-    <bpmn:sequenceFlow id="SequenceFlow_0kperaz" sourceRef="IntermediateCatchEvent_1eq9yjx" targetRef="EndEvent_031j3bh" />
-    <bpmn:sequenceFlow id="SequenceFlow_1vyat0q" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_1o4x8lc" />
-    <bpmn:sequenceFlow id="SequenceFlow_04v5hn0" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_063x3h7" />
-    <bpmn:sequenceFlow id="SequenceFlow_0ggty99" sourceRef="ExclusiveGateway_1551ohq" targetRef="IntermediateCatchEvent_1eq9yjx" />
-    <bpmn:sequenceFlow id="SequenceFlow_09s39sw" sourceRef="Task_1fvnrzf" targetRef="ExclusiveGateway_1551ohq" />
-    <bpmn:sequenceFlow id="SequenceFlow_1os0n7s" sourceRef="ExclusiveGateway_1oxovtj" targetRef="Task_1fvnrzf" />
-    <bpmn:sequenceFlow id="SequenceFlow_1prn0sg" sourceRef="ExclusiveGateway_1424ze6" targetRef="EndEvent_1oe4jea" />
-    <bpmn:sequenceFlow id="SequenceFlow_0hkqpq8" sourceRef="ExclusiveGateway_0yjj4rf" targetRef="ExclusiveGateway_0ess07q" />
+    <bpmn:sequenceFlow id="SequenceFlow_0guppsk" sourceRef="ExclusiveGateway_1bd8c6f" targetRef="IntermediateCatchEvent_14rqq67" />
+    <bpmn:sequenceFlow id="SequenceFlow_1csghx2" sourceRef="ExclusiveGateway_1bd8c6f" targetRef="IntermediateCatchEvent_1uwkvuh" />
     <bpmn:sequenceFlow id="SequenceFlow_1s38o9l" name="Jah" sourceRef="ExclusiveGateway_0yjj4rf" targetRef="EndEvent_1ifuq3j" />
+    <bpmn:sequenceFlow id="SequenceFlow_0d6ps9v" sourceRef="IntermediateCatchEvent_14rqq67" targetRef="Task_1cexs8i" />
+    <bpmn:sequenceFlow id="SequenceFlow_1u07w5f" sourceRef="IntermediateCatchEvent_1uwkvuh" targetRef="ExclusiveGateway_1aohbmm" />
+    <bpmn:sequenceFlow id="SequenceFlow_1pi5n2k" sourceRef="Task_1cexs8i" targetRef="Task_0wtpcgb" />
+    <bpmn:sequenceFlow id="SequenceFlow_0v1ri0y" sourceRef="ExclusiveGateway_1aohbmm" targetRef="EndEvent_0yfw2v8" />
     <bpmn:sequenceFlow id="SequenceFlow_1lmv7jd" sourceRef="Task_1luq15h" targetRef="ExclusiveGateway_0yjj4rf" />
     <bpmn:sequenceFlow id="SequenceFlow_0zopevg" sourceRef="StartEvent_1" targetRef="Task_1luq15h" />
-    <bpmn:sendTask id="Task_06bxwtn" name="Esitame nominatsiooni">
-      <bpmn:incoming>SequenceFlow_1gy7eqv</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0kwbj11</bpmn:outgoing>
+    <bpmn:sequenceFlow id="SequenceFlow_1os0n7s" sourceRef="ExclusiveGateway_1oxovtj" targetRef="Task_1fvnrzf" />
+    <bpmn:sequenceFlow id="SequenceFlow_1m3vjzg" name="Eesti sisene" sourceRef="ExclusiveGateway_0ess07q" targetRef="ExclusiveGateway_1oxovtj" />
+    <bpmn:sequenceFlow id="SequenceFlow_0hkqpq8" sourceRef="ExclusiveGateway_0yjj4rf" targetRef="ExclusiveGateway_0ess07q" />
+    <bpmn:sequenceFlow id="SequenceFlow_0bozrtg" name="Väline leping" sourceRef="ExclusiveGateway_0ess07q" targetRef="Task_0fso9uj" />
+    <bpmn:sequenceFlow id="SequenceFlow_1prn0sg" sourceRef="ExclusiveGateway_1424ze6" targetRef="EndEvent_1oe4jea" />
+    <bpmn:sequenceFlow id="SequenceFlow_02d4tiu" sourceRef="Task_0fso9uj" targetRef="ExclusiveGateway_1424ze6" />
+    <bpmn:sequenceFlow id="SequenceFlow_0kwbj11" sourceRef="Task_06bxwtn" targetRef="ExclusiveGateway_1oxovtj" />
+    <bpmn:sequenceFlow id="SequenceFlow_1gy7eqv" sourceRef="ExclusiveGateway_1424ze6" targetRef="Task_06bxwtn" />
+    <bpmn:startEvent id="StartEvent_1" name="Saabus tudengi avaldus">
+      <bpmn:outgoing>SequenceFlow_0zopevg</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0yjj4rf" name="Kas leidus vigu?">
+      <bpmn:incoming>SequenceFlow_1lmv7jd</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1s38o9l</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0hkqpq8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_1oe4jea" name="Teavitame tudengit">
+      <bpmn:incoming>SequenceFlow_1prn0sg</bpmn:incoming>
+      <bpmn:messageEventDefinition />
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_1fvnrzf" name="Teavitame tudengit">
+      <bpmn:incoming>SequenceFlow_1os0n7s</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_09s39sw</bpmn:outgoing>
     </bpmn:sendTask>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1424ze6" name="Kas otsus oli positiivne?" default="SequenceFlow_1prn0sg">
-      <bpmn:incoming>SequenceFlow_02d4tiu</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1prn0sg</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_1gy7eqv</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:manualTask id="Task_0fso9uj" name="Komisjon">
-      <bpmn:incoming>SequenceFlow_0bozrtg</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_02d4tiu</bpmn:outgoing>
-    </bpmn:manualTask>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0ess07q">
-      <bpmn:incoming>SequenceFlow_0hkqpq8</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0bozrtg</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_1m3vjzg</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1oxovtj">
-      <bpmn:incoming>SequenceFlow_1m3vjzg</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_0kwbj11</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1os0n7s</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:task id="Task_1luq15h" name="Kontroll">
-      <bpmn:incoming>SequenceFlow_0zopevg</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1lmv7jd</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="EndEvent_0yfw2v8">
-      <bpmn:incoming>SequenceFlow_0v1ri0y</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1aohbmm">
-      <bpmn:incoming>SequenceFlow_1pi5n2k</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_1u07w5f</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0v1ri0y</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:subProcess id="Task_1cexs8i" name="Arvestame tudengi tulemused">
-      <bpmn:incoming>SequenceFlow_0d6ps9v</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1pi5n2k</bpmn:outgoing>
-    </bpmn:subProcess>
-    <bpmn:endEvent id="EndEvent_1ifuq3j" name="Teavitame tudengit vigadest">
-      <bpmn:incoming>SequenceFlow_1s38o9l</bpmn:incoming>
-      <bpmn:messageEventDefinition />
-    </bpmn:endEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1uwkvuh">
-      <bpmn:incoming>SequenceFlow_1csghx2</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1u07w5f</bpmn:outgoing>
-      <bpmn:timerEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_14rqq67" name="Tudeng edastas oma tulemused">
-      <bpmn:incoming>SequenceFlow_0guppsk</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0d6ps9v</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1ouzip6">
-      <bpmn:incoming>SequenceFlow_1750ojk</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0hiq9w9</bpmn:outgoing>
-      <bpmn:signalEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:eventBasedGateway id="ExclusiveGateway_1bd8c6f" name="Ootame tudengilt tulemuste ärakirja">
-      <bpmn:incoming>SequenceFlow_0wkr2ho</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1csghx2</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_0guppsk</bpmn:outgoing>
-    </bpmn:eventBasedGateway>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0cjl38a">
-      <bpmn:incoming>SequenceFlow_0hiq9w9</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_102qd1o</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0wkr2ho</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:eventBasedGateway id="ExclusiveGateway_0slorb3" name="Ootab tudengi naasmist">
-      <bpmn:incoming>SequenceFlow_08z0wed</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0cjzqx8</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_1750ojk</bpmn:outgoing>
-    </bpmn:eventBasedGateway>
-    <bpmn:endEvent id="EndEvent_0pmxigm">
-      <bpmn:incoming>SequenceFlow_1a2fr5o</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:endEvent id="EndEvent_031j3bh">
-      <bpmn:incoming>SequenceFlow_0kperaz</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1t6apue">
-      <bpmn:incoming>SequenceFlow_0cjzqx8</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_102qd1o</bpmn:outgoing>
-      <bpmn:timerEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:task id="Task_1vz23p9" name="Märgib tudengi väljaspool õppijaks">
-      <bpmn:incoming>SequenceFlow_1xfiwad</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_08z0wed</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_063x3h7" name="Tudeng teavitas  õppima asumisest">
-      <bpmn:incoming>SequenceFlow_04v5hn0</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1xfiwad</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1o4x8lc" name="Tudeng teavitas mitte õppima asumisest">
-      <bpmn:incoming>SequenceFlow_1vyat0q</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1a2fr5o</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1eq9yjx">
-      <bpmn:incoming>SequenceFlow_0ggty99</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0kperaz</bpmn:outgoing>
-      <bpmn:timerEventDefinition />
-    </bpmn:intermediateCatchEvent>
     <bpmn:eventBasedGateway id="ExclusiveGateway_1551ohq" name="Ootame tudengilt teavitust õppima asumise kohta">
       <bpmn:incoming>SequenceFlow_09s39sw</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ggty99</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_04v5hn0</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1vyat0q</bpmn:outgoing>
     </bpmn:eventBasedGateway>
-    <bpmn:sendTask id="Task_1fvnrzf" name="Teavitame tudengit">
-      <bpmn:incoming>SequenceFlow_1os0n7s</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_09s39sw</bpmn:outgoing>
-    </bpmn:sendTask>
-    <bpmn:endEvent id="EndEvent_1oe4jea" name="Teavitame tudengit">
-      <bpmn:incoming>SequenceFlow_1prn0sg</bpmn:incoming>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1eq9yjx">
+      <bpmn:incoming>SequenceFlow_0ggty99</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0kperaz</bpmn:outgoing>
+      <bpmn:timerEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1o4x8lc" name="Tudeng teavitas mitte õppima asumisest">
+      <bpmn:incoming>SequenceFlow_1vyat0q</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1a2fr5o</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_063x3h7" name="Tudeng teavitas  õppima asumisest">
+      <bpmn:incoming>SequenceFlow_04v5hn0</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1xfiwad</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_1vz23p9" name="Märgib tudengi väljaspool õppijaks">
+      <bpmn:incoming>SequenceFlow_1xfiwad</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_08z0wed</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1t6apue">
+      <bpmn:incoming>SequenceFlow_0cjzqx8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_102qd1o</bpmn:outgoing>
+      <bpmn:timerEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="EndEvent_031j3bh">
+      <bpmn:incoming>SequenceFlow_0kperaz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_0pmxigm">
+      <bpmn:incoming>SequenceFlow_1a2fr5o</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:eventBasedGateway id="ExclusiveGateway_0slorb3" name="Ootab tudengi naasmist">
+      <bpmn:incoming>SequenceFlow_08z0wed</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0cjzqx8</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1750ojk</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0cjl38a">
+      <bpmn:incoming>SequenceFlow_0hiq9w9</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_102qd1o</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0wkr2ho</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:eventBasedGateway id="ExclusiveGateway_1bd8c6f" name="Ootame tudengilt tulemuste ärakirja">
+      <bpmn:incoming>SequenceFlow_0wkr2ho</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1csghx2</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0guppsk</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1ouzip6">
+      <bpmn:incoming>SequenceFlow_1750ojk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0hiq9w9</bpmn:outgoing>
+      <bpmn:signalEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_14rqq67" name="Tudeng edastas oma tulemused">
+      <bpmn:incoming>SequenceFlow_0guppsk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0d6ps9v</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1uwkvuh">
+      <bpmn:incoming>SequenceFlow_1csghx2</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1u07w5f</bpmn:outgoing>
+      <bpmn:timerEventDefinition />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="EndEvent_1ifuq3j" name="Teavitame tudengit vigadest">
+      <bpmn:incoming>SequenceFlow_1s38o9l</bpmn:incoming>
       <bpmn:messageEventDefinition />
     </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0yjj4rf" name="Kas leidus vigu?">
-      <bpmn:incoming>SequenceFlow_1lmv7jd</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1s38o9l</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_0hkqpq8</bpmn:outgoing>
+    <bpmn:subProcess id="Task_1cexs8i" name="Arvestame tudengi tulemused">
+      <bpmn:incoming>SequenceFlow_0d6ps9v</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1pi5n2k</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:task id="Task_1luq15h" name="Kontroll">
+      <bpmn:incoming>SequenceFlow_0zopevg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1lmv7jd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1oxovtj">
+      <bpmn:incoming>SequenceFlow_1m3vjzg</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0kwbj11</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1os0n7s</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:startEvent id="StartEvent_1" name="Saabus tudengi avaldus">
-      <bpmn:outgoing>SequenceFlow_0zopevg</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
-    </bpmn:startEvent>
-    <bpmn:association id="Association_19o90kr" sourceRef="Task_1luq15h" targetRef="TextAnnotation_0s63v3q" />
-    <bpmn:association id="Association_1slx8aq" sourceRef="Task_1cexs8i" targetRef="TextAnnotation_1qv3893" />
-    <bpmn:association id="Association_1eg01wn" sourceRef="IntermediateCatchEvent_14rqq67" targetRef="TextAnnotation_0w9nyo9" />
-    <bpmn:association id="Association_06cuppc" sourceRef="StartEvent_1" targetRef="TextAnnotation_0uqrfly" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0ess07q">
+      <bpmn:incoming>SequenceFlow_0hkqpq8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0bozrtg</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1m3vjzg</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:manualTask id="Task_0fso9uj" name="Komisjon">
+      <bpmn:incoming>SequenceFlow_0bozrtg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_02d4tiu</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1424ze6" name="Kas otsus oli positiivne?" default="SequenceFlow_1prn0sg">
+      <bpmn:incoming>SequenceFlow_02d4tiu</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1prn0sg</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1gy7eqv</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_06bxwtn" name="Esitame nominatsiooni">
+      <bpmn:incoming>SequenceFlow_1gy7eqv</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0kwbj11</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0awu1vj" sourceRef="Task_0wtpcgb" targetRef="ExclusiveGateway_1aohbmm" />
+    <bpmn:endEvent id="EndEvent_0yfw2v8">
+      <bpmn:incoming>SequenceFlow_0v1ri0y</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1aohbmm">
+      <bpmn:incoming>SequenceFlow_1u07w5f</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0awu1vj</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0v1ri0y</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_0wtpcgb" name="Saadame andmed EHISesse ">
+      <bpmn:incoming>SequenceFlow_1pi5n2k</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0awu1vj</bpmn:outgoing>
+    </bpmn:sendTask>
     <bpmn:association id="Association_1x7iq4m" sourceRef="StartEvent_1" targetRef="TextAnnotation_0kd20zd" />
-    <bpmn:textAnnotation id="TextAnnotation_0s63v3q">    <bpmn:text>Kodumaiste puhul automaatkontrolle pole</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0uqrfly">    <bpmn:text>Välismaale suundudes: sünniaeg, kodakondsus, sihtriik</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0w9nyo9">    <bpmn:text>Andmed: õppeaine?, õppeaine maht, tulemus, õppejõud?</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1qv3893">    <bpmn:text><![CDATA[Andmed: eesmärk, arvestatud EAP, perioodi algus- ja lõppkuupäev, nom. aja pikendamise otsus, nom. pikendamise otsuse kuupäev
-
-Välisülikooli puhul edastatakse tulemused EHIS-sse.]]></bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0kd20zd">    <bpmn:text><![CDATA[Andmed: eesmärk, isikukood, eesnimi, perenimi, programmi nimetus?, õppeaste, eriala,  ainete loetelu, välisriik, õppeasutus, õppeplaan ... (vt. avalduse vormi) 
+    <bpmn:association id="Association_06cuppc" sourceRef="StartEvent_1" targetRef="TextAnnotation_0uqrfly" />
+    <bpmn:association id="Association_1eg01wn" sourceRef="IntermediateCatchEvent_14rqq67" targetRef="TextAnnotation_0w9nyo9" />
+    <bpmn:association id="Association_1slx8aq" sourceRef="Task_0wtpcgb" targetRef="TextAnnotation_1qv3893" />
+    <bpmn:association id="Association_19o90kr" sourceRef="Task_1luq15h" targetRef="TextAnnotation_0s63v3q" />
+    <bpmn:textAnnotation id="TextAnnotation_0kd20zd">
+      <bpmn:text><![CDATA[Andmed: eesmärk, isikukood, eesnimi, perenimi, programmi nimetus?, õppeaste, eriala,  ainete loetelu, välisriik, õppeasutus, õppeplaan, lähetuse algus ja lõpuaeg ... (vt. avalduse vormi) 
 Toimub paberil]]></bpmn:text>
-</bpmn:textAnnotation>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0w9nyo9">
+      <bpmn:text>Andmed: õppeaine?, õppeaine maht, tulemus, õppejõud?</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0uqrfly">
+      <bpmn:text>Välismaale suundudes: sünniaeg, kodakondsus, sihtriik</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0s63v3q">
+      <bpmn:text>Kodumaiste puhul automaatkontrolle pole</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1qv3893">
+      <bpmn:text><![CDATA[Andmed: eesmärk, arvestatud EAP, perioodi algus- ja lõppkuupäev, nom. aja pikendamise otsus, nom. pikendamise otsuse kuupäev
+
+Välisülikooli puhul edastatakse andmed mobiilsuse kohta EHIS-sse.]]></bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmn:process id="Process_03uu85x" isExecutable="false">
     <bpmn:sequenceFlow id="SequenceFlow_1nppups" sourceRef="Task_13jug3u" targetRef="EndEvent_1na9aum" />
@@ -288,25 +300,29 @@ Toimub paberil]]></bpmn:text>
       <bpmn:outgoing>SequenceFlow_1o6dzua</bpmn:outgoing>
     </bpmn:manualTask>
     <bpmn:association id="Association_030e1no" sourceRef="Task_13jug3u" targetRef="TextAnnotation_03lj0xw" />
-    <bpmn:textAnnotation id="TextAnnotation_03lj0xw">    <bpmn:text>väliskoduülikooli korral EHISesse: eesmärk, riik, EAP, õpe, alguskuupäev, lõpukuupäev, programm</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0idrron">    <bpmn:text>õppeaine?, EAP?, tulemus, tulemuse kuupäev, õppejõud?</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_03lj0xw">
+      <bpmn:text>väliskoduülikooli korral EHISesse: eesmärk, riik, EAP, õpe, alguskuupäev, lõpukuupäev, programm</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0idrron">
+      <bpmn:text>õppeaine?, EAP?, tulemus, tulemuse kuupäev, õppejõud?</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1rxsyhp" sourceRef="Task_13jug3u" targetRef="TextAnnotation_0idrron" />
     <bpmn:association id="Association_14t6ftz" sourceRef="StartEvent_0rws7j7" targetRef="TextAnnotation_0stc8sz" />
-    <bpmn:textAnnotation id="TextAnnotation_0stc8sz">    <bpmn:text>Andmed: eesmärk, taotleja isikukood, eesnimi, perenimi, e-post, (telefoninumber), õppeaste, vastuvõttev ja saatev asutus, õppeainete loetelu</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_11yz4as">    <bpmn:text>Välisriikide korral saadetakse tudengi avalduse vorm. Ülikooli nõusolek.</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0stc8sz">
+      <bpmn:text>Andmed: eesmärk, taotleja isikukood, eesnimi, perenimi, e-post, (telefoninumber), õppeaste, vastuvõttev ja saatev asutus, õppeainete loetelu</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_11yz4as">
+      <bpmn:text>Välisriikide korral saadetakse tudengi avalduse vorm. Ülikooli nõusolek.</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1oa2452" sourceRef="StartEvent_0rws7j7" targetRef="TextAnnotation_11yz4as" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_170ntte">
       <bpmndi:BPMNShape id="Participant_05b45nk_di" bpmnElement="Participant_05b45nk">
-        <dc:Bounds x="110" y="267" width="2534" height="258" />
+        <dc:Bounds x="110" y="267" width="2723" height="258" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1xv97sk_di" bpmnElement="Participant_145wovw">
-        <dc:Bounds x="117" y="150" width="2531" height="60" />
+        <dc:Bounds x="117" y="152" width="2702" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_0h7khe8_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="225" y="359" width="36" height="36" />
@@ -315,10 +331,10 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0lfvfh1_di" bpmnElement="MessageFlow_0lfvfh1">
-        <di:waypoint xsi:type="dc:Point" x="239" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="239" y="212" />
         <di:waypoint xsi:type="dc:Point" x="239" y="360" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="209" y="275" width="90" height="20" />
+          <dc:Bounds x="209" y="276" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0zopevg_di" bpmnElement="SequenceFlow_0zopevg">
@@ -357,9 +373,9 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0ost5mn_di" bpmnElement="MessageFlow_0ost5mn">
         <di:waypoint xsi:type="dc:Point" x="579" y="284" />
-        <di:waypoint xsi:type="dc:Point" x="579" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="579" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="549" y="237" width="90" height="20" />
+          <dc:Bounds x="549" y="238" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0bozrtg_di" bpmnElement="SequenceFlow_0bozrtg">
@@ -398,13 +414,13 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_1j5iwts_di" bpmnElement="MessageFlow_1j5iwts">
         <di:waypoint xsi:type="dc:Point" x="745" y="284" />
-        <di:waypoint xsi:type="dc:Point" x="745" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="745" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="715" y="237" width="90" height="20" />
+          <dc:Bounds x="715" y="238" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_1gf93fb_di" bpmnElement="Participant_1gf93fb">
-        <dc:Bounds x="117" y="557" width="2535" height="238" />
+        <dc:Bounds x="117" y="557" width="2713" height="242" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ManualTask_03uqpxt_di" bpmnElement="Task_0fso9uj">
         <dc:Bounds x="625" y="337" width="100" height="80" />
@@ -469,9 +485,9 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0kb2jot_di" bpmnElement="MessageFlow_0kb2jot">
         <di:waypoint xsi:type="dc:Point" x="1011" y="417" />
-        <di:waypoint xsi:type="dc:Point" x="1011" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1011" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="981" y="304" width="90" height="20" />
+          <dc:Bounds x="981" y="304.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_09s39sw_di" bpmnElement="SequenceFlow_09s39sw">
@@ -515,10 +531,11 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_0bbvl9y_di" bpmnElement="MessageFlow_0bbvl9y">
-        <di:waypoint xsi:type="dc:Point" x="1684" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1684" y="212" />
+        <di:waypoint xsi:type="dc:Point" x="1684" y="255" />
         <di:waypoint xsi:type="dc:Point" x="1684" y="301" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1654" y="246" width="90" height="20" />
+          <dc:Bounds x="1654" y="223.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1ye0rw9_di" bpmnElement="SequenceFlow_1ye0rw9">
@@ -536,9 +553,9 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_1vx4rv9_di" bpmnElement="MessageFlow_1vx4rv9">
         <di:waypoint xsi:type="dc:Point" x="1241" y="620" />
-        <di:waypoint xsi:type="dc:Point" x="1241" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1241" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1256" y="405" width="0" height="0" />
+          <dc:Bounds x="1211" y="416" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_1o4x8lc_di" bpmnElement="IntermediateCatchEvent_1o4x8lc">
@@ -570,10 +587,11 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_1o1vcol_di" bpmnElement="MessageFlow_1o1vcol">
-        <di:waypoint xsi:type="dc:Point" x="1392" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1392" y="212" />
+        <di:waypoint xsi:type="dc:Point" x="1392" y="291" />
         <di:waypoint xsi:type="dc:Point" x="1392" y="371" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1362" y="281" width="90" height="20" />
+          <dc:Bounds x="1362" y="241.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0x3mmsy_di" bpmnElement="SequenceFlow_0x3mmsy">
@@ -589,9 +607,9 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0reyshu_di" bpmnElement="MessageFlow_0reyshu">
         <di:waypoint xsi:type="dc:Point" x="1333" y="690" />
-        <di:waypoint xsi:type="dc:Point" x="1333" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1333" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1348" y="440" width="0" height="0" />
+          <dc:Bounds x="1303" y="451" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1wq2o50_di" bpmnElement="SequenceFlow_1wq2o50">
@@ -663,17 +681,17 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_0xdqp1l_di" bpmnElement="MessageFlow_0xdqp1l">
-        <di:waypoint xsi:type="dc:Point" x="1532" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1532" y="212" />
         <di:waypoint xsi:type="dc:Point" x="1532" y="645" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1548" y="418" width="0" height="0" />
+          <dc:Bounds x="1502" y="428.5" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_179gcvw_di" bpmnElement="MessageFlow_179gcvw">
-        <di:waypoint xsi:type="dc:Point" x="1619" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="1619" y="212" />
         <di:waypoint xsi:type="dc:Point" x="1619" y="572" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1635" y="381" width="0" height="0" />
+          <dc:Bounds x="1589" y="392" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_1vz23p9_di" bpmnElement="Task_1vz23p9">
@@ -804,9 +822,9 @@ Toimub paberil]]></bpmn:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0dxsmh3_di" bpmnElement="MessageFlow_0dxsmh3">
         <di:waypoint xsi:type="dc:Point" x="2058" y="622" />
-        <di:waypoint xsi:type="dc:Point" x="2058" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="2058" y="212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2073" y="406" width="0" height="0" />
+          <dc:Bounds x="2028" y="417" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_00en66h_di" bpmnElement="EndEvent_031j3bh">
@@ -903,10 +921,10 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_1a5yuzz_di" bpmnElement="MessageFlow_1a5yuzz">
-        <di:waypoint xsi:type="dc:Point" x="2264" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="2264" y="212" />
         <di:waypoint xsi:type="dc:Point" x="2264" y="302" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2234" y="246" width="90" height="20" />
+          <dc:Bounds x="2234" y="247" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0d6ps9v_di" bpmnElement="SequenceFlow_0d6ps9v">
@@ -920,37 +938,37 @@ Toimub paberil]]></bpmn:text>
         <dc:Bounds x="2330" y="278" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ExclusiveGateway_1aohbmm_di" bpmnElement="ExclusiveGateway_1aohbmm" isMarkerVisible="true">
-        <dc:Bounds x="2460" y="293" width="50" height="50" />
+        <dc:Bounds x="2599" y="293" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2440" y="343" width="90" height="20" />
+          <dc:Bounds x="2579" y="343" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1pi5n2k_di" bpmnElement="SequenceFlow_1pi5n2k">
         <di:waypoint xsi:type="dc:Point" x="2430" y="318" />
-        <di:waypoint xsi:type="dc:Point" x="2460" y="318" />
+        <di:waypoint xsi:type="dc:Point" x="2474" y="318" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2400" y="293" width="90" height="20" />
+          <dc:Bounds x="2407" y="293" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1u07w5f_di" bpmnElement="SequenceFlow_1u07w5f">
         <di:waypoint xsi:type="dc:Point" x="2288" y="389" />
-        <di:waypoint xsi:type="dc:Point" x="2485" y="389" />
-        <di:waypoint xsi:type="dc:Point" x="2485" y="343" />
+        <di:waypoint xsi:type="dc:Point" x="2624" y="389" />
+        <di:waypoint xsi:type="dc:Point" x="2624" y="343" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2342" y="364" width="90" height="20" />
+          <dc:Bounds x="2411" y="364" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0yfw2v8_di" bpmnElement="EndEvent_0yfw2v8">
-        <dc:Bounds x="2542" y="300" width="36" height="36" />
+        <dc:Bounds x="2672" y="300" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2515" y="336" width="90" height="20" />
+          <dc:Bounds x="2645" y="336" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0v1ri0y_di" bpmnElement="SequenceFlow_0v1ri0y">
-        <di:waypoint xsi:type="dc:Point" x="2510" y="318" />
-        <di:waypoint xsi:type="dc:Point" x="2542" y="318" />
+        <di:waypoint xsi:type="dc:Point" x="2649" y="318" />
+        <di:waypoint xsi:type="dc:Point" x="2672" y="318" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2481" y="293" width="90" height="20" />
+          <dc:Bounds x="2615.5" y="293" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_0s63v3q_di" bpmnElement="TextAnnotation_0s63v3q">
@@ -1001,7 +1019,7 @@ Toimub paberil]]></bpmn:text>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_0kd20zd_di" bpmnElement="TextAnnotation_0kd20zd">
-        <dc:Bounds x="142" y="411" width="176" height="112" />
+        <dc:Bounds x="142" y="411" width="176" height="126" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1x7iq4m_di" bpmnElement="Association_1x7iq4m">
         <di:waypoint xsi:type="dc:Point" x="241" y="394" />
@@ -1015,11 +1033,11 @@ Toimub paberil]]></bpmn:text>
         <di:waypoint xsi:type="dc:Point" x="2342" y="419" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1qv3893_di" bpmnElement="TextAnnotation_1qv3893">
-        <dc:Bounds x="2420" y="398" width="218" height="119" />
+        <dc:Bounds x="2529" y="397" width="218" height="119" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1slx8aq_di" bpmnElement="Association_1slx8aq">
-        <di:waypoint xsi:type="dc:Point" x="2422" y="356" />
-        <di:waypoint xsi:type="dc:Point" x="2466" y="398" />
+        <di:waypoint xsi:type="dc:Point" x="2544" y="358" />
+        <di:waypoint xsi:type="dc:Point" x="2581" y="397" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_03lj0xw_di" bpmnElement="TextAnnotation_03lj0xw">
         <dc:Bounds x="2132" y="701" width="149" height="72" />
@@ -1056,6 +1074,26 @@ Toimub paberil]]></bpmn:text>
         <di:waypoint xsi:type="dc:Point" x="259" y="385" />
         <di:waypoint xsi:type="dc:Point" x="345" y="426" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0awu1vj_di" bpmnElement="SequenceFlow_0awu1vj">
+        <di:waypoint xsi:type="dc:Point" x="2574" y="318" />
+        <di:waypoint xsi:type="dc:Point" x="2599" y="318" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2586.5" y="297" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_1ukgn0j_di" bpmnElement="Task_0wtpcgb">
+        <dc:Bounds x="2474" y="278" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_0j5ilqg_di" bpmnElement="MessageFlow_0j5ilqg">
+        <di:waypoint xsi:type="dc:Point" x="2524" y="358" />
+        <di:waypoint xsi:type="dc:Point" x="2524" y="822" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2494" y="584" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_02v0qpj_di" bpmnElement="Participant_1rpvlxr">
+        <dc:Bounds x="2034" y="822" width="614" height="60" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

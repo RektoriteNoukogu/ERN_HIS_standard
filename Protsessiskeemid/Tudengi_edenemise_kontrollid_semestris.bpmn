@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.3.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_0fwty2l">
     <bpmn:participant id="Participant_1jfddhm" name="ÕIS" processRef="Process_1" />
-    <bpmn:textAnnotation id="TextAnnotation_0dmjm8g">    <bpmn:text>TUDENGI EDENEMISE KONTROLLID</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0dmjm8g">
+      <bpmn:text>TUDENGI EDENEMISE KONTROLLID</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet>
       <bpmn:lane id="Lane_02xj9th" name="Valdkond">
-        <bpmn:flowNodeRef>ExclusiveGateway_0qfmvvc</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1yc81wq</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_0zyfwsr</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1ka9ik7</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1qo12vz</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1rcvy7z</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0dkodwg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0t7qxn0</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_18lytv7</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_0nx9gnj</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0x5yycz</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0etpidn</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_0sl2z2p</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0kvcga9</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IntermediateThrowEvent_1563rtg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1nz9yky</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_15o11ck</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1beynbc</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_0r0p7vw</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1klacr3</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1km6fxx</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0zyv6fl</bpmn:flowNodeRef>
@@ -35,14 +17,31 @@
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_07g5jb2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0pf0uum</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0qfmvvc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1qo12vz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_07s5zno</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1rcvy7z</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0umesny</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0dkodwg</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0t7qxn0</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_18lytv7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1c379dr</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0nx9gnj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0x5yycz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1ak9j51</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1no8fo9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0etpidn</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1wuue7u</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0sl2z2p</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1ka9ik7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0kvcga9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IntermediateThrowEvent_1563rtg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1j7ekhd</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1nz9yky</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1465ouo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_15o11ck</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1beynbc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0r0p7vw</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>SubProcess_0vir66z</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1ug8zxn</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_18o7ew8</bpmn:flowNodeRef>
@@ -61,6 +60,8 @@
         <bpmn:flowNodeRef>EndEvent_1dnpl4h</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0iqkipm</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0fkuz92</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0zyfwsr</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1yc81wq</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="SequenceFlow_13qtspv" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_07g5jb2" />
@@ -164,10 +165,6 @@
       <bpmn:incoming>SequenceFlow_1lgakip</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1hd0dzr</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_1yc81wq" name="Üleviimine osakoormusõppesse">
-      <bpmn:incoming>SequenceFlow_0cv0cee</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1k1civo</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:subProcess id="Task_1c379dr" name="Eksmatrikuleerimine">
       <bpmn:incoming>SequenceFlow_050j69v</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_14l12ta</bpmn:outgoing>
@@ -176,10 +173,6 @@
       <bpmn:incoming>SequenceFlow_14l12ta</bpmn:incoming>
       <bpmn:terminateEventDefinition />
     </bpmn:endEvent>
-    <bpmn:userTask id="Task_0zyfwsr" name="Üleviimine täiskoormusega õppesse">
-      <bpmn:incoming>SequenceFlow_0dv65g9</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0osvf0m</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:exclusiveGateway id="ExclusiveGateway_0x5yycz">
       <bpmn:incoming>SequenceFlow_1bw7zrc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1b5j8uw</bpmn:outgoing>
@@ -311,8 +304,9 @@
         <bpmn:incoming>SequenceFlow_067pfvd</bpmn:incoming>
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="SequenceFlow_067pfvd" sourceRef="ExclusiveGateway_0b0bt04" targetRef="EndEvent_02nusy0" />
-      <bpmn:textAnnotation id="TextAnnotation_13dxwoa">      <bpmn:text>Kõik ei kasseeri - osad kannavad kulu lihtsalt maha.</bpmn:text>
-</bpmn:textAnnotation>
+      <bpmn:textAnnotation id="TextAnnotation_13dxwoa">
+        <bpmn:text>Kõik ei kasseeri - osad kannavad kulu lihtsalt maha.</bpmn:text>
+      </bpmn:textAnnotation>
       <bpmn:association id="Association_1hm2lau" sourceRef="Task_1z0544i" targetRef="TextAnnotation_13dxwoa" />
     </bpmn:adHocSubProcess>
     <bpmn:sequenceFlow id="SequenceFlow_0iz2z9c" sourceRef="ExclusiveGateway_07g5jb2" targetRef="SubProcess_0vir66z" />
@@ -472,17 +466,30 @@
         <bpmn:terminateEventDefinition />
       </bpmn:endEvent>
     </bpmn:subProcess>
+    <bpmn:subProcess id="Task_0zyfwsr" name="Üleviimine täiskoormusega õppesse">
+      <bpmn:incoming>SequenceFlow_0dv65g9</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0osvf0m</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Task_1yc81wq" name="Üleviimine osakoormusõppesse">
+      <bpmn:incoming>SequenceFlow_0cv0cee</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1k1civo</bpmn:outgoing>
+    </bpmn:subProcess>
     <bpmn:association id="Association_0m3mfyr" sourceRef="Task_07s5zno" targetRef="TextAnnotation_1jcr95c" />
-    <bpmn:textAnnotation id="TextAnnotation_08zd0wh">    <bpmn:text>ÕIS teavitab EHISt</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0o48gou">    <bpmn:text>TÜ-s tuleb siia juurde kinnitamise protsess, sh. finantseerimisliigi muudatus ja õppeaasta vahetumisel üleviimine järgmisele õppeaastale</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_134ux9o">    <bpmn:text>Ei ole igal pool (nt. järeleksamid tasulised).</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1fuzeyj">    <bpmn:text>insenerõppes vaadatakse 5. semestri lõpus, kas õppekava  on vajalikus osas täidetud</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0zu4k4p">    <bpmn:text>Tegelikult TÜs iga 2. õpingutel oldud semestri järel. Teistes kevadsemestri järel.</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_08zd0wh">
+      <bpmn:text>ÕIS teavitab EHISt</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0o48gou">
+      <bpmn:text>TÜ-s tuleb siia juurde kinnitamise protsess, sh. finantseerimisliigi muudatus ja õppeaasta vahetumisel üleviimine järgmisele õppeaastale</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_134ux9o">
+      <bpmn:text>Ei ole igal pool (nt. järeleksamid tasulised).</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1fuzeyj">
+      <bpmn:text>insenerõppes vaadatakse 5. semestri lõpus, kas õppekava  on vajalikus osas täidetud</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0zu4k4p">
+      <bpmn:text>Tegelikult TÜs iga 2. õpingutel oldud semestri järel. Teistes kevadsemestri järel.</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1q1r74f" sourceRef="Task_0umesny" targetRef="TextAnnotation_1fuzeyj" />
     <bpmn:association id="Association_1cceh8v" sourceRef="Task_0umesny" targetRef="TextAnnotation_0zu4k4p" />
     <bpmn:association id="Association_0h7c6a6" sourceRef="Task_1yc81wq" targetRef="TextAnnotation_08zd0wh" />
@@ -491,22 +498,25 @@
     <bpmn:association id="Association_0dgbpbk" sourceRef="Task_0zyfwsr" targetRef="TextAnnotation_0o48gou" />
     <bpmn:association id="Association_0i3iac6" sourceRef="Task_1ak9j51" targetRef="TextAnnotation_134ux9o" />
     <bpmn:association id="Association_0mrejh1" sourceRef="Task_1ka9ik7" targetRef="TextAnnotation_0o48gou" />
-    <bpmn:textAnnotation id="TextAnnotation_1jcr95c">    <bpmn:text>Tasuline õppekoht, ainepunktid või semestritasu</bpmn:text>
-</bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1erenfh">    <bpmn:text>Finantseerimisallika muudatus EHISesse</bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1jcr95c">
+      <bpmn:text>Tasuline õppekoht, ainepunktid või semestritasu</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1erenfh">
+      <bpmn:text>Finantseerimisallika muudatus EHISesse</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_17k9qcj" sourceRef="Task_07s5zno" targetRef="TextAnnotation_1erenfh" />
-    <bpmn:textAnnotation id="TextAnnotation_0ouynwh">    <bpmn:text>Andmed: kumul. EAP, kumul %, otsuse kp, per. algus ja lõpp, </bpmn:text>
-</bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0ouynwh">
+      <bpmn:text>Andmed: kumul. EAP, kumul %, otsuse kp, per. algus ja lõpp,</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:association id="Association_1v5l41e" sourceRef="Task_1no8fo9" targetRef="TextAnnotation_0ouynwh" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0fwty2l">
       <bpmndi:BPMNShape id="Participant_1jfddhm_di" bpmnElement="Participant_1jfddhm">
-        <dc:Bounds x="-24" y="517" width="2216" height="4633" />
+        <dc:Bounds x="-24" y="550" width="2002" height="2671" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_02xj9th_di" bpmnElement="Lane_02xj9th">
-        <dc:Bounds x="6" y="517" width="2186" height="4633" />
+        <dc:Bounds x="6" y="550" width="1972" height="2671" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_0cdv5l4_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="166" y="577" width="36" height="36" />
@@ -1057,12 +1067,9 @@
         <di:waypoint xsi:type="dc:Point" x="1405" y="1205" />
         <di:waypoint xsi:type="dc:Point" x="1463" y="1205" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1375" y="1111" width="90" height="20" />
+          <dc:Bounds x="1375" y="1110.5" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1ltrcgy_di" bpmnElement="Task_1yc81wq">
-        <dc:Bounds x="1463" y="1165" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_050j69v_di" bpmnElement="SequenceFlow_050j69v">
         <di:waypoint xsi:type="dc:Point" x="1405" y="1036" />
         <di:waypoint xsi:type="dc:Point" x="1405" y="1316" />
@@ -1105,7 +1112,7 @@
         <di:waypoint xsi:type="dc:Point" x="1610" y="1205" />
         <di:waypoint xsi:type="dc:Point" x="1610" y="1036" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1542" y="1180" width="90" height="20" />
+          <dc:Bounds x="1541.5" y="1180" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_18lytv7_di" bpmnElement="ExclusiveGateway_18lytv7" isMarkerVisible="true">
@@ -1144,15 +1151,12 @@
           <dc:Bounds x="1375" y="1057" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1yekhvy_di" bpmnElement="Task_0zyfwsr">
-        <dc:Bounds x="1463" y="1058" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0osvf0m_di" bpmnElement="SequenceFlow_0osvf0m">
         <di:waypoint xsi:type="dc:Point" x="1563" y="1098" />
         <di:waypoint xsi:type="dc:Point" x="1610" y="1098" />
         <di:waypoint xsi:type="dc:Point" x="1610" y="1036" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1542" y="1073" width="90" height="20" />
+          <dc:Bounds x="1541.5" y="1073" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_08zd0wh_di" bpmnElement="TextAnnotation_08zd0wh">
@@ -1477,11 +1481,11 @@
         <di:waypoint xsi:type="dc:Point" x="1077" y="1057" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_13dxwoa_di" bpmnElement="TextAnnotation_13dxwoa">
-        <dc:Bounds x="602" y="1908" width="129" height="45" />
+        <dc:Bounds x="602" y="1897" width="133" height="56" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1hm2lau_di" bpmnElement="Association_1hm2lau">
-        <di:waypoint xsi:type="dc:Point" x="666" y="1882" />
-        <di:waypoint xsi:type="dc:Point" x="666" y="1908" />
+        <di:waypoint xsi:type="dc:Point" x="667" y="1882" />
+        <di:waypoint xsi:type="dc:Point" x="667" y="1897" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="AdHocSubProcess_02nbwrj_di" bpmnElement="SubProcess_0vir66z" isExpanded="true">
         <dc:Bounds x="357" y="1682" width="489" height="291" />
@@ -1532,6 +1536,12 @@
         <di:waypoint xsi:type="dc:Point" x="776" y="957" />
         <di:waypoint xsi:type="dc:Point" x="791" y="786" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SubProcess_1jwocc6_di" bpmnElement="Task_0zyfwsr">
+        <dc:Bounds x="1463" y="1058" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubProcess_1gnuni4_di" bpmnElement="Task_1yc81wq">
+        <dc:Bounds x="1463" y="1165" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
