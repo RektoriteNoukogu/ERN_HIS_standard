@@ -944,14 +944,14 @@
         <dc:Bounds x="135" y="1278" width="1338" height="138" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_1gc8olq_di" bpmnElement="DataStoreReference_1gc8olq">
-        <dc:Bounds x="521" y="1326" width="50" height="50" />
+        <dc:Bounds x="409" y="1313" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="687" y="2745" width="26" height="12" />
+          <dc:Bounds x="575" y="2732" width="26" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataInputAssociation_1ahab5n_di" bpmnElement="DataInputAssociation_1ahab5n">
-        <di:waypoint xsi:type="dc:Point" x="545" y="1326" />
-        <di:waypoint xsi:type="dc:Point" x="520" y="874" />
+        <di:waypoint xsi:type="dc:Point" x="438" y="1313" />
+        <di:waypoint xsi:type="dc:Point" x="511" y="874" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_1ae0xey_di" bpmnElement="Participant_1ae0xey">
         <dc:Bounds x="135" y="402" width="2076" height="246" />

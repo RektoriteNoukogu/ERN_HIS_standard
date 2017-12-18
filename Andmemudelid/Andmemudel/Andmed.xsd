@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by Hanna Kanep (Rektorite Nõukogu) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ern.ee/õpe" xmlns:xsd="http://vabavara.eu/xsdetails" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.ern.ee/õpe" elementFormDefault="qualified" attributeFormDefault="unqualified" xsi:schemaLocation="http://vabavara.eu/xsdetails ../Documentation%20Schemas/SchemaDocumentationDetails.xsd">
+	<!-- Teostusmärkmed
+  
+  Kuna klassifikaatorid kipuvad muutuma sageli, on nende tarbeks mõistlik ära märkida väärtus ja klassifikaatori väljaandja/-nimetus. Sel viisil välditakse uue klassifikaatori lisamisel või klasside muutumisel vajadust protokolli ümber tegemiseks.
+  Samuti on mõistlik andtud välja lubada korrata, et oleks võimalik mitut samaaegselt kehtivat klassifikaatorit edastada või toetada ühilduvust vanemate süsteemidega. Korrektselt käituv süsteem eirab võõraid klassifikaatoreid ega tekita nende olemasolust probleeme. -->
+	<xs:complexType name="isikType">
+		<xs:annotation>
+			<xs:documentation>Isikut kirjeldavad andmed.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nimi" type="nimiType">
+				<xs:annotation>
+					<xs:documentation>Tuleks järgida rahvastikuregistri eeskuju.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="isikuIdGroup"/>
+	</xs:complexType>
+	<xs:complexType name="nimiType">
+		<xs:attribute name="täisnimi" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails state="proposed">
+						<xsd:interpretation>Isiku täisnimi nii nagu ta soovib seda kirjutada.</xsd:interpretation>
+						<xsd:standardisationNotes>
+							<xsd:note author="Siim Karus">Kuna passinimi võib olla poolik, võib olla mõistlik kouda eraldi ka täisnime.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="passinimi" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails state="proposed">
+						<xsd:interpretation>Isiku masinloetav nimi passis.</xsd:interpretation>
+						<xsd:standardisationNotes>
+							<xsd:note author="Siim Karus">Seda nime on reaalselt vaja isikuga toimingute tegemiseks senikaua kuni isikul puudub isikukood.</xsd:note>
+							<xsd:note author="Siim Karus">Kas eesnime ja perenime kogumine eraldi on vajalik? Enamasti piisaks ju ühest ametlikust nimest. Pealegi on eesnimi ja perenimi lahutus segadust tekitav, sest mõnes kultuuris on perenimi ees.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="eesnimi" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails state="current">
+						<xsd:issues>
+							<xsd:issue>Hetkel pannakse eesnime puudumisel kriips.</xsd:issue>
+						</xsd:issues>
+						<xsd:standardisationNotes>
+							<xsd:note author="Rektorite nõukogu">Andmete esmakanne tuleb rahvastikuregistrist.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="perekonnanimi" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails state="current">
+						<xsd:issues>
+							<xsd:issue>Igal isikul ei ole perekonnanime.</xsd:issue>
+						</xsd:issues>
+						<xsd:standardisationNotes>
+							<xsd:note author="Rektorite nõukogu">Andmete esmakanne tuleb rahvastikuregistrist.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!--<xs:attribute name="tiitel" type="xs:string"/>
+		<xs:attribute name="suffiks" type="xs:string"/>-->
+	</xs:complexType>
+	<!-- lihttüübid -->
+	<xs:simpleType name="isikukoodType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Eesti isikukood.</xsd:interpretation>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- komplekstüübid -->
+	<xs:complexType name="klassifikaatorType">
+		<xs:attribute name="väärtus" type="xs:string" use="required"/>
+		<xs:attribute name="väljastaja" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Tudengit identifitseeriv märge. -->
+	<xs:attributeGroup name="isikuIdGroup">
+		<xs:attribute name="isikukood" type="isikukoodType">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Eesti isikukood. Isikukoodi puudumisel peab olema märgitud välistudengi identifikaator.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="välisriigiId" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Välistudengi identifikaator (Dreamapply-st) või mõni muu välisriigi kodanikku tuvastav märge.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="välisriigiIdTüüp" type="xs:string" default="Dreamapply Id">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Välistudengi identifikaatori tüüp. Näiteks Dreamapply Id või passi number.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="referencedDocumentType">
+		<xs:simpleContent>
+			<xs:extension base="xs:base64Binary">
+				<xs:attribute name="href" type="xs:anyURI">
+					<xs:annotation>
+						<xs:documentation>
+              URI from where to download the item if not embedded.
+            </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="type" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Mime type of the document.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- immatrikuleerimise korraldus -->
+	<xs:complexType name="immatrikuleerimineType">
+		<xs:sequence>
+			<xs:element name="õppekoormus" type="klassifikaatorType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Õppekoormuse kood. Hetkel kasutusel vaid EHISe koodid.</xsd:interpretation>
+							<xsd:useCases>
+								<xsd:useCase>
+                  Sõltuvad üliõpilaste õigused ja kohustused (nt õppekulude hüvitamine).
+                </xsd:useCase>
+							</xsd:useCases>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="õppevorm" type="klassifikaatorType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Õppevormi kood. Hetkel on kasutusel vaid EHISe koodid.</xsd:interpretation>
+							<xsd:useCases>
+								<xsd:useCase>Kasutatakse hetkel eksternide eristamiseks.</xsd:useCase>
+							</xsd:useCases>
+							<xsd:standardisationNotes>
+								<xsd:note>Keskselt kasutamise otstarbekus ei ole selge.</xsd:note>
+								<xsd:note>
+                  "Näide klassifikaatorist:
+                  Vaikimisi tühi - Õppetöö toimub viisil, kus kontaktõpe võib toimuda igapäevaselt. (Hetkel: Statsionaarne, päevane, õhtune)
+                  Sessioonõpe - Õppetöö toimub õppesessioonidena. (Hetkel: Kaugõpe, tsükliõpe, avatud ülikooli õpe)
+                  Pikendatud õppeajaga õpe - Õppetöö on jagatud tavapärasest pikemale ajaperioodile, mille tulemusena on semestri-/aastakoormus väiksem. (Hetkel: kaugõpe)"
+                </xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="finantseerimisallikas" type="klassifikaatorType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Finantseerimisallika kood. Hetkel kasutuses vaid EHISe koodid.</xsd:interpretation>
+							<xsd:useCases>
+								<xsd:useCase>
+                  Statistika
+                </xsd:useCase>
+								<xsd:useCase>
+                  Üliõpilaste õigused
+                </xsd:useCase>
+							</xsd:useCases>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="haridustee" form="unqualified">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Varasema haridustee andmed.</xsd:interpretation>
+							<xsd:issues>
+								<xsd:issue>Struktuur on täpsustamata (st. millised andmed täpselt). Olemuselt peaksid need olema andmed, mille alusel tudeng immatrikuleeriti.</xsd:issue>
+							</xsd:issues>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="isikuIdGroup"/>
+		<xs:attribute name="õpinguteAlgus" type="xs:date" use="required"/>
+		<xs:attribute name="õppekavaKood" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Õppekava kood EHISes.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekavaVersioon" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:standardisationNotes>
+							<xsd:note>Kui EHIS hakkab jälgima ka õppekava versioone.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppeAsukoht" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Õpingute asukoht (nt. Tartu) kui õppekava õpetatakse mitmel pool.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekeel" type="xs:language" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Keel, milles toimub õpe. Vajalik vaid õppekavadel, kus on õpe lubatud mitmes keeles.</xsd:interpretation>
+						<xsd:useCases>
+							<xsd:useCase>Üliõpilase õigused</xsd:useCase>
+							<xsd:useCase>Õppetase</xsd:useCase>
+						</xsd:useCases>
+						<xsd:standardisationNotes>
+							<xsd:note>
+                Vastavalt kõrgharidusreformile võib õppekavadel olla üks õppekeel (v.a doktoriõpe). Kui õppekaval on üks keel, siis kaaluda võimalust üliõpilase juurest see ära võtta. Kui on mitu keelt õppekaval, siis sisseastumisel keelenõuete täitmiseks vaja teada, mis keeles õpib. Hetkel akadeemilisel puhkusel olijatel võivad olla ka need keeled, mis ei ole õppekava keel.
+              </xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="Immatrikuleerimine">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Saadetakse EHISesse üliõpilase mmatrikuleerimisel.</xsd:interpretation>
+					<xsd:usedBy name="immatrikuleerimine"/>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tudeng" type="immatrikuleerimineType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							<xsd:documentationDetails>
+								<xsd:interpretation>Immatrikuleeritava tudengi andmed.</xsd:interpretation>
+								<xsd:standardisationNotes>
+									<xsd:note>Kas tudengeid võiks grupeerida õppekava järgi? Kas on veel omadusi, mille alusel tudengeid võiks grupeerida?</xsd:note>
+								</xsd:standardisationNotes>
+							</xsd:documentationDetails>
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="õppeasutuseKood" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- eksmatrikuleerimise korraldus -->
+	<xs:complexType name="eksmatrikuleerimineType">
+		<xs:sequence>
+			<xs:sequence minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Kui eksmatrikuleeriti õppekava täitmise puhul, tuleb kaasa panna diplom ja õiend. Tulevikus võiksid õiendi andmed olla struktureeritud või kogutud hinnete näol.</xs:documentation>
+				</xs:annotation>
+				<xs:element name="diplom" type="referencedDocumentType"/>
+				<xs:element name="õiend" type="referencedDocumentType"/>
+			</xs:sequence>
+			<xs:element name="põhjus" type="klassifikaatorType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="isikukood" type="isikukoodType" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:standardisationNotes>
+							<xsd:note>Eksmatrikuleerimise ajaks peaks igal tudengil olema kehtiv Eesti isikukood.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekavaKood" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Õppekava kood EHISes.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="kuupäev" type="xs:date" use="required"/>
+	</xs:complexType>
+	<xs:element name="Eksmatrikuleerimnie">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Eksmatrikuleerimisel EHISesse saadetavad andmed.</xsd:interpretation>
+					<xsd:usedBy name="Eksmatrikuleerimine"/>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tudeng" type="eksmatrikuleerimineType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							<xsd:documentationDetails>
+								<xsd:interpretation>Eksmatrikuleeritava tudengi andmed.</xsd:interpretation>
+								<xsd:standardisationNotes>
+									<xsd:note>Kas on omadusi, mille alusel tudengeid võiks grupeerida?</xsd:note>
+								</xsd:standardisationNotes>
+							</xsd:documentationDetails>
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="õppeasutuseKood" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="külalisüliõpilaseNominatsioonType">
+		<xs:complexContent>
+			<xs:extension base="isikType">
+				<xs:sequence>
+					<xs:element name="eesmärk" type="klassifikaatorType"/>
+					<xs:element name="õppeaste" type="klassifikaatorType"/>
+					<xs:element name="saatevÕppeasutus" type="asutusType"/>
+					<xs:element name="vastuvõttevAsutus" type="asutusType"/>
+					<xs:sequence>
+						<xs:annotation>
+							<xs:documentation>Välisülikooli korral.</xs:documentation>
+						</xs:annotation>
+						<xs:element name="avaldus" type="referencedDocumentType">
+							<xs:annotation>
+								<xs:documentation>Tudengi esitatud avaldus.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ülikooliNõusolek" type="referencedDocumentType"/>
+					</xs:sequence>
+				</xs:sequence>
+				<xs:attribute name="epost" type="xs:string" use="required"/>
+				<xs:attribute name="telefoninumber" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="KülalisüliõpilaseNominatsioon" type="külalisüliõpilaseNominatsioonType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:interpretation>Külalisüliõpilasvahetuse raames vastuvõtvasse asutusse saadetav nominatsioon.</xsd:interpretation>
+					<xsd:usedBy name="külalisüliõpilane"/>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="asutusType">
+		<xs:sequence minOccurs="0">
+			<xs:element name="liik" type="klassifikaatorType">
+				<xs:annotation>
+					<xs:documentation>Asutuse liigi kood.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="kood" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:interpretation>Õppeasutuse kood EHISes Eesti õppeasutuste korral. Koodi puudumisel peavad olema täidetud teised atribuudid, mille alusel saab õppeasutuse tuvastada.</xsd:interpretation>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="nimetus" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Nimetus originaalkeeles.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="riik" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="õppekavaRegistreerimistaotlusType">
+		<xs:sequence>
+			<xs:element name="kraad" type="klassifikaatorType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Antav kraad.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="õppeaste" type="klassifikaatorType" maxOccurs="unbounded"/>
+			<xs:element name="valdkond" type="klassifikaatorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Soovitav valdkond. </xsd:interpretation>
+							<xsd:standardisationNotes>
+								<xsd:note>Kas mitu valdkonda on lubatud?</xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="õppetööToimumiseAsukoht" type="klassifikaatorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:issues>
+							<xsd:issue>Õppekavade juures kasutus ebaselge, üliõpilaste juures kogutavast infost võiks aidata (nt statistikaks).</xsd:issue>
+						</xsd:issues>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Õppetöö toimumise asukoht. Hetkel EHISe klassifikaator. Toimumise asukohti võib olla mitu (ka sama klassifikaatori alusel).</xsd:interpretation>
+							<xsd:standardisationNotes>
+								<xsd:note>Õppekavade juures kasutus ebaselge, üliõpilaste juures kogutavast infost võiks aidata (nt statistikaks).</xsd:note>
+								<xsd:note>EHISe põhimääruse muudatus:  asendab filaali/kolledžit. Vabatekstiväljana kasutu, võiks olla klassifikaator.</xsd:note>
+								<xsd:note>ÕISis ei ole.</xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kinnitamiseDokument" type="referencedDocumentType"/>
+			<xs:element name="omanikasutus" type="klassifikaatorType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="spetsialiseerumine" type="klassifikaatorType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Õppekava järgne spetsialiseerumine.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="moodulid">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:issues>
+								<xsd:issue>Kasutus ebaselge.</xsd:issue>
+							</xsd:issues>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kutsestandardid" type="klassifikaatorType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="koodÕISis" type="xs:string" use="required"/>
+		<xs:attribute name="versiooniIdÕISis" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Kõik ei versioneeri.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="nimetus" type="xs:string" use="required"/>
+		<xs:attribute name="nimetusIngliseKeeles" type="xs:string" use="required"/>
+		<xs:attribute name="keel" type="xs:language" use="required"/>
+		<xs:attribute name="lisakeeled" use="optional">
+			<xs:simpleType>
+				<xs:list itemType="xs:language"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="maht" type="xs:decimal" use="required"/>
+		<xs:attribute name="mahuÜhik" type="xs:string" use="required"/>
+		<xs:attribute name="väljundid" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Õppekava versiooni väljundid.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="lühikirjeldus" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Õppekava versiooni lühikirjeldus.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="nominaalkestus" type="xs:decimal" use="required">
+			<xs:annotation>
+				<xs:documentation>Kuudes.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="kinnitamiseKuupäev" type="xs:date" use="required"/>
+		<xs:attribute name="avamiseKuupäev" type="xs:date" use="required"/>
+		<xs:attribute name="praktikaMaht" type="xs:decimal" use="required"/>
+		<xs:attribute name="praktikaKirjeldus" type="xs:string"/>
+		<xs:attribute name="sulgemiseKuupäev" type="xs:date"/>
+		<xs:attribute name="viideÕISi" type="xs:anyURI">
+			<xs:annotation>
+				<xs:documentation>Viide ÕISi detailsema info juurde.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="ÕppekavaRegistreerimistaotlus" type="õppekavaRegistreerimistaotlusType"/>
+	<xs:complexType name="õppekavaRegistreerimiseKinnitusType">
+		<xs:sequence>
+			<xs:element name="valdkond" type="klassifikaatorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:interpretation>Kinnitatud valdkond. </xsd:interpretation>
+							<xsd:standardisationNotes>
+								<xsd:note>Kas mitu valdkonda on lubatud?</xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="grupp" type="klassifikaatorType" maxOccurs="unbounded"/>
+			<xs:element name="rühm" type="klassifikaatorType" maxOccurs="unbounded"/>
+			<xs:element name="vastuvõtuStaatus" type="klassifikaatorType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="koodÕISis" type="xs:string" use="required"/>
+		<xs:attribute name="versiooniIdÕISis" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Kõik ei versioneeri.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="koodEHISes" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:element name="ÕppekavaRegistreerimiseKinnitus" type="õppekavaRegistreerimiseKinnitusType"/>
+	<xs:complexType name="õppekavaSulgemineType">
+		<xs:sequence>
+			<xs:element name="otsus" type="referencedDocumentType"/>
+		</xs:sequence>
+		<xs:attribute name="õppekavaKood" type="xs:string" use="required"/>
+		<xs:attribute name="kuupäev" type="xs:date" use="required">
+			<xs:annotation>
+				<xs:documentation>Sulgemise kuupäev.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="otsuseKuupäev" type="xs:date" use="required"/>
+	</xs:complexType>
+	<xs:element name="ÕppekavaSulgemine" type="õppekavaSulgemineType"/>
+	<xs:complexType name="akadeemilineType">
+		<xs:sequence>
+			<xs:element name="põhjus" type="klassifikaatorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:standardisationNotes>
+								<xsd:note>Hetkel EHIS klassifikaator. Kas peaks koguma ka tekstilist põhjust (alguse, lõpu ja katkestamise kohta)?</xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isikukood" type="isikukoodType" use="required"/>
+		<xs:attribute name="algus" type="xs:date" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:useCases>
+							<xsd:useCase>
+		Nominaalkestuse  peatumine/ makse jms tingimuste rakendumine</xsd:useCase>
+						</xsd:useCases>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="lõpp" type="xs:date" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:useCases>
+							<xsd:useCase/>
+							<xsd:useCase>Õiguste taastumine, HTM.</xsd:useCase>
+						</xsd:useCases>
+						<xsd:standardisationNotes>
+							<xsd:note> Akadeemiline puhkus võiks lõppeda automaatselt lõpukuupäeva saabumisel, kui kuupäev muutub, siis muudab õppeasutus kuupäeva ja saadab selle info.  Muudatus on realiseeritud EHISes.</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="õppekavaKood" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:element name="AkadeemiliseleMinek" type="akadeemilineType"/>
+	<xs:element name="AkadeemiliseKatkestamine" type="akadeemilineType"/>
+	<xs:element name="AkadeemiliseLõpp" type="akadeemilineType"/>
+	<xs:complexType name="võtaType">
+		<xs:sequence>
+			<xs:element name="SoorituseAsutus" type="asutusType"/>
+			<xs:element name="ArvestuseTüüp" type="klassifikaatorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						<xsd:documentationDetails>
+							<xsd:standardisationNotes>
+								<xsd:note>kas praegune klassifikaator on sobiv?</xsd:note>
+							</xsd:standardisationNotes>
+						</xsd:documentationDetails>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isikukood" type="isikukoodType" use="required"/>
+		<xs:attribute name="kuupäev" type="xs:date" use="required">
+			<xs:annotation>
+				<xs:documentation>VÕTA otsuse kuupäev.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="maht" type="xs:decimal" use="required"/>
+		<xs:attribute name="mahuÜhik" type="xs:string" use="required"/>
+		<xs:attribute name="soorituseKuupäev" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:useCases>
+							<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
+						</xsd:useCases>
+						<xsd:issues>
+							<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
+						</xsd:issues>
+						<xsd:standardisationNotes>
+							<xsd:note>"EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
+/
+Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
+/
+kui kuupäev olemas, siis on ka ÕISis dokumendil"
+
+</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="soorituseAlguseKuupäev" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>
+					<xsd:documentationDetails>
+						<xsd:useCases>
+							<xsd:useCase>Märgitakse diplomile.</xsd:useCase>
+						</xsd:useCases>
+						<xsd:issues>
+							<xsd:issue>Kasutusvajadus ebaselge. Kaaluda mitte kogumist. Nt töökogemuse puhul märgivad otsuse kuupäeva.</xsd:issue>
+						</xsd:issues>
+						<xsd:standardisationNotes>
+							<xsd:note>"EHISesse ei märgi iga aine sooritamise kuupäeva eraldi, kui soorituste täpne kuupäev puudub, märgime transcripti või hinnetelehe väljastamise kuupäeva 
+/
+Ei ole vajalik koguda eraldi iga aine kohta vaid iga taotluse kohta kompleksselt, ainepunktid ja alusdokumendi kuupäev.
+/
+kui kuupäev olemas, siis on ka ÕISis dokumendil"
+
+</xsd:note>
+						</xsd:standardisationNotes>
+					</xsd:documentationDetails>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="VÕTA" type="võtaType"/>
+</xs:schema>

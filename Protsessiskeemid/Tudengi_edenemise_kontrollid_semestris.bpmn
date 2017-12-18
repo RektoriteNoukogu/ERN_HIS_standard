@@ -1523,18 +1523,18 @@
         <dc:Bounds x="-32" y="446" width="124" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1erenfh_di" bpmnElement="TextAnnotation_1erenfh">
-        <dc:Bounds x="1042" y="814" width="100" height="30" />
+        <dc:Bounds x="1042" y="814" width="100" height="56" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_17k9qcj_di" bpmnElement="Association_17k9qcj">
-        <di:waypoint xsi:type="dc:Point" x="971" y="886" />
-        <di:waypoint xsi:type="dc:Point" x="1060" y="844" />
+        <di:waypoint xsi:type="dc:Point" x="971" y="890" />
+        <di:waypoint xsi:type="dc:Point" x="1042" y="862" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_0ouynwh_di" bpmnElement="TextAnnotation_0ouynwh">
-        <dc:Bounds x="742.2375249500998" y="755.9161676646706" width="100" height="30" />
+        <dc:Bounds x="742" y="756" width="111" height="75" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1v5l41e_di" bpmnElement="Association_1v5l41e">
-        <di:waypoint xsi:type="dc:Point" x="776" y="957" />
-        <di:waypoint xsi:type="dc:Point" x="791" y="786" />
+        <di:waypoint xsi:type="dc:Point" x="777" y="957" />
+        <di:waypoint xsi:type="dc:Point" x="793" y="831" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="SubProcess_1jwocc6_di" bpmnElement="Task_0zyfwsr">
         <dc:Bounds x="1463" y="1058" width="100" height="80" />

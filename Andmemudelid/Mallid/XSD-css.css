@@ -1,0 +1,51 @@
+﻿h3
+{
+    font-size: 1.0em;
+}
+div 
+{
+	//margin-left: 1.0em;
+}
+.useoptional *
+{
+    color: Gray;
+}
+tr.typeDetails > td {
+	border-color: Gray;
+	border-style: solid;
+	border-width: 0.2em;
+	border-collapse:collapse;
+}
+.strchoice {
+	border-color: Blue;
+	border-style: double;
+	border-width: 0.4em;
+}
+.strsequence {
+	border-color: Blue;
+	border-style: solid;
+	border-width: 0.4em;
+}
+.strall {
+	border-color: Blue;
+	border-style: dotted;
+	border-width: 0.4em;
+}
+th {
+	background-color: #9090dd;
+}
+table td {
+	border-width: 0.1em;
+	border-style: solid;
+	border-color: #6060bb;
+	border-collapse: collapse;
+}
+table {
+	border-width: 0.1em;
+	border-style: solid;
+	border-color: #6060bb;
+	border-collapse: collapse;
+}
+.issue * {
+    color: red;
+}
