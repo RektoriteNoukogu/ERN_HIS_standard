@@ -484,7 +484,17 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:element name="ÕppekavaRegistreerimistaotlus" type="õppekavaRegistreerimistaotlusType"/>
+	<xs:element name="ÕppekavaRegistreerimistaotlus" type="õppekavaRegistreerimistaotlusType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:usedBy name="Õppekava loomine" href="../../Protsessimudelid/Oppekava_loomine_vaike_ylikool.bpmn"/>
+					<xsd:usedBy name="Õppekava loomine" href="../../Protsessimudelid/Oppekava_loomine_suur_ylikool.bpmn"/>
+					<xsd:usedBy name="Ühisõppekava loomine" href="../../Protsessimudelid/Uhisoppekava_loomine.bpmn"/>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="õppekavaRegistreerimiseKinnitusType">
 		<xs:sequence>
 			<xs:element name="valdkond" type="klassifikaatorType" maxOccurs="unbounded">
@@ -731,7 +741,16 @@ EHISe jaoks xml-i koostamisel kõik sooritatud EAP, ÕISis olemas väli - koormu
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:element name="TudengiÕpinguAndmed" type="tudengiÕpinguAndmedType"/>
+	<xs:element name="TudengiÕpinguAndmed" type="tudengiÕpinguAndmedType">
+		<xs:annotation>
+			<xs:documentation>
+				<xsd:documentationDetails>
+					<xsd:usedBy name="Tudengi ennistamine" href="../../Protsessimudelid/Tudengi_ennistamine_ja_vabade_kohtade _taitmine.bpmn"/>
+					<xsd:usedBy name="Tudengi edenemise kontrollid" href="../../Protsessimudelid/Tudengi_edenemise_kontrollid_semestris.bpmn"/>
+				</xsd:documentationDetails>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="isikuandmedType">
 		<xs:complexContent>
 			<xs:extension base="isikType">
@@ -754,6 +773,8 @@ EHISe jaoks xml-i koostamisel kõik sooritatud EAP, ÕISis olemas väli - koormu
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Isikuandmed" type="isikuandmedType">
+	<xs:annotation><xs:documentation><xsd:documentationDetails><xsd:interpretation>Kasutusel mistahes ajal andmete sünkroniseerimsieks süsteemide vahel.</xsd:interpretation><xsd:standardisationNotes><xsd:note>Isikuandmetes toimunud muudatused võiksid süsteemid edastada muudatuse toimumisel. Sõnumis piisab vaid muutunud väljade kasutamisest.</xsd:note></xsd:standardisationNotes></xsd:documentationDetails></xs:documentation></xs:annotation></xs:element>
 	<xs:element name="õppevorm" type="klassifikaatorType">
 		<xs:annotation>
 			<xs:documentation>

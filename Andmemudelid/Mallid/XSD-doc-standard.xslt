@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://vabavara.eu/xsdetails"
     xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"
 >
   <xsl:output method="xml" indent="yes"
               doctype-public="-//W3C//DTD XHTML 1.1//EN"
-              doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+              doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" />
 
   <xsl:template match="/xs:schema">
     <html xml:lang="et-ee">
       <head>
         <meta http-equiv="Content-Type" content="application/xhtml;encoding=utf-8"/>
-        <link href="../Templates/XSD-css.css" type="text/css" rel="stylesheet"/>
+        <link href="../Mallid/XSD-css.css" type="text/css" rel="stylesheet"/>
         <title>Andmete dokumentatsioon</title>
       </head>
       <body>
@@ -156,9 +156,14 @@
           </xsl:otherwise>
         </xsl:choose>
       </td>
+      <xsl:if test="@name">
       <td id="el{@name}">
         <xsl:value-of select="@name"/>
       </td>
+      </xsl:if>
+      <xsl:if test="@ref"><td>
+        <xsl:value-of select="@ref"/>
+      </td></xsl:if>
       <td>
         <xsl:if test="@type">
           <xsl:variable name="typeName" select="@type"/>

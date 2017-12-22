@@ -2,6 +2,8 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
   <bpmn:collaboration id="Collaboration_0fwty2l">
     <bpmn:participant id="Participant_1jfddhm" name="ÕIS" processRef="Process_1" />
+    <bpmn:participant id="Participant_1rismxu" name="EHIS" />
+    <bpmn:messageFlow id="MessageFlow_0b36gr7" sourceRef="SendTask_08d4lyb" targetRef="Participant_1rismxu" />
     <bpmn:textAnnotation id="TextAnnotation_0dmjm8g">
       <bpmn:text>TUDENGI EDENEMISE KONTROLLID</bpmn:text>
     </bpmn:textAnnotation>
@@ -41,7 +43,6 @@
         <bpmn:flowNodeRef>Task_1465ouo</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_15o11ck</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1beynbc</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_0r0p7vw</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>SubProcess_0vir66z</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1ug8zxn</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_18o7ew8</bpmn:flowNodeRef>
@@ -62,6 +63,8 @@
         <bpmn:flowNodeRef>Task_0fkuz92</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0zyfwsr</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1yc81wq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0r0p7vw</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SendTask_08d4lyb</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="SequenceFlow_13qtspv" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_07g5jb2" />
@@ -118,7 +121,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1hd0dzr" sourceRef="ExclusiveGateway_18lytv7" targetRef="ExclusiveGateway_0qfmvvc" />
     <bpmn:sequenceFlow id="SequenceFlow_010sp7d" sourceRef="ExclusiveGateway_07g5jb2" targetRef="ExclusiveGateway_0kvcga9" />
     <bpmn:sequenceFlow id="SequenceFlow_0eudgto" sourceRef="ExclusiveGateway_1beynbc" targetRef="ExclusiveGateway_0qfmvvc" />
-    <bpmn:sequenceFlow id="SequenceFlow_092e6jv" sourceRef="ExclusiveGateway_0qfmvvc" targetRef="EndEvent_0r0p7vw" />
+    <bpmn:sequenceFlow id="SequenceFlow_092e6jv" sourceRef="ExclusiveGateway_0qfmvvc" targetRef="SendTask_08d4lyb" />
     <bpmn:parallelGateway id="ExclusiveGateway_0qfmvvc">
       <bpmn:incoming>SequenceFlow_1sdumsw</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_1hd0dzr</bpmn:incoming>
@@ -269,9 +272,6 @@
     <bpmn:sequenceFlow id="SequenceFlow_0yu17jw" sourceRef="ExclusiveGateway_1j4fs9k" targetRef="ExclusiveGateway_0qfmvvc" />
     <bpmn:sequenceFlow id="SequenceFlow_1rvjmxv" sourceRef="Task_0fkuz92" targetRef="ExclusiveGateway_0qfmvvc" />
     <bpmn:sequenceFlow id="SequenceFlow_16mh9l6" sourceRef="ExclusiveGateway_0iqkipm" targetRef="ExclusiveGateway_0qfmvvc" />
-    <bpmn:endEvent id="EndEvent_0r0p7vw">
-      <bpmn:incoming>SequenceFlow_092e6jv</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:adHocSubProcess id="SubProcess_0vir66z" name="Kui on esitatud arveid">
       <bpmn:incoming>SequenceFlow_0iz2z9c</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_09b7xjk</bpmn:outgoing>
@@ -474,6 +474,14 @@
       <bpmn:incoming>SequenceFlow_0cv0cee</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1k1civo</bpmn:outgoing>
     </bpmn:subProcess>
+    <bpmn:endEvent id="EndEvent_0r0p7vw">
+      <bpmn:incoming>SequenceFlow_1xb2vhe</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1xb2vhe" sourceRef="SendTask_08d4lyb" targetRef="EndEvent_0r0p7vw" />
+    <bpmn:sendTask id="SendTask_08d4lyb" name="Andmete saatmine EHISesse">
+      <bpmn:incoming>SequenceFlow_092e6jv</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1xb2vhe</bpmn:outgoing>
+    </bpmn:sendTask>
     <bpmn:association id="Association_0m3mfyr" sourceRef="Task_07s5zno" targetRef="TextAnnotation_1jcr95c" />
     <bpmn:textAnnotation id="TextAnnotation_08zd0wh">
       <bpmn:text>ÕIS teavitab EHISt</bpmn:text>
@@ -509,14 +517,18 @@
       <bpmn:text>Andmed: kumul. EAP, kumul %, otsuse kp, per. algus ja lõpp,</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1v5l41e" sourceRef="Task_1no8fo9" targetRef="TextAnnotation_0ouynwh" />
+    <bpmn:association id="Association_0l7ydpv" sourceRef="SendTask_08d4lyb" targetRef="TextAnnotation_16fqzud" />
+    <bpmn:textAnnotation id="TextAnnotation_16fqzud">
+      <bpmn:text>EHISesse saadetakse värskendatud tudengi andmed (nt. koormuse arvestus, matrikuleerimine jne,). </bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0fwty2l">
       <bpmndi:BPMNShape id="Participant_1jfddhm_di" bpmnElement="Participant_1jfddhm">
-        <dc:Bounds x="-24" y="550" width="2002" height="2671" />
+        <dc:Bounds x="-24" y="550" width="2240" height="2671" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_02xj9th_di" bpmnElement="Lane_02xj9th">
-        <dc:Bounds x="6" y="550" width="1972" height="2671" />
+        <dc:Bounds x="6" y="550" width="2210" height="2671" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_0cdv5l4_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="166" y="577" width="36" height="36" />
@@ -1311,16 +1323,16 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0r0p7vw_di" bpmnElement="EndEvent_0r0p7vw">
-        <dc:Bounds x="1922" y="577" width="36" height="36" />
+        <dc:Bounds x="2052" y="577" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1895" y="613" width="90" height="20" />
+          <dc:Bounds x="2025" y="613" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_092e6jv_di" bpmnElement="SequenceFlow_092e6jv">
         <di:waypoint xsi:type="dc:Point" x="1791" y="595" />
-        <di:waypoint xsi:type="dc:Point" x="1922" y="595" />
+        <di:waypoint xsi:type="dc:Point" x="1855" y="595" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1811.5" y="570" width="90" height="20" />
+          <dc:Bounds x="1778" y="570" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1s73zfn_di" bpmnElement="SequenceFlow_1s73zfn">
@@ -1542,6 +1554,33 @@
       <bpmndi:BPMNShape id="SubProcess_1gnuni4_di" bpmnElement="Task_1yc81wq">
         <dc:Bounds x="1463" y="1165" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_16fqzud_di" bpmnElement="TextAnnotation_16fqzud">
+        <dc:Bounds x="1863" y="661" width="162.99423393739704" height="83.99402800658979" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SendTask_08d4lyb_di" bpmnElement="SendTask_08d4lyb">
+        <dc:Bounds x="1855" y="555" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0l7ydpv_di" bpmnElement="Association_0l7ydpv">
+        <di:waypoint xsi:type="dc:Point" x="1935" y="635" />
+        <di:waypoint xsi:type="dc:Point" x="1880" y="661" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xb2vhe_di" bpmnElement="SequenceFlow_1xb2vhe">
+        <di:waypoint xsi:type="dc:Point" x="1955" y="595" />
+        <di:waypoint xsi:type="dc:Point" x="2052" y="595" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2003.5" y="574" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_0gw5oml_di" bpmnElement="Participant_1rismxu">
+        <dc:Bounds x="1251" y="392" width="965" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_0b36gr7_di" bpmnElement="MessageFlow_0b36gr7">
+        <di:waypoint xsi:type="dc:Point" x="1905" y="555" />
+        <di:waypoint xsi:type="dc:Point" x="1905" y="452" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1920" y="497.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
