@@ -1,4 +1,4 @@
-#Kõrghariduse andmevahetuse standardid
+# Kõrghariduse andmevahetuse standardid
 
 Selles koodihoidlas hoitakse [Rektorite Nõukogu](http://ern.ee/) juures tegutseva [andmevahetuse standardimiskomisjoni](http://ern.ee/et/leht/standardimiskomisjon) materjale.
 Hetkel kehtivad ja läbitöötatud materjalid asuvad koodihoidla harus [master](https://github.com/RektoriteNoukogu/ERN_HIS_standard/tree/master) ja töösolevad materjalid asuvad harus [Ettepanekud](https://github.com/RektoriteNoukogu/ERN_HIS_standard/tree/Ettepanekud2017).
